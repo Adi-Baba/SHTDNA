@@ -6,13 +6,14 @@
 % DOCUMENT CLASS AND GEOMETRY
 % ============================================================================
 
+% Pass hyperref options before any package can auto-load it
+\PassOptionsToPackage{hidelinks,bookmarksnumbered,bookmarksopen,bookmarksopenlevel=1,pdfstartview={FitH}}{hyperref}
+
 \usepackage[margin=1.2in]{geometry}
 \usepackage[T1]{fontenc}        % full accent support (required for \k, etc.)
 \usepackage[utf8]{inputenc}
 \usepackage{pmboxdraw}          % Unicode box-drawing characters in verbatim
 \usepackage[english]{babel}
-\usepackage[hidelinks]{hyperref}
-\usepackage{bookmark}
 
 % ============================================================================
 % FONTS AND TYPOGRAPHY
@@ -206,6 +207,17 @@
 
 \usepackage{makeidx}
 \makeindex
+
+% ============================================================================
+% HYPERLINKS  (must come after titlesec, tcolorbox, and other packages)
+% ============================================================================
+
+\usepackage{hyperref}
+\usepackage{bookmark}
+\hypersetup{
+    pdftitle  = {Shape-Height Transform for DNA},
+    pdfauthor = {Aditya},
+}
 
 % ============================================================================
 % MISCELLANEOUS
