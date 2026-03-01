@@ -211,12 +211,18 @@ Three conclusions follow directly from Table~\ref{tab:arclength_comparison}:
 \begin{enumerate}
     \item \textbf{Vij is not a proxy for arc-length curvature.} The two metrics are statistically uncorrelated ($r = -0.069$, $p = 0.33$), confirming that the choice of parametrisation has substantive consequences. This answers the coordinate-artefact concern: if Vij were simply a noisier version of $\kappa(s)$, we would expect $r \sim 0.9$; instead $r \approx 0$.
 
-    \item \textbf{The h-parametrisation is biologically superior.} Vij achieves $r = 0.870$ ($p < 10^{-60}$) with Mamton structural roughness, while arc-length curvature achieves $r = 0.011$ ($p = 0.88$) --- a signal advantage of 80$\times$. This establishes that projecting along the helical axis (the natural direction of protein-induced DNA bending) captures structural information that the symmetric arc-length formulation misses.
+    \item \textbf{The h-parametrisation captures biologically distinct geometry.} Arc-length curvature shows no detectable association with Mamton structural roughness ($r = 0.011$, $p = 0.88$), whereas Vij exhibits strong coupling ($r = 0.870$, $p < 10^{-60}$). The difference is not quantitative but qualitative: $\kappa(s)$ is symmetric with respect to the direction of bending, whereas $v_0(h)$ measures bending specifically \emph{transverse to the global helix axis}.
 
-    \item \textbf{The mean $ds/dh$ ratio of $0.57$ confirms geometric non-equivalence.} DNA centroid curves are not helices with a single pitch angle: local geometry varies significantly ($\sigma = 0.21$), so $h$ and $s$ cannot be interchanged.
+    \item \textbf{The mean $ds/dh = 0.571 \pm 0.211$ identifies the source of the distinction.} A ratio below 1 means the centroid trajectory covers less arc length per unit height than a straight vertical rod would: the backbone is significantly tilted relative to the PCA axis. As a consequence, $v_0(h)$ isolates \emph{lateral} displacement from the global elongation direction, filtering out the tilt-and-torsion contributions that $\kappa(s)$ aggregates. It is this isolation of transverse bending that produces the Vij--Mamton coupling.
 \end{enumerate}
 
-These results validate the SHT framework's choice of height parametrisation as principled rather than arbitrary, and establish Vij as a genuinely novel geometric observable irreducible to classical Frenet curvature.
+\subsection{Physical Mechanism: Why Mamton Responds to Transverse Bending}
+
+The results suggest a specific mechanistic picture. Mamton $\Omega = \norm{\vect{S}(h)}$ measures the skewness of the phosphate distribution within each cross-sectional slice. Lateral bending relative to the global helix axis concentrates phosphate positions asymmetrically on the inner vs.~outer face of the curve, directly increasing slice skewness. Intrinsic arc-length curvature, which measures the rate of change of the tangent direction along the backbone, does not encode this axis-relative asymmetry and therefore predicts Mamton poorly.
+
+This is biologically coherent: nucleosomal wrapping induces strong lateral asymmetry relative to the histone core axis, not simply a smooth local curvature. A metric that isolates axis-relative transverse bending is therefore better positioned than classical Frenet curvature to detect nucleosome-associated deformation. The SHT height-parametrisation achieves exactly this decomposition.
+
+These results validate the choice of height parametrisation as physically motivated rather than arbitrary, and establish Vij as a genuinely novel geometric observable irreducible to classical Frenet curvature.
 
 \section{Orthogonality: What It Means for Biology}
 
