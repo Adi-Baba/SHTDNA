@@ -13,6 +13,18 @@ Individual CSV files are available in the repository:
     \item \code{RoughnessMode/roughness\_results.csv} --- 200 structures, Mamton
 \end{itemize}
 
+\section{Dataset Construction and Selection Criteria}
+
+The 200-structure dataset was assembled from the RCSB Protein Data Bank with the following criteria applied in order:
+\begin{enumerate}
+    \item \textbf{DNA content}: structures must contain at least one double-stranded DNA chain with $\geq 6$ phosphate (P) atoms, sufficient for spline fitting and SHT computation.
+    \item \textbf{Resolution}: crystallographic resolution $\leq 3.0$\,\AA, to ensure atomic coordinates are reliable for third-order moment computation.
+    \item \textbf{Format}: CIF format available from RCSB; structures with incomplete or non-standard residue records were excluded.
+    \item \textbf{Functional diversity}: structures were drawn from five broad contexts --- canonical B-form duplexes, transcription-factor--bound DNA, nucleosome core particles, chemically modified or damaged DNA, and unusual topologies (junctions, quadruplexes) --- to ensure the dataset is not dominated by any single structural class.
+\end{enumerate}
+
+\textbf{Important limitations.} The RCSB is not a random structural sample. Well-studied systems (e.g.\ the nucleosome) are overrepresented relative to their genomic abundance. The two nucleosome core particle structures (1AOI, 1F66) in the merged dataset produce the highest Mamton values by a factor of $\sim\!100\times$, and while the Vij--Mamton coupling survives within-class analysis (\S\ref{sec:robustness}), the possibility of partial confounding with structure type cannot be fully excluded without a balanced, independently curated replicate dataset.
+
 \section{Dataset A1: 65 Merged Structures (All Three Units)}
 
 \begin{longtable}{lrrr}

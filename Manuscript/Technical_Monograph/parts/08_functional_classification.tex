@@ -16,9 +16,17 @@ This is non-trivial: conventional descriptors like GC content or length differ b
 
 \section{Training Dataset}
 
+\textbf{Two distinct labelling schemes} are used in this chapter and must be distinguished carefully:
+
+\paragraph{Scheme A --- Manual functional labels ($N = 33$).}
+Thirty-three structures were assigned to four functional categories (Table~\ref{tab:class_labels}) by inspecting PDB annotation records \emph{before} examining geometric values. This set validates geometric intuition and supports the blind-prediction case study (\S\ref{sec:blindpred}), but its size ($N = 33$) is too small for reliable cross-validated classifier training.
+
+\paragraph{Scheme B --- Topology labels from PDB metadata ($N = 189$).}
+The Random Forest classifier is trained and evaluated on the larger set of $N = 189$ structures whose structural topology (Canonical-Duplex, Protein-Comp/Wrapped, Strained-Helix) was determined from PDB metadata fields independently of geometric measurement. These three classes are coarser than Scheme A but provide a sufficient sample for stratified cross-validation.
+
 \begin{table}[h]
     \centering
-    \caption{Labeled Structures for Classification ($N=33$)}\labeltab{class_labels}
+    \caption{Manually Labelled Structures for Geometric Validation ($N=33$, Scheme A)}\labeltab{class_labels}
     \begin{tabular}{llll}
         \toprule
         \textbf{Class} & $N$ & \textbf{Structures} & \textbf{Known signature} \\
@@ -56,10 +64,10 @@ A Random Forest Classifier was chosen for:
     \textbf{OOB accuracy:} $\mathbf{78.8\%}$ \quad
     \textbf{ROC AUC (macro OvR):} $\mathbf{0.807}$
 
-    Tested on $N = 189$ labeled structures (3 classes). Chance performance = 33\%.
+    Trained and tested on $N = 189$ topology-labelled structures (Scheme B, 3 classes). Chance performance = 33\%.
 \end{keyresult}
 
-The OOB score ($78.8\%$) serves as an independent held-out estimate, closely matching the CV score and confirming that the CV result is not inflated by data leakage.
+The OOB score ($78.8\%$) serves as an independent held-out estimate, closely matching the CV score and confirming that the CV result is not inflated by data leakage. These results are considered \textbf{exploratory}: the topology labels are coarse, the dataset is crystallographic and non-random, and independent replication on an orthogonal dataset is needed before production use.
 
 \subsection{Per-Class Performance (Measured by Stratified CV)}
 

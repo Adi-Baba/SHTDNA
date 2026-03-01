@@ -193,6 +193,8 @@ Our $\Omega$ is related but distinct:
 - We combine all directional moments into a single scalar
 - Result: $\Omega$ captures total asymmetry magnitude
 
+\textbf{Scale and normalization caveat.} Because $\Omega = \sqrt{S_x^2 + S_y^2}$ sums contributions $w_i x_i r_i^2$ over all atoms in a cross-sectional slice, structures with more atoms per slice (heavier DNA, longer molecules) will generally yield larger raw $\Omega$ values even at equivalent geometric asymmetry. In this work, $\Omega$ is reported as the mean over all height slices (\texttt{mean\_mamton}), which partially controls for molecule length, but does not control for atom count per slice. The extreme Mamton values of the two nucleosome structures (1AOI: $\Omega = 26{,}291$; 1F66: $\Omega = 26{,}441$) partly reflect their 147-bp length and consequent higher per-slice atomic mass compared to short duplexes ($\leq 30$\,bp). A length- or mass-normalized variant, $\tilde{\Omega} = \Omega / M_0$ where $M_0 = \sum_i w_i$ is the zeroth moment (total slice mass), is a natural next step and would enable direct comparison across structures of different sizes.
+
 \subsection{Physical Interpretation}
 
 $\Omega$ detects asymmetry in the cross-sectional profile:
