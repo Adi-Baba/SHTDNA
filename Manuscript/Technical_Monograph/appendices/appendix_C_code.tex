@@ -10,50 +10,6 @@
 
 \textbf{Note:} The repository contains all source code. Raw PDB structure files are not included; download them from \url{https://www.rcsb.org} using the IDs in Appendix~\ref{sec:appendix_dataset}.
 
-\section{Directory Structure}
-
-\begin{verbatim}
-SHT-DNA/
-├── README.md                    # Overview and quick start
-├── LICENSE                      # MIT license
-├── requirements.txt             # Python dependencies
-├── sht_core/
-│   ├── __init__.py
-│   ├── pdb_parser.py           # Parse PDB structures
-│   ├── height_function.py      # Compute height and smooth
-│   ├── geometric_units.py      # Compute Vij, Shambhian, Mamton
-│   ├── validation.py           # Input validation
-│   └── utils.py                # Helper functions
-├── scripts/
-│   ├── extract_vij.py          # Compute curvature for structure
-│   ├── extract_shambhian.py    # Compute flatness
-│   ├── extract_mamton.py       # Compute roughness
-│   ├── batch_analysis.py       # Process multiple structures
-│   ├── coupling_analysis.py    # Analyze correlations
-│   └── predictive_model.py     # Train classifier
-├── data/
-│   ├── sht_results_202.csv     # Raw results
-│   ├── merged_65.csv           # Structures with all 3 units
-│   └── pdb_ids.txt             # List of analyzed structures
-├── notebooks/
-│   ├── 01_exploratory_analysis.ipynb
-│   ├── 02_validation_tests.ipynb
-│   └── 03_classification.ipynb
-├── figures/
-│   ├── 01_sht_pipeline.png
-│   ├── 02_vij_mamton_coupling.png
-│   └── ... (all publication figures)
-├── tests/
-│   ├── test_pdb_parser.py
-│   ├── test_geometric_units.py
-│   └── test_validation.py
-└── docs/
-    ├── INSTALLATION.md          # Setup instructions
-    ├── USAGE.md                 # How to use
-    ├── EXAMPLES.md              # Example analyses
-    └── API.md                   # API documentation
-\end{verbatim}
-
 \section{Installation}
 
 \subsection{Requirements}
