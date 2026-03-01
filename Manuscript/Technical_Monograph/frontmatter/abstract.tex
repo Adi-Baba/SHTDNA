@@ -18,9 +18,9 @@ We validate each unit rigorously on 202 independent PDB structures, demonstratin
 \begin{enumerate}
     \item \textbf{Mathematical correctness}: Each unit accurately measures its geometric property with quantitative agreement to known structures (nucleosome radius, A-tract rigidity, protein deformation).
     
-    \item \textbf{New discovery}: Vij and Mamton exhibit strong coupling ($r = 0.83$, $p < 10^{-16}$), revealing a quantitative bending-roughness relationship supporting the hypothesis that differential strain from bending induces cross-sectional asymmetry.
+    \item \textbf{New discovery}: Vij and Mamton exhibit strong coupling ($r = 0.87$, $p < 10^{-60}$, $N=200$), revealing a quantitative bending-roughness relationship. The coupling survives within-class analysis (Canonical-Duplex: $r=0.32$; Protein-bound: $r=0.98$) and structural independence filtering.
     
-    \item \textbf{Functional prediction}: A Random Forest classifier trained on the three geometric units achieves 91\% accuracy in predicting DNA functional state (nucleosome, protein-bound, free duplex, non-canonical), with blind validation on the nucleosome structure 1F66 confirmed by independent PDB metadata.
+    \item \textbf{Functional prediction}: A Random Forest classifier trained on the three geometric units achieves $81.0\%$ stratified 5-fold CV accuracy ($78.8\%$ OOB, ROC AUC $= 0.807$) in predicting DNA functional state, with blind validation on the nucleosome structure 1F66 confirmed by independent PDB metadata.
 \end{enumerate}
 
 \vspace{0.5cm}

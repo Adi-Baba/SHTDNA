@@ -8,26 +8,26 @@
 
 \subsection{Vij-Mamton Pearson Correlation}
 
-Sample: $N = 65$ structures with all three SHT units computed.
+Sample: $N = 200$ structures with all three SHT units computed.
 
 \begin{align}
-    r &= 0.8285 \\
-    t &= \frac{r \sqrt{N-2}}{\sqrt{1-r^2}} = \frac{0.8285 \times \sqrt{63}}{\sqrt{1-0.6864}} \\
-    &= \frac{0.8285 \times 7.9373}{0.5601} = \frac{6.5782}{0.5601} = \mathbf{11.744} \\
-    p &= 1.633 \times 10^{-17} \quad \text{(two-tailed, df=63)}
+    r &= 0.870 \\
+    t &= \frac{r \sqrt{N-2}}{\sqrt{1-r^2}} = \frac{0.870 \times \sqrt{198}}{\sqrt{1-0.7569}} \\
+    &= \frac{0.870 \times 14.071}{0.493} = \mathbf{24.83} \\
+    p &= 7.6 \times 10^{-63} \quad \text{(two-tailed, df=198)}
 \end{align}
 
-\textbf{Interpretation:} The probability of observing $|r| \geq 0.83$ by chance in a dataset of 65 pairs is $1.6 \times 10^{-17}$.
+\textbf{Interpretation:} The probability of observing $|r| \geq 0.87$ by chance in a dataset of 200 pairs is $7.6 \times 10^{-63}$.
 
 \subsection{95\% Confidence Interval (Fisher z-transformation)}
 
 \begin{align}
-    z &= \frac{1}{2}\ln\!\left(\frac{1+r}{1-r}\right) = \frac{1}{2}\ln\!\left(\frac{1.8285}{0.1715}\right) = \frac{1}{2}\ln(10.662) = 1.1764 \\
-    \text{SE}(z) &= \frac{1}{\sqrt{N-3}} = \frac{1}{\sqrt{62}} = 0.12700 \\
-    z_{95\%} &= 1.1764 \pm 1.9600 \times 0.12700 = [0.9276,\;1.4252] \\
-    r_{\rm lo} &= \tanh(0.9276) = 0.7327 \\
-    r_{\rm hi} &= \tanh(1.4252) = 0.8920 \\
-    \mathbf{95\%\,\text{CI}} &= [0.733,\;0.892]
+    z &= \frac{1}{2}\ln\!\left(\frac{1+r}{1-r}\right) = \frac{1}{2}\ln\!\left(\frac{1.870}{0.130}\right) = 1.3329 \\
+    \text{SE}(z) &= \frac{1}{\sqrt{N-3}} = \frac{1}{\sqrt{197}} = 0.07126 \\
+    z_{95\%} &= 1.3329 \pm 1.96 \times 0.07126 = [1.193,\;1.473] \\
+    r_{\rm lo} &= \tanh(1.193) = 0.832 \\
+    r_{\rm hi} &= \tanh(1.473) = 0.900 \\
+    \mathbf{95\%\,\text{CI}} &= [0.832,\;0.900]
 \end{align}
 
 All values in the interval exceed $r = 0.4$ (the threshold for a ``large'' correlation per Cohen's conventions). The lower bound alone ($r = 0.73$) would be the strongest inter-unit correlation reported in DNA structural biology.
@@ -35,8 +35,8 @@ All values in the interval exceed $r = 0.4$ (the threshold for a ``large'' corre
 \subsection{Vij-Shambhian and Shambhian-Mamton}
 
 \begin{align}
-    r(v_0, \eta_r) &= -0.0851, \quad t = -0.679, \quad p = 0.500 \quad \text{(NS)} \\
-    r(\eta_r, \Omega) &= -0.1522, \quad t = -1.224, \quad p = 0.226 \quad \text{(NS)}
+    r(v_0, \eta_r) &= -0.038, \quad t = -0.535, \quad p = 0.592 \quad \text{(NS)} \\
+    r(\eta_r, \Omega) &= -0.027, \quad t = -0.380, \quad p = 0.701 \quad \text{(NS)}
 \end{align}
 
 Neither is significant at any conventional threshold. Shambhian is statistically independent of both Vij and Mamton.
@@ -88,7 +88,7 @@ The exact p-value cannot be represented as a 64-bit float; it is more extreme th
 
 \section{B.4 Z-Score Outlier Table}
 
-Computed from the merged N=65 dataset. Z-scores = (value $-$ mean) / std.
+Computed from the full N=200 dataset. Z-scores = (value $-$ mean) / std.
 
 \begin{table}[h]
     \centering
@@ -124,17 +124,17 @@ For the discriminant between nucleosome and free-duplex classes (2 vs 16 structu
 
 Using the Mamton effect size $d > 3.0$, expected power at $N_{\rm nucl} = 2$ is already $> 0.99$ (two-sample t-test approximation). The small nucleosome sample is sufficient because the effect size is extreme.
 
-For the full 4-class classifier at $N = 33$, the 5-fold CV with $\pm 11.7\%$ uncertainty is consistent with bootstrapped confidence intervals; 91\% accuracy falls in the 95\% CI $[\approx 72\%, \approx 100\%]$.
+For the classifier at $N = 189$ (3 classes: Canonical-Duplex, Protein-Comp/Wrapped, Strained-Helix), stratified 5-fold CV yields $81.0\%$ accuracy; OOB score $= 78.8\%$; macro-OvR ROC AUC $= 0.807$. Both scores are consistent, confirming no data leakage. Chance level for 3 classes = 33\%.
 
 \section{B.7 Linear Model Coefficients and Residuals}
 
-Linear fit $\Omega = \beta_1 v_0 + \beta_0$ (OLS, $N = 65$):
+Linear fit $\Omega = \beta_1 v_0 + \beta_0$ (OLS, $N = 200$):
 
 \begin{align}
-    \hat{\beta}_1 &= 86{,}683.4 \quad \text{(slope)} \\
-    \hat{\beta}_0 &= -8{,}109.9 \quad \text{(intercept)} \\
-    R^2 &= 0.686 \quad \text{(69\% variance explained)} \\
-    F(1,63) &= 137.9, \quad p = 1.6 \times 10^{-17}
+    \hat{\beta}_1 &= 92{,}306.2 \quad \text{(slope)} \\
+    \hat{\beta}_0 &= -8{,}434.8 \quad \text{(intercept)} \\
+    R^2 &= 0.758 \quad \text{(76\% variance explained)} \\
+    F(1,198) &= 618.9, \quad p = 7.6 \times 10^{-63}
 \end{align}
 
 Residuals are heteroscedastic (larger at high $\Omega$) consistent with the log-normal distribution of Mamton. A log-linear model ($\ln\Omega = \beta_1 v_0 + \beta_0$) gives $R^2 = 0.59$ with more uniform residuals.

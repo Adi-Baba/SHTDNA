@@ -8,30 +8,30 @@ The three SHT units were designed to be geometrically orthogonal. This chapter t
 
 \section{Pairwise Correlations}
 
-All analyses use the merged dataset of $N = 65$ structures for which all three units are measured. Statistical tests: Pearson correlation with two-tailed t-test; 95\% CI via Fisher z-transformation.
+All analyses use the full dataset of $N = 200$ structures for which all three units are measured. Statistical tests: Pearson correlation with two-tailed t-test; 95\% CI via Fisher z-transformation.
 
 \subsection{Vij vs Mamton: A Fundamental Discovery}
 
 \begin{keyresult}
 \begin{equation}
-    r(v_0,\,\Omega) = 0.8285, \quad p = 1.633 \times 10^{-17}, \quad 95\%\,\text{CI} = [0.733,\;0.892]
+    r(v_0,\,\Omega) = 0.870, \quad p = 7.6 \times 10^{-63}, \quad 95\%\,\text{CI} = [0.832,\;0.900]
 \end{equation}
 \begin{equation}
-    R^2 = 0.686, \quad t = 11.744, \quad \mathrm{df} = 63
+    R^2 = 0.758, \quad t = 24.8, \quad \mathrm{df} = 198
 \end{equation}
 This is the strongest inter-unit relationship observed in the SHT framework.
 \end{keyresult}
 
 The linear fit is:
 \begin{equation}\label{eq:vij_mamton_linear}
-    \Omega = 86{,}683.4\,v_0 - 8{,}109.9
+    \Omega = 92{,}306.2\,v_0 - 8{,}434.8
 \end{equation}
 The fitted slope predicts that each unit increase in curvature (L$^{-1}$) raises the skewness magnitude by $\sim\!86{,}683$ L$^3$.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.85\textwidth]{pairwise_scatter}
-    \caption{Pairwise scatter plots for all three SHT units ($N=65$). The Vij--Mamton panel (top-right) shows the strong linear coupling ($r=0.829$). The other two panels confirm statistical independence.}\labelfig{pairwise_scatter}
+    \caption{Pairwise scatter plots for all three SHT units ($N=200$). The Vij--Mamton panel (top-right) shows the strong linear coupling ($r=0.870$). The other two panels confirm statistical independence.}\labelfig{pairwise_scatter}
 \end{figure}
 
 \textbf{Heteroscedasticity note:} Mamton has high variance (std = 2,622, median = 79.7). The log-Mamton vs Vij correlation is also strong: $r(\log\Omega, v_0) = 0.77$, confirming the relationship is not driven solely by the two extreme nucleosome outliers (1AOI, 1F66). Removing both nucleosomes ($N=63$) still yields $r = 0.72$, $p < 10^{-10}$.
@@ -39,7 +39,7 @@ The fitted slope predicts that each unit increase in curvature (L$^{-1}$) raises
 \subsection{Vij vs Shambhian: Confirmed Independence}
 
 \begin{keyresult}
-    $r(v_0,\,\eta_r) = -0.0851$, \quad $p = 0.500$ \quad ($N=65$)
+    $r(v_0,\,\eta_r) = -0.038$, \quad $p = 0.592$ \quad ($N=200$)
 \end{keyresult}
 
 Not significant. Curvature does not predict cross-sectional eccentricity, confirming that these two units capture different aspects of DNA geometry. A highly curved sequence can be either circular ($\eta_r \approx 1$, like 1I8M) or markedly eccentric ($\eta_r \approx 0.53$, like 1LO1).
@@ -47,7 +47,7 @@ Not significant. Curvature does not predict cross-sectional eccentricity, confir
 \subsection{Shambhian vs Mamton: Weakly Independent}
 
 \begin{keyresult}
-    $r(\eta_r,\,\Omega) = -0.1522$, \quad $p = 0.226$ \quad ($N=65$)
+    $r(\eta_r,\,\Omega) = -0.027$, \quad $p = 0.701$ \quad ($N=200$)
 \end{keyresult}
 
 Numerical trend: more distorted cross-sections (lower $\eta_r$) weakly associate with lower skewness, but the effect is not significant. Shambhian and Mamton are essentially independent.
@@ -56,14 +56,14 @@ Numerical trend: more distorted cross-sections (lower $\eta_r$) weakly associate
 
 \begin{table}[h]
     \centering
-    \caption{Pairwise Pearson Correlations ($N=65$)}\labeltab{correlation_matrix}
+    \caption{Pairwise Pearson Correlations ($N=200$)}\labeltab{correlation_matrix}
     \begin{tabular}{lccc}
         \toprule
          & \textbf{Vij} & \textbf{Shambhian} & \textbf{Mamton} \\
         \midrule
-        \textbf{Vij}       & 1.000   & $-0.085$               & $\mathbf{0.829}^{***}$  \\
-        \textbf{Shambhian} & $-0.085$ & 1.000                  & $-0.152$               \\
-        \textbf{Mamton}    & $0.829^{***}$ & $-0.152$          & 1.000                  \\
+        \textbf{Vij}       & 1.000   & $-0.038$               & $\mathbf{0.870}^{***}$  \\
+        \textbf{Shambhian} & $-0.038$ & 1.000                  & $-0.027$               \\
+        \textbf{Mamton}    & $0.870^{***}$ & $-0.027$          & 1.000                  \\
         \bottomrule
         \multicolumn{4}{l}{\small $^{***}$: $p < 10^{-15}$; other pairs: $p > 0.2$ (not significant)}
     \end{tabular}
@@ -72,18 +72,18 @@ Numerical trend: more distorted cross-sections (lower $\eta_r$) weakly associate
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.55\textwidth]{correlation_matrix}
-    \caption{Pearson correlation heatmap for the three SHT units ($N=65$). Only the Vij--Mamton pair is significant ($r=0.829$, $p<10^{-15}$).}\labelfig{correlation_matrix}
+    \caption{Pearson correlation heatmap for the three SHT units ($N=200$). Only the Vij--Mamton pair is significant ($r=0.870$, $p<10^{-60}$).}\labelfig{correlation_matrix}
 \end{figure}
 
 The matrix reveals a $2 \times 2$ block structure: Vij and Mamton form one coupled ``Integrity Mode'', while Shambhian stands alone as a ``Shape Mode''. This is confirmed by PCA.
 
 \section{Principal Component Analysis}
 
-PCA on the three-unit vectors $[v_0, \eta_r, \Omega]^T$ (z-scored per unit, $N=65$) reveals:
+PCA on the three-unit vectors $[v_0, \eta_r, \Omega]^T$ (z-scored per unit, $N=200$) reveals:
 
 \begin{table}[h]
     \centering
-    \caption{PCA on Three Geometric Units ($N=65$)}\labeltab{pca_units}
+    \caption{PCA on Three Geometric Units ($N=200$)}\labeltab{pca_units}
     \begin{tabular}{lll}
         \toprule
         \textbf{Component} & \textbf{Variance Explained} & \textbf{Interpretation} \\
@@ -107,7 +107,7 @@ The 83.4\% in two components indicates the effective dimensionality of DNA geome
 
 \section{Mechanistic Hypothesis: Bending Causes Roughness}
 
-The coupling $r = 0.83$ requires a physical explanation. We propose:
+The coupling $r = 0.87$ requires a physical explanation. We propose:
 
 \begin{enumerate}
     \item \textbf{Bending induces differential strain}: When DNA bends (high $v_0$), the outer strand is stretched and the inner strand compressed. This creates strand-to-strand asymmetry.
@@ -123,6 +123,59 @@ The coupling $r = 0.83$ requires a physical explanation. We propose:
 \end{itemize}
 
 This mechanistic picture predicts that any agent inducing DNA bending (protein binding, drug intercalation, covalent crosslinks) should increase Mamton proportionally to the induced curvature.
+
+\section{Robustness Analysis: Stress-Testing the Coupling}
+
+To address potential confounders in the Vij--Mamton coupling ($r = 0.870$), five stress tests were performed (code: \code{DiscoveryMode/robustness\_analysis.py}; figures in \code{robustness\_figures/}).
+
+\subsection{Test 1: Within-Class Correlation}
+
+The coupling was re-examined separately within each structural class to test whether it is a class-separation artifact:
+
+\begin{table}[h]
+    \centering
+    \caption{Vij--Mamton Pearson Correlation by Structural Class}\labeltab{within_class_corr}
+    \begin{tabular}{llll}
+        \toprule
+        \textbf{Class} & $N$ & $r$ & $p$ \\
+        \midrule
+        Canonical-Duplex       & 136 & 0.320 & $1.45 \times 10^{-4}$ \\
+        Protein-Comp/Wrapped   &  25 & 0.982 & $2.89 \times 10^{-18}$ \\
+        Strained-Helix         &  28 & 0.273 & 0.160 (NS) \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\textbf{Interpretation:} The coupling is strongest within Protein-Comp/Wrapped ($r=0.98$), showing protein-induced bending drives roughness most forcefully. It remains significant within Canonical-Duplex ($r=0.32$, $p<10^{-3}$), confirming the coupling exists in free DNA independent of protein contacts. The Strained-Helix class is too heterogeneous and small ($N=28$) for a significant within-class test.
+
+\subsection{Test 2: Robustness to Extreme-Mamton Removal}
+
+The top 5\%--20\% of extreme-Mamton structures were systematically removed to assess whether outliers (nucleosomes) drive the result:
+
+\begin{table}[h]
+    \centering
+    \caption{Coupling After Trimming Extreme Mamton Values}\labeltab{mamton_trim}
+    \begin{tabular}{llll}
+        \toprule
+        \textbf{Threshold} & $N$ & $r$ & $p$ \\
+        \midrule
+        Full dataset ($\leq$100th pctile) & 200 & 0.870 & $7.6 \times 10^{-63}$ \\
+        $\leq$95th pctile ($\Omega \leq 25{,}654$) & 190 & 0.662 & $2.6 \times 10^{-25}$ \\
+        $\leq$90th pctile ($\Omega \leq 1{,}070$) & 180 & 0.301 & $4.1 \times 10^{-5}$ \\
+        $\leq$80th pctile ($\Omega \leq 279$) & 160 & 0.248 & $1.6 \times 10^{-3}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\textbf{Interpretation:} The coupling is significant at all thresholds. When the top 20\% of extreme structures are excluded ($\Omega \leq 279$), $r = 0.25$ ($p = 0.002$), confirming a non-trivial coupling even in the moderate-Mamton regime. The extreme nucleosome values amplify the effect but do not create it.
+
+\subsection{Test 3: Structural Independence Filtering}
+
+Structures were clustered by DNA strand length (±10\% window) and one representative per cluster selected, reducing $N = 190$ to $N = 19$ structurally diverse representatives. The coupling on this independent subset: $r = 0.579$, $p = 0.009$. The coupling survives structural independence filtering with moderate strength.
+
+\subsection{Tests 4--5: Classifier Robustness and Eigenvalue Sensitivity}
+
+Classifier robustness is reported in Chapter~\ref{chap:classification} (see stratified CV and OOB results there). Weighting invariance for Shambhian is tested analytically: uniform rescaling of all slice weights leaves $\eta_r = \sqrt{1 - \lambda_{\min}/\lambda_{\max}}$ unchanged (the eigenvalue ratio is scale-invariant). Under worst-case differential perturbation of up to 10\%, $|\Delta\eta_r| < 0.073$, representing $\sim$8\% of the observed $\eta_r$ range.
 
 \section{Orthogonality: What It Means for Biology}
 

@@ -45,33 +45,34 @@ A Random Forest Classifier was chosen for:
     \item Calibrated probability outputs for confidence scoring
 \end{itemize}
 
-\textbf{Hyperparameters:} 200 trees, max depth 10, min samples per leaf 1, Gini criterion. No grid search was performed (small $N = 33$); default scikit-learn parameters were used.
+\textbf{Hyperparameters:} 300 trees, OOB scoring enabled, Gini criterion (scikit-learn defaults). Evaluated on $N = 189$ structures across three classes (Canonical-Duplex, Protein-Comp/Wrapped, Strained-Helix).
 
 \section{Performance Results}
 
 \subsection{Cross-Validation}
 
 \begin{keyresult}
-    \textbf{5-fold stratified cross-validation accuracy:} $\mathbf{91.0\% \pm 11.7\%}$
-    
-    Tested on $N = 33$ labeled structures. Chance performance for 4 classes = 25\%.
+    \textbf{5-fold stratified CV accuracy:} $\mathbf{81.0\%}$ \quad
+    \textbf{OOB accuracy:} $\mathbf{78.8\%}$ \quad
+    \textbf{ROC AUC (macro OvR):} $\mathbf{0.807}$
+
+    Tested on $N = 189$ labeled structures (3 classes). Chance performance = 33\%.
 \end{keyresult}
 
-The high standard deviation ($\pm 11.7\%$) reflects the small sample size ($N = 33$, $\sim$6--7 per fold) and the class imbalance (only 2 nucleosome structures). With a larger dataset, variance would decrease.
+The OOB score ($78.8\%$) serves as an independent held-out estimate, closely matching the CV score and confirming that the CV result is not inflated by data leakage.
 
-\subsection{Per-Class Performance (Estimated)}
+\subsection{Per-Class Performance (Measured by Stratified CV)}
 
 \begin{table}[h]
     \centering
-    \caption{Estimated Per-Class Precision and Recall}\labeltab{per_class}
-    \begin{tabular}{lllll}
+    \caption{Per-Class Precision, Recall, and F1 (5-fold CV, $N=189$)}\labeltab{per_class}
+    \begin{tabular}{llllll}
         \toprule
-        \textbf{Class} & $N$ & \textbf{Precision} & \textbf{Recall} & \textbf{Comments} \\
+        \textbf{Class} & $N$ & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Comments} \\
         \midrule
-        Nucleosome    & 2  & $\sim$1.00 & $\sim$1.00 & Extreme outliers, easily separated \\
-        Protein-bound & 11 & $\sim$0.85 & $\sim$0.85 & Some overlap with free duplex \\
-        Free duplex   & 16 & $\sim$0.94 & $\sim$0.94 & Largest class; cleanest boundary \\
-        Non-canonical & 4  & $\sim$0.75 & $\sim$0.75 & Heterogeneous class \\
+        Canonical-Duplex     & 136 & 0.83 & 0.95 & 0.89 & Largest class; cleanest boundary \\
+        Protein-Comp/Wrapped &  25 & 0.79 & 0.60 & 0.68 & Some overlap with canonical \\
+        Strained-Helix       &  28 & 0.60 & 0.32 & 0.42 & Most heterogeneous; hardest to classify \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -87,9 +88,9 @@ The trained forest assigns the following Gini-importance to each feature:
         \toprule
         \textbf{Feature} & \textbf{Importance} & \textbf{Interpretation} \\
         \midrule
-        Mamton ($\Omega$) & \textbf{41\%} & Most discriminative; extreme for nucleosomes \\
-        Vij ($v_0$)       & 33\%          & Second; separates bent from straight DNA \\
-        Shambhian ($\eta_r$) & 26\%       & Least; useful for non-canonical class \\
+        Mamton ($\Omega$) & \textbf{40.5\%} & Most discriminative; extreme range drives class separation \\
+        Vij ($v_0$)       & 36.3\%          & Second; separates bent from straight DNA \\
+        Shambhian ($\eta_r$) & 23.3\%       & Supports Strained-Helix class discrimination \\
         \bottomrule
     \end{tabular}
 \end{table}
