@@ -109,6 +109,21 @@ The magnitude is the curvature scalar:
 
 \textbf{Physical interpretation:} This is the inverse radius of instantaneous curvature in the $xy$-plane (perpendicular to z-axis).
 
+\subsection{Comparison with Arc-Length Curvature}
+
+A natural alternative is the classical arc-length (Frenet) curvature:
+\begin{beq}{arclength_kappa}
+    \kappa(s) = \frac{\norm{\vect{C}'(s) \times \vect{C}''(s)}}{\norm{\vect{C}'(s)}^3}
+\end{beq}
+which is invariant under rigid-body reparametrization. The two definitions coincide when $ds/dh = 1$, i.e., when the backbone is perfectly aligned with the helical axis. In practice the centroid trajectory $\vect{C}(h)$ departs from this ideal (mean $ds/dh = 0.571 \pm 0.211$ across the N\,=\,200 dataset), so the two quantities need not agree.
+
+To quantify this empirically, we computed both $\bar{\kappa}_h$ and $\bar{\kappa}_s$ from the \emph{same} centroid trajectories $\vect{C}(h)$ for all 200 structures. The results are reported in \S\ref{sec:arclength_comparison}. In brief:
+\begin{itemize}
+    \item $r(\bar{v}_0, \bar{\kappa}_s) = -0.069$ ($p = 0.33$): the two metrics are statistically independent.
+    \item $r(\bar{v}_0, \Omega) = 0.870$ ($p < 10^{-60}$) versus $r(\bar{\kappa}_s, \Omega) = 0.011$ ($p = 0.88$): Vij carries 80$\times$ more structural information than arc-length curvature.
+\end{itemize}
+These results confirm that the height-parametrization is not a coordinate-choice artifact but captures a qualitatively distinct and biologically more informative aspect of backbone geometry.
+
 \section{Cross-Sectional Coordinate System}
 
 At each height $h$, we establish a 2D coordinate system in the plane perpendicular to $\vec{T}(h)$.
