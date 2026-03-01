@@ -1,0 +1,17 @@
+# Prediction: Nucleosome Exclusion Mechanism
+
+Generic DNA (Eta=0.90):
+  Stiffness Lp: 31.76 nm
+  Wrapping Energy: 42.95 kB T
+
+Flat/Exclusion DNA (Eta=0.96):
+  Stiffness Lp: 131.48 nm
+  Wrapping Energy: 177.77 kB T
+
+Energy Penalty (dE): 134.82 kB T
+Predicted Occupancy Ratio: 2.80e-59
+
+CONCLUSION:
+STRONG EXCLUSION PREDICTED.
+Flat DNA is mechanically prohibited from forming nucleosomes.
+This matches the biological function of Poly(dA:dT) tracts.

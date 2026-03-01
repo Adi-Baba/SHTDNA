@@ -1,0 +1,290 @@
+Function Class and Level Sets
+Let’s fix a class of functions where the geometry is well behaved.
+Definition 1(Admissible class).LetCbe the set of functionsf:RÑR
+such that:
+1.fisC 1 (continuously differentiable).
+2.fis strictly convex: for allx 1 ‰x 2 andλPp0,1q,
+fpλx1 `p1´λqx 2qăλfpx 1q`p1´λqfpx 2q.
+3.fpxqÑ8as|x|Ñ8.
+4.fhas a unique minimum atx 0, withm f :“fpx 0q.
+You can think of these as “single-bowl” functions: one valley, strictly
+convex, going to infinity at both ends.
+By strict convexity and uniqueness of the minimum:
+•fis strictly decreasing onp´8, x 0q,
+•fis strictly increasing onpx 0,8q.
+Thus, for any levelhąm f , the horizontal liney“hintersects the graph
+offat exactly two points:
+•a left intersectiona f phq,
+1
+•a right intersectionb f phq,
+with
+fpaf phqq“fpb f phqq“h, a f phqăx 0 ăb f phq.
+For completeness we seta f pmf q “b f pmf q “x 0, but the interesting
+geometry is forhąm f .
+The Region at Heighthand Basic Geometric
+Quantities
+For eachhąm f , define the cap region:
+Ωf phq:“ tpx, yqPR 2 |a f phqďxďb f phq, fpxqďyďhu.
+This is the area between the graph offand the horizontal liney“h,
+over the intersection intervalra f phq, bf phqs.
+We define two scalar geometric functionals:
+1. Area:
+Af phq:“
+żbf phq
+af phq
+`
+h´fpxq
+˘
+dx.
+2. First moment of area about the vertical axis (x-coordinate weighted):
+Mf phq:“
+żbf phq
+af phq
+x
+`
+h´fpxq
+˘
+dx.
+2
+These are functions ofhąm f .
+Intuition:
+•A f phqmeasures “how much area” in the cap at heighth.
+•M f phqmeasures “where that area sits” horizontally.
+Formal Definition of the Shape–Height Trans-
+form (SHT)
+We can now define the transform.
+Definition 2(Shape–Height Transform, SHT).ForfPCwith mini-
+mum valuem f , define its Shape–Height Transform as the pair of func-
+tions
+Spfq:“
+`
+Af , Mf
+˘
+,
+where
+Af phq“
+żbf phq
+af phq
+ph´fpxqqdx, M f phq“
+żbf phq
+af phq
+xph´fpxqqdx.
+We will say that two functionsf, gPChave the same SHT if
+Af phq“A gphq, M f phq“M gphqfor allhěmaxtm f , mgu.
+3
+(We can always vertically shift functions so that their minima are at 0
+if desired; see remark below.)
+Basic Calculus Identities: Width and Cen-
+ter fromAandM
+We now show thatA f andM f encode the width and center of the
+intervalra f phq, bf phqs.
+Lemma 1(Derivatives of area and moment).AssumefPC. Then for
+allhąm f wherea f andb f are differentiable:
+(a) d
+dhAf phq “b f phq´a f phq.
+(b) d
+dhMf phq “ bf phq2 ´a f phq2
+2 .
+Proof.We use Leibniz rule for differentiating integrals with moving
+boundaries.
+(a) For the area:
+Af phq“
+żbf phq
+af phq
+ph´fpxqqdx.
+4
+Differentiate with respect toh:
+d
+dhAf phq“
+żbf phq
+af phq
+B
+Bhph´fpxqqdx
+`ph´fpb f phqqqb 1
+f phq´ph´fpa f phqqqa 1
+f phq.
+Butfpa f phqq“fpb f phqq“hby definition of the level set, hence
+h´fpa f phqq“h´fpb f phqq“0,
+so
+d
+dhAf phq“
+żbf phq
+af phq
+1dx“b f phq´a f phq.
+(b) For the first moment:
+Mf phq“
+żbf phq
+af phq
+xph´fpxqqdx.
+Then
+d
+dhMf phq“
+żbf phq
+af phq
+x B
+Bhph´fpxqqdx
+`xph´fpxqq
+ˇˇ
+x“bf phqb1
+f phq´xph´fpxqq
+ˇˇ
+x“af phqa1
+f phq.
+5
+Againh´fpa f phqq“h´fpb f phqq“0, so:
+d
+dhMf phq“
+żbf phq
+af phq
+x dx“bf phq2 ´a f phq2
+2 .
+Now define:
+•Width:W f phq:“b f phq´a f phq.
+•“Square difference”:S f phq:“b f phq2 ´a f phq2.
+From Lemma 1:
+Wf phq“A 1
+f phq, S f phq“2M 1
+f phq.
+From these we recover the center:
+Cf phq:“ af phq`b f phq
+2 .
+Indeed:
+Sf phq“b f phq2´af phq2 “pb f phq´af phqqpbf phq`af phqq“W f phq¨p2Cf phqq,
+so
+Cf phq“ Sf phq
+2Wf phq“2M1
+f phq
+2A1
+f phq “M1
+f phq
+A1
+f phq.
+6
+Then the endpoints are:
+af phq“C f phq´ Wf phq
+2 , b f phq“C f phq` Wf phq
+2 .
+So we have:
+Corollary 1(Recovering level-set endpoints from SHT).GivenA f phq
+andM f phqfor allhąm f , we can reconstructa f phqandb f phqfor all
+hąm f via:
+Wf phq“A 1
+f phq, C f phq“ M1
+f phq
+A1
+f phq,
+af phq“C f phq´ Wf phq
+2 , b f phq“C f phq` Wf phq
+2 .
+In other words, SHT determines the entire family of horizontal inter-
+sections.
+From Level-Set Endpoints Back to the Func-
+tion
+Now we show that knowinga f phqandb f phqas functions ofhactually
+determinesfitself.
+Recall:
+On the right of the minimumx0,fis strictly increasing and takes values
+fromm f to8. Thusfrestricted torx 0,8qis a bijection ontorm f ,8q,
+7
+and has an inverse:
+f´1
+R :rm f ,8qÑrx 0,8q.
+Moreover,b f phq“the right solution offpxq“h, so
+bf phq“f ´1
+R phq.
+Similarly, on the left ofx 0,fis strictly decreasing and has an inverse
+f´1
+L :rm f ,8qÑp´8, x 0s,
+and
+af phq“f ´1
+L phq.
+So if we knowa f phqandb f phqas functions ofh, we know both inverse
+branches off.
+Then:
+For anyxěx 0,fpxqis the uniquehsuch thatx“b f phq. So
+fpxq“b ´1
+f pxq.
+Similarly, forxďx 0,
+fpxq“a ´1
+f pxq.
+8
+Thus the entire functionfis determined by the functionsa f andb f .
+Combining with Corollary 1, we get:
+SHTpA f , Mf qña f , bf ñinverse branchesf ´1
+L , f´1
+R ñfull functionf.
+This is the core of the injectivity proof.
+Injectivity Theorem
+We can now state and prove the main result.
+Theorem 1(Injectivity of SHT onC).Letf, gPC, and suppose (after
+aligning vertical offsets) that their minima have the same valuem. If
+Spfq“Spgq,
+that is,
+Af phq“A gphq, M f phq“M gphqfor allhěm,
+then
+fpxq“gpxqfor allxPR.
+In other words, SHT is injective onC(up to a trivial vertical shift).
+9
+Proof.AssumeA f phq“A gphqandM f phq“M gphqfor allhěm.
+(a) By Lemma 1, for any suchh,
+A1
+f phq“b f phq´a f phq, A 1
+gphq“b gphq´a gphq,
+M1
+f phq“ bf phq2 ´a f phq2
+2 , M 1
+gphq“ bgphq2 ´a gphq2
+2 .
+(b) SinceA f “A g andM f “M g, we have
+A1
+f phq“A 1
+gphq, M 1
+f phq“M 1
+gphq
+for allhąm. So:
+bf phq´a f phq“b gphq´a gphq, b f phq2 ´af phq2 “b gphq2 ´agphq2.
+That is,W f phq“W gphqandS f phq“S gphq.
+(c) From these, the centers coincide:
+Cf phq“ Sf phq
+2Wf phq“ Sgphq
+2Wgphq“C gphq.
+(d) Therefore,
+af phq“C f phq´ Wf phq
+2 “C gphq´ Wgphq
+2 “a gphq,
+10
+and similarlyb f phq“b gphq.
+So the level-set endpoints coincide:
+af phq“a gphq, b f phq“b gphq @hąm.
+(e) On the right branches, forxěx 0 sufficiently large, we have
+x“b f phq ðñfpxq“h, x“b gphq ðñgpxq“h.
+Sinceb f phq“b gphq, it follows thatf ´1
+R phq“g ´1
+R phq, hence
+fpxq“gpxqfor allxěx 0.
+(f) A symmetric argument witha f , ag yields
+fpxq“gpxqfor allxďx 0.
+(g) Continuity givesfpx 0q“gpx 0q. Therefore
+fpxq“gpxqfor allxPR.
+This completes the proof.
+11
+Remarks
+(a)Vertical shifts.If you add a constantctof, i.e.gpxq“fpxq`c,
+then the minimum shifts fromm f tom f `c, and the SHT is just
+shifted in theh-axis. If we decide to always normalise functions
+so that minf“0, then SHT becomes strictly injective without
+any ambiguity.
+(b)Relation to roots and tangents.Once you knowffrom SHT,
+you can of course:
+•Find roots off´αexactly or numerically,
+•Compute tangents at any point viaf 1pxq.
+But even without reconstructing the full function, the endpoints
+af phq, bf phqalready encode “root-like” separations at each hori-
+zontal level.
+(c)Beyond convex bowls.For more general (non-convex, multi-
+lobed) shapes, you would need a more elaborate version of SHT
+(multiple intervals per level, etc.). The idea generalises, but the
+bookkeeping is more complex. The theorem above is the clean
+core: on a very natural and important classC, SHT is a true
+alternative to GMR and is mathematically injective.
+12

@@ -1,0 +1,5 @@
+Mean Curvature (A-tracts): 0.0797 Vij
+Mean Curvature (Others):   0.1238 Vij
+Difference: -0.0441 Vij
+P-value: 1.7924e-08
+Conclusion: EVIDENCE FOUND

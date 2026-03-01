@@ -1,0 +1,281 @@
+% ============================================================================
+% PART 03 - DERIVATION OF GEOMETRIC UNITS
+% ============================================================================
+
+\labelsec{geometric_units}
+
+This chapter provides complete derivations of the three geometric units: Vij (curvature), Shambhian (flatness), and Mamton (roughness).
+
+\section{Unit 1: Vij (Local Curvature)}
+
+\subsection{Mathematical Definition}
+
+\begin{keyresult}
+\begin{beq}{vij_definition}
+    v_0(h) = \norm{\frac{d^2\vect{C}}{dh^2}} = \sqrt{(\ddo{x}{h})^2 + (\ddo{y}{h})^2}
+\end{beq}
+
+This measures the magnitude of curvature of the helical axis in the plane perpendicular to the z-direction.
+\end{keyresult}
+
+\subsection{Physical Interpretation}
+
+For a helix with radius $R$ and constant curvature, $v_0 = 1/R$. Thus $v_0$ is the local inverse radius of curvature.
+
+Example: Nucleosomal DNA wraps with $R \approx 42$ \AA \citep{Luger1997}, implying $v_0 \approx 0.024$ \AA$^{-1} = 0.24$ L$^{-1}$.
+
+\subsection{Range and Units}
+
+\begin{table}[h]
+    \centering
+    \caption{Vij Range in Known Structures}\labeltab{vij_range}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Structure Type} & \textbf{$v_0$ (L$^{-1}$)} & \textbf{Interpretation} \\
+        \midrule
+        Straight B-DNA (1BNA) & 0.07 & Minimal bending \\
+        A-tract rigidbody & 0.07 & Resistant to bending \\
+        Flexible TA repeats & 0.12 & Moderate curvature \\
+        Protein-bound normal & 0.15 & TF-induced bending \\
+        Nucleosome (1AOI) & 0.31 & Extreme wrapping \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Numerical Implementation}
+
+Central finite difference approximation:
+
+\begin{beq}{vij_finite_diff}
+    v_0(h_i) \approx \frac{\norm{\vect{C}(h_{i+1}) - 2\vect{C}(h_i) + \vect{C}(h_{i-1})}}{(\Delta h)^2}
+\end{beq}
+
+where $\Delta h = 1.0$ \AA (spacing between height samples).
+
+% ============================================================================
+
+\section{Unit 2: Shambhian (Cross-Sectional Flatness)}
+
+\subsection{Mathematical Definition}
+
+\begin{keyresult}
+\begin{beq}{shambhian_definition}
+    \eta_r(h) = \sqrt{1 - \frac{\lambda_{\min}(h)}{\lambda_{\max}(h)}}
+\end{beq}
+
+where $\lambda_{\max}(h) \geq \lambda_{\min}(h)$ are the sorted eigenvalues of the second-moment matrix $\mathbf{Q}(h)$ of the cross-sectional atom distribution.
+\end{keyresult}
+
+\subsection{Derivation from the Second-Moment Matrix}
+
+For atoms in a cross-sectional slice, define the second-moment matrix:
+\begin{align}
+    \mathbf{Q}(h) = \begin{bmatrix} Q_{xx} & Q_{xy} \\ Q_{xy} & Q_{yy} \end{bmatrix}
+    = \sum_{i \in \text{slice}} w_i \begin{bmatrix} x_i^2 & x_i y_i \\ x_i y_i & y_i^2 \end{bmatrix}
+\end{align}
+
+where $w_i$ are atomic weights (masses). The eigenvalues $\lambda_{\max} \geq \lambda_{\min} \geq 0$ describe the extent of the mass distribution along the two principal axes of the cross-section.
+
+For an elliptical mass distribution with semi-axes $a \geq b$, the eigenvalues scale as $\lambda_{\max} \propto a^2$ and $\lambda_{\min} \propto b^2$. The ratio $\lambda_{\min}/\lambda_{\max} = (b/a)^2$ is the squared aspect ratio. Therefore:
+\begin{align}
+    \eta_r = \sqrt{1 - \frac{\lambda_{\min}}{\lambda_{\max}}} = \sqrt{1 - \left(\frac{b}{a}\right)^2}
+\end{align}
+
+which is the geometric eccentricity of the equivalent ellipse.
+
+\textbf{Extreme cases:}
+\begin{itemize}
+    \item Circle ($a = b$): $\lambda_{\min}/\lambda_{\max} = 1$, so $\eta_r = 0$ (completely symmetric)
+    \item Degenerate line ($b \to 0$): $\lambda_{\min}/\lambda_{\max} \to 0$, so $\eta_r \to 1$ (maximally flat)
+\end{itemize}
+
+\subsection{Physical Meaning}
+
+$\eta_r$ quantifies deviation from a circular cross-section. High values indicate flattened, elliptical geometry.
+
+\subsection{Observed Range}
+
+Across $N = 200$ processed structures:
+\begin{itemize}
+    \item Dataset mean: $\eta_r = 0.957 \pm 0.068$
+    \item Free B-DNA: $\eta_r \approx 0.99$ (high eccentricity, as expected given grooves)
+    \item Most deformed structure: 1LO1 with $\eta_r = 0.536$ ($-6.2\sigma$ outlier)
+    \item Least eccentric: 1I8M with $\eta_r = 0.9998$ (almost perfectly one-dimensional)
+    \item Notable: 1AHD (Antennapedia homeodomain) at $\eta_r = 0.710$ ($-4.2\sigma$)
+\end{itemize}
+
+\subsection{Numerical Implementation}
+
+\begin{algorithm}
+\caption{Compute Shambhian ($\eta_r$)}\label{alg:shambhian}
+\begin{algorithmic}[1]
+    \Require Weighted cross-sectional atom coordinates $(x_i, y_i, w_i)$
+    \Ensure $\eta_r \in [0, 1]$
+    
+    \State Compute second-moment components:
+    \State $\quad Q_{xx} \gets \sum_i w_i x_i^2$
+    \State $\quad Q_{yy} \gets \sum_i w_i y_i^2$
+    \State $\quad Q_{xy} \gets \sum_i w_i x_i y_i$
+    
+    \State Construct: $\mathbf{Q} \gets [[Q_{xx}, Q_{xy}], [Q_{xy}, Q_{yy}]]$
+    
+    \State Compute eigenvalues: $\lambda_{\max}, \lambda_{\min} \gets \text{sorted eigvals}(\mathbf{Q})$
+    
+    \If{$\lambda_{\max} > 0$}
+        \State $\text{ratio} \gets \lambda_{\min} / \lambda_{\max}$
+        \State \textbf{return} $\eta_r \gets \sqrt{\max(0,\; 1 - \text{ratio})}$
+    \Else
+        \State \textbf{return} $\eta_r \gets 0.0$
+    \EndIf
+\end{algorithmic}
+\end{algorithm}
+
+\begin{lstlisting}[language=Python, caption=Shambhian computation (from sht\_dna\_analysis.py)]
+# Compute second-moment matrix Q
+Q_xx = np.sum(w * x**2)
+Q_yy = np.sum(w * y**2)
+Q_xy = np.sum(w * x * y)
+Q = np.array([[Q_xx, Q_xy], [Q_xy, Q_yy]])
+
+# Eigenvalues (sorted ascending)
+lambda_min, lambda_max = np.linalg.eigvalsh(Q)
+# eigvalsh returns ascending order
+
+if lambda_max > 0:
+    ratio = lambda_min / lambda_max
+    epsilon_h[i] = np.sqrt(max(0.0, 1.0 - ratio))
+else:
+    epsilon_h[i] = 0.0
+\end{lstlisting}
+
+% ============================================================================
+
+\section{Unit 3: Mamton (Surface Roughness)}
+
+\subsection{Mathematical Definition}
+
+\begin{keyresult}
+\begin{beq}{mamton_definition}
+    \Omega(h) = \sqrt{S_x(h)^2 + S_y(h)^2}
+\end{beq}
+
+where:
+\begin{align}
+    S_x(h) &= \mu_{30} + \mu_{12} = \sum_{i} w_i (x_i^3 + x_i y_i^2) = \sum_{i} w_i \, x_i r_i^2 \\
+    S_y(h) &= \mu_{03} + \mu_{21} = \sum_{i} w_i (y_i^3 + x_i^2 y_i) = \sum_{i} w_i \, y_i r_i^2
+\end{align}
+
+and $r_i^2 = x_i^2 + y_i^2$ is the squared radial distance from the cross-sectional centre. The unit is \textbf{Mamton} (Mmt), dimension $[\text{mass} \cdot \text{length}^3]$.
+\end{keyresult}
+
+\subsection{Geometric Interpretation}
+
+Writing $S_x = \sum_i w_i x_i r_i^2$ reveals that Mamton is the \emph{radially-weighted first moment}: each atom contributes its $x$ (or $y$) offset scaled by its squared distance from the axis. For a symmetric distribution all atoms with $+x$ cancel those with $-x$, giving $S_x = 0$. Asymmetry---arising from bending, protein contact, or groove deformation---breaks this cancellation and drives $\Omega > 0$.
+
+The two scalars $(S_x, S_y)$ describe in which direction the cross-section is skewed; $\Omega$ collapses these into a single non-negative roughness magnitude.
+
+\textbf{Third-order moments used:}
+\begin{align}
+    \mu_{30} &= \sum_i w_i x_i^3 &\quad \mu_{12} &= \sum_i w_i x_i y_i^2 \\
+    \mu_{03} &= \sum_i w_i y_i^3 &\quad \mu_{21} &= \sum_i w_i x_i^2 y_i
+\end{align}
+
+\subsection{Connection to Statistical Skewness}
+
+In statistics, univariate skewness is:
+
+\begin{beq}{statistical_skewness}
+    \gamma = \frac{E[(X - \mu)^3]}{\sigma^3}
+\end{beq}
+
+Our $\Omega$ is related but distinct:
+- We use raw 3rd moments (not centered, not normalized)
+- We combine all directional moments into a single scalar
+- Result: $\Omega$ captures total asymmetry magnitude
+
+\subsection{Physical Interpretation}
+
+$\Omega$ detects asymmetry in the cross-sectional profile:
+\begin{itemize}
+    \item Symmetric distribution (circular or uniformly elliptical): $\Omega \approx 0$
+    \item Skewed, lopsided distribution: $\Omega \gg 0$
+\end{itemize}
+
+Mechanism: When DNA bends sharply, the backbone on the outer edge stretches while the inner edge compresses. This creates asymmetry.
+
+\subsection{Observed Range}
+
+Across $N = 200$ structures:
+
+\begin{table}[h]
+    \centering
+    \caption{Mamton ($\Omega$) in Key Structures}\labeltab{mamton_range}
+    \begin{tabular}{lrrl}
+        \toprule
+        \textbf{Structure} & \textbf{$\Omega$ (Mmt)} & \textbf{$z$-score} & \textbf{Context} \\
+        \midrule
+        1BQJ & 5.0 & $-0.15$ & Minimal asymmetry, short fragment \\
+        Free duplex (25th pctile) & 63.5 & $-0.13$ & Smooth canonical B-DNA \\
+        Full dataset median & 79.7 & baseline & \\
+        Full dataset mean & 389.5 & +0.00 & (Skewed by extremes) \\
+        1EYG & 1426.8 & +0.39 & Intermediate \\
+        1CQT & 1049.3 & +0.25 & Intermediate \\
+        1AOI & 26291.4 & $+5.55\sigma$ & Nucleosome core particle \\
+        1F66 & 26440.9 & $+5.58\sigma$ & H2A.Z nucleosome (extreme!) \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\textbf{Note}: The large dynamic range ($5$--$26{,}441$ Mmt) makes Mamton the most sensitive of the three units to functional state.
+
+\subsection{Numerical Implementation}
+
+\begin{lstlisting}[language=Python, caption=Mamton computation (from sht\_dna\_analysis.py)]
+# S_slice[j] = (S_x, S_y) for height-slice j
+mu_30 = np.sum(w * x**3)
+mu_12 = np.sum(w * x * y**2)
+mu_21 = np.sum(w * x**2 * y)
+mu_03 = np.sum(w * y**3)
+
+S_slice[j, 0] = mu_30 + mu_12   # S_x = sum w * x * r^2
+S_slice[j, 1] = mu_03 + mu_21   # S_y = sum w * y * r^2
+
+# Aggregate to per-structure scalar
+omega_h = np.linalg.norm(S_total, axis=1)   # sqrt(S_x^2 + S_y^2)
+\end{lstlisting}
+
+% ============================================================================
+
+\section{Summary Table: Geometric Units}
+
+\begin{table}[h]
+    \centering
+    \caption{Complete Specification of Three Geometric Units}\labeltab{unit_summary}
+    \begin{tabularx}{\textwidth}{lXXXX}
+        \toprule
+        \textbf{Unit} & \textbf{Symbol} & \textbf{Definition} & \textbf{Physical Meaning} & \textbf{Observed Range ($N=200$)} \\
+        \midrule
+        Vij & $v_0$ & $\norm{d^2\vect{C}/dh^2}$ & Local curvature (inverse radius of helix axis) & $[0.006,\,0.311]$ L$^{-1}$; mean $0.097 \pm 0.037$ \\
+        \addlinespace
+        Shambhian & $\eta_r$ & $\sqrt{1 - \lambda_{\min}/\lambda_{\max}}$ & Geometric eccentricity of cross-section; 0 = circle, 1 = degenerate & $[0.536,\,0.9998]$; mean $0.957 \pm 0.068$ \\
+        \addlinespace
+        Mamton & $\Omega$ & $\sqrt{S_x^2 + S_y^2}$ & Radially-weighted skewness; 0 = symmetric, large = asymmetric bending & $[5.0,\,26{,}441]$ L$^3$; median $79.7$ \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\section{Design Rationale}
+
+Why these three specific units?
+
+\begin{enumerate}
+    \item \claim{Derived from moments:} 0th (Vij relates to 2nd moment of 1D bending), 2nd (Shambhian from inertia principal axes), 3rd (Mamton from skewness)
+    
+    \item \claim{Orthogonal:} Capture different geometric aspects without redundancy
+    
+    \item \claim{Scale-invariant:} Dimensionless (e.g., $\eta_r$) or with physical units
+    
+    \item \claim{Computationally efficient:} Can calculate all three in $O(n \log n)$ time
+\end{enumerate}
+
+The next part describes computational implementation.

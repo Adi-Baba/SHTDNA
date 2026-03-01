@@ -1,0 +1,140 @@
+\documentclass[12pt,oneside,a4paper]{book}
+
+% ============================================================================
+% PREAMBLE & CONFIGURATION
+% ============================================================================
+
+\input{preamble}
+\input{macros}
+
+% ============================================================================
+% DOCUMENT TITLE & METADATA
+% ============================================================================
+
+\title{Shape-Height Transform for DNA:\\[0.5cm] \Large Mathematical Framework and Comprehensive Validation of Three Orthogonal Geometric Units}
+\author{Aditya [Author Name]}
+\date{\today}
+
+% ============================================================================
+% FRONTMATTER
+% ============================================================================
+
+\begin{document}
+
+\frontmatter
+
+% Title page
+\maketitle
+
+% Abstract
+\chapter*{Abstract}
+\input{frontmatter/abstract}
+
+% Table of contents
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Preface
+\chapter*{Preface}
+\input{frontmatter/preface}
+
+% ============================================================================
+% MAINMATTER: Part I - Theoretical Foundation
+% ============================================================================
+
+\mainmatter
+
+\part{Theoretical Foundation}
+
+\chapter{Introduction and Motivation}
+\input{parts/01_introduction}
+
+\chapter{Mathematical Framework}
+\input{parts/02_mathematical_framework}
+
+\chapter{Derivation of Geometric Units}
+\input{parts/03_geometric_units}
+
+% ============================================================================
+% MAINMATTER: Part II - Computational Implementation
+% ============================================================================
+
+\part{Computational Implementation}
+
+\chapter{Algorithm and Software}
+\input{parts/04_algorithm_software}
+
+\chapter{Quality Control and Edge Cases}
+\input{parts/05_quality_control}
+
+% ============================================================================
+% MAINMATTER: Part III - Comprehensive Validation
+% ============================================================================
+
+\part{Comprehensive Validation}
+
+\chapter{Unit-by-Unit Validation}
+\input{parts/06_unit_validation}
+
+\chapter{Cross-Unit Relationships}
+\input{parts/07_cross_unit_relationships}
+
+% ============================================================================
+% MAINMATTER: Part IV - Discovered Relationships
+% ============================================================================
+
+\part{Discovered Relationships and Applications}
+
+\chapter{Functional Classification}
+\input{parts/08_functional_classification}
+
+\chapter{Biological Insights}
+\input{parts/09_biological_insights}
+
+% ============================================================================
+% MAINMATTER: Part V - Conclusions
+% ============================================================================
+
+\part{Conclusions and Future Directions}
+
+\chapter{Summary of Evidence}
+\input{parts/10_summary_evidence}
+
+\chapter{Limitations and Future Work}
+\input{parts/11_limitations_future}
+
+% ============================================================================
+% BACKMATTER
+% ============================================================================
+
+\appendix
+
+\chapter{Complete Dataset}
+\input{appendices/appendix_A_dataset}
+
+\chapter{Detailed Statistical Tests}
+\input{appendices/appendix_B_statistics}
+
+\chapter{Code Repository and Availability}
+\input{appendices/appendix_C_code}
+
+\chapter{Mathematical Proofs}
+\input{appendices/appendix_D_proofs}
+
+% ============================================================================
+% BIBLIOGRAPHY
+% ============================================================================
+
+\backmatter
+
+\bibliographystyle{plainnat}
+\bibliography{bibliography}
+
+% ============================================================================
+% INDEX (optional)
+% ============================================================================
+
+\printindex
+
+\end{document}

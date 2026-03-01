@@ -1,0 +1,20 @@
+
+Observations: Mechanical Signal Propogation (Allostery)
+-------------------------------------------------------
+We are quantifying the apparant expansion of mechanical coherence across 
+the DNA backbone upon protein interaction.
+
+Our analysis of primary targets suggests the following patterns:
+
+- CANONICAL DNA (Control: 102D):
+  Observed Coherence Length (Lc): 8.0 A
+  Mean Axial Torsion Rate: 0.054 rad/A
+
+- PROTEIN-BOUND COMPLEX (Nucleosome: 1AOI):
+  Observed Coherence Length (Lc): 56.0 A
+  Mean Axial Torsion Rate: 0.128 rad/A
+
+Intepretation:
+Our data suggests a 7.0x increase in the spatial propagation of mechanical 
+signals. This indicates that the DNA backbone may function as a long-range 
+elastic transducer when constrained by protein interactions.

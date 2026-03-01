@@ -1,0 +1,219 @@
+THE SHAPE–HEIGHT TRANSFORM: A
+GEOMETRICALLY INJECTIVE
+FRAMEWORK FOR FUNCTION
+RECOVERY FROM HORIZONTAL
+CROSS-SECTIONS
+Abstract
+We introduce the Shape–Height Transform (SHT), a geometric
+functional that assigns to a real-valued functionfthe collection of
+area-and-moment measurements of the planar regions enclosed be-
+tween the graph offand horizontal slicing lines at varying heights.
+For strictly convex bowl-shaped functions, we prove that SHT is fully
+injective: equality of SHT implies equality of the underlying functions.
+We then extend the construction to the general class of piecewise-
+convex functions with finitely many valleys, introducing the Multi-
+Interval SHT (SHT∗), and prove a comprehensive injectivity theorem:
+1
+SHT∗ uniquely identifies any function in this class up to a trivial ver-
+tical shift. These results demonstrate that the geometry of horizon-
+tal slices contains sufficient information to recover the entire analytic
+structure of a function. Consequently, SHT yields a robust general
+alternative to scalar geometric measures such as GMR (Geometric
+Mean Radius), eliminating the loss of information inherent in single-
+number descriptors and enabling complete recovery of roots, tangents,
+curvature, and higher-order behaviour from geometric cross-sections
+alone.
+1 Introduction
+The geometry of the region between a function and an enclosing curve is
+a classical object of study in analysis. If one intersects a graphy=f(x)
+with a horizontal liney=h, the resulting shape consists of one or more
+planar “caps” whose width and distribution encode information about the
+inverse branches off. Classical geometric invariants such as area, perimeter,
+centroid, or the Geometric Mean Radius extract only partial information
+from such shapes. These scalars are not injective: different functions can
+generate shapes with identical values of these invariants.
+This paper introduces a geometric functional that does not lose informa-
+tion.
+We define the Shape–Height Transform (SHT) as a family of measure-
+ments indexed by heighth: for eachh, we compute (i) the area of the region
+2
+between the graph and the liney=hand (ii) the first horizontal moment
+of that region. These functions of height form a geometric signature of the
+entire curve. We prove that, for convex bowls, SHT uniquely determines the
+original function. We then extend the transform to functions with finitely
+many valleys by using height-indexed vectors of areas and moments corre-
+sponding to multiple disjoint caps. We prove an injectivity result for the
+general class.
+These results show:
+Horizontal slicing contains enough geometric information to re-
+construct the entire function.
+The implications are strong: every strictly convex or finitely-valley func-
+tion can be recovered from purely geometric data, without solving differential
+or integral equations and without spectral analysis.
+2 Preliminaries
+Letf:R→Rbe continuous. For a fixed heighth, define the horizontal
+level set
+L(f, h) :={x∈R:f(x) =h}.
+Assume for eachhthe setL(f, h) consists of finitely many points, ordered as
+x1(h)< x2(h)< x3(h)<···< x 2n(h)(h).
+3
+Between these intersections, the region bounded by the graph and the line
+y=his composed of disjoint pieces
+Ω(j)
+f (h) ={(x, y) :x2j−1(h)≤x≤x 2j(h), f(x)≤y≤h}, j= 1, . . . , n(h).
+Every Ω(j)
+f (h) is a planar region shaped like an inverted bowl truncated at
+heighth. Our transform will use geometric quantities of the Ω (j)
+f (h).
+3 The single-valley case
+3.1 Function class
+LetC 1 be the set ofC 1 functionsf:R→Rsatisfying:
+1.f(x)→ ∞as|x| → ∞,
+2.fhas a unique global minimum atx 0,
+3.fis strictly convex.
+Then for all heightsh > f(x0), there are exactly two intersection points
+ofy=f(x) with the liney=h:
+af (h)< x0 < bf (h),withf(a f (h)) =f(b f (h)) =h.
+4
+Define the single region:
+Ωf (h) = Ω(1)
+f (h) ={(x, y) :f(x)≤y≤h, a f (h)≤x≤b f (h)}.
+3.2 Area and moment
+Define the geometric invariants:
+Af (h) =
+Z bf (h)
+af (h)
+(h−f(x))dx,
+Mf (h) =
+Z bf (h)
+af (h)
+x(h−f(x))dx.
+3.3 Definition (SHT in the single-valley case)
+S(f) := (A f (h), Mf (h))h≥f(x0)
+3.4 Recovering level-set endpoints from SHT
+Differentiation under the integral gives:
+Lemma 1.For allh > f(x0),
+d
+dhAf (h) =b f (h)−a f (h),
+d
+dhMf (h) = bf (h)2 −a f (h)2
+2 .
+5
+Define:
+Wf (h) =b f (h)−a f (h), S f (h) =b f (h)2 −a f (h)2.
+Then
+Wf (h) =A ′
+f (h), C f (h) = M′
+f (h)
+A′
+f (h) ,
+and
+af (h) =C f (h)− 1
+2 Wf (h), b f (h) =C f (h) + 1
+2 Wf (h).
+Thus SHT uniquely determinesa f (h) andb f (h) for allh.
+3.5 Main theorem (injectivity, single-valley)
+Theorem 1.Letf, g∈ C1. Suppose that after aligning minima vertically,
+S(f) =S(g).
+Then
+f(x) =g(x)for allx∈R.
+Proof sketch.Equality ofA f andA g and ofM f andM g implies equality of
+their derivatives, which implies equality of widths and centers at all heights,
+hence equality ofa f (h), bf (h) anda g(h), bg(h). These functions are exactly
+the inverse branches offandg, so equality of the branches implies equality
+of the full functions.
+6
+Thus SHT is injective on strictly convex bowls.
+4 Generalisation to piecewise-convex functions
+(multiple valleys)
+4.1 Class of functions
+LetC pw be the set ofC 1 functions with finitely many disjoint valleys:
+1.f(x)→ ∞as|x| → ∞,
+2. There exist intervalsI 1, . . . , Im such thatfis strictly convex on each
+Ik, with a single local minimum within eachI k,
+3. Between consecutive valleys the function has local maxima.
+For each heighth >minf, the horizontal liney=hintersects the graph
+in 2n(h) points:
+x1(h)< x2(h)<···< x 2n(h)(h).
+4.2 Multi-interval areas and moments
+Forj= 1, . . . , n(h), define:
+A(j)
+f (h) =
+Z x2j(h)
+x2j−1(h)
+(h−f(x))dx,
+7
+M(j)
+f (h) =
+Z x2j(h)
+x2j−1(h)
+x(h−f(x))dx.
+As height increases, components may split or merge, but the ordering of
+caps by left endpoint is always well-defined.
+4.3 Definition (multi-interval SHT)
+S∗(f) :={(A (1)
+f (h), M(1)
+f (h), . . . , A(n(h))
+f (h), M(n(h))
+f (h)) :h≥minf}
+4.4 Reconstruction
+The differentiation formulas remain valid componentwise:
+d
+dhA(j)
+f (h) =x 2j(h)−x 2j−1(h),
+d
+dhM(j)
+f (h) = x2j(h)2 −x 2j−1(h)2
+2 .
+Consequently, each interval’s width and center are recovered, hence all
+endpointsx i(h) for allh, including at merging heights.
+Thus SHT∗ reconstructs all level-set endpoints, and therefore reconstructs
+all inverse branches off.
+8
+4.5 Main theorem (injectivity, multiple valleys)
+Theorem 2.Letf, g∈ Cpw. After aligning minima vertically, if
+S∗(f) =S ∗(g),
+then
+f(x) =g(x)for allx∈R.
+Proof sketch.Equality of SHT ∗ gives equality of allA (j)
+f andM (j)
+f , hence
+equality of widths and centers of each cap, hence equality of endpoints of
+every level-set interval at all heights. Level-set endpoints are inverse branches
+of the function, so equality of all inverse branches implies equality offand
+geverywhere.
+Therefore SHT∗ is a complete geometric fingerprint for any piecewise-
+convex function with finitely many valleys.
+5 Consequences
+5.1 Root recovery
+Roots offare simply the endpoints of the level set ath= 0, obtained from
+reconstructeda f (0), bf (0).
+9
+5.2 Tangent recovery
+The tangent at any locationxis obtained by differentiatingf; sincefitself
+is reconstructed, all tangents are recovered exactly.
+5.3 Curvature and higher-order behaviour
+Oncefandf ′ are determined, curvatureκ, third derivative, etc., follow
+immediately.
+5.4 Numerical reconstruction
+The transform is inversion-friendly:
+•A f andM f require simple integration,
+•inversion uses differentiation and algebraic formulas only (no PDEs or
+eigenvalue problems).
+6 Conclusion
+The Shape–Height Transform (SHT) is a general and fully injective geo-
+metric transform for recovering real functions from planar geometry. While
+scalar geometric descriptors such as the Geometric Mean Radius inevitably
+lose structural information, SHT and its multi-interval extension capture the
+full level-set geometry, enabling explicit reconstruction of roots, tangents,
+curvature, and higher-order analytic behaviour.
+10
+This establishes a new principle:
+The family of shapes formed by horizontal slicing of a function
+determines the function completely.
+Future directions include:
+•numerical schemes for high-accuracy inversion,
+•extension to functions in higher dimensions using volume- and moment-
+height transforms,
+•noise-robust reconstruction algorithms for experimental shape data.
+11

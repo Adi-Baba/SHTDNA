@@ -1,0 +1,149 @@
+================================================================================
+Matrix-SHT Scientific Audit Log: 8Y-9Y Series
+Date: January 24, 2026
+================================================================================
+
+Below is the spectral state accouting for recent PDB additions.
+Key Definitions:
+  - ηr (Eccentricity): High values (>0.85) indicate a Stable Helix; Low (<0.4) indicate Folder/Quadruplex.
+  - Ω (Roughness): High (>1000) suggests Protein-Complexed; Low (<500) suggests Naked DNA.
+  - Snap Score: Deviation from canonical DNA mean (0.898). Values >0.13 indicate a Mechanical Stress Point.
+
+PDB ID     |    ηr |       Ω | SHT LABEL            | PDB TITLE
+----------------------------------------------------------------------------------------------------
+8Y3D       | 0.829 | 14778.4 | Protein-Comp/Wrapped | Cryo-EM stucture of the overlapping di-nucleosome (intermediate form2)
+8YBJ       | 0.846 | 15438.7 | Protein-Comp/Wrapped | Cryo-EM structure of human nucleosome core particle composed of the Widom 601 DNA sequence
+8YBK       | 0.861 | 18032.5 | Protein-Comp/Wrapped | Cryo-EM structure of the human nucleosome containing the H3.1 E97K mutant
+8YJR       | 0.823 |   611.2 | Strained-Helix       | Structure of the human endogenous PCNA-FEN1 complex - State D
+8YJV       | 0.834 |   369.8 | Canonical-Duplex     | Structure of the human endogenous PCNA-FEN1 complex - State G
+8YO4       | 0.800 |   225.1 | Canonical-Duplex     | structure of phage T4 topoisomerase II central domain bound with DNA
+8YO7       | 0.835 |   197.3 | Canonical-Duplex     | structure of phage T6 topoisomerase II central domain bound with DNA and m-AMSA
+8YON       | 0.867 |  1626.1 | Protein-Comp/Wrapped | structure of phage T6 full-length topoisomerase II bound with DNA
+8YV8       | 0.838 | 15875.2 | Protein-Comp/Wrapped | Cryo-EM structure of CDCA7 bound to nucleosome including hemimethylated CpG site in Widom601 positioning sequence.
+8Z92       | 0.847 |   229.8 | Canonical-Duplex     | Crystal structure of CrtAgo/TIR-APAZ in complex with guide DNA and 16-nt target DNA
+8Z96       | 0.869 |    65.0 | Canonical-Duplex     | Crystal structure of CrtAgo/TIR-APAZ in complex with guide DNA and 21-nt target DNA
+8ZIT       | 0.918 |    65.7 | Canonical-Duplex     | DUF4297-HerA complex with DNA and ATPgamaS
+9A3O       | 0.890 | 14785.7 | Protein-Comp/Wrapped | CLOCK-BMAL1 bound to a nucleosome at SHL -6.2
+9AR4       | 0.845 |  2314.2 | Protein-Comp/Wrapped | CryoEM structure of ThermoCas9 in post-cleavage state bound with the DNA containing NNNNCCA PAM
+9AR6       | 0.854 |  3255.1 | Protein-Comp/Wrapped | CryoEM structure of ThermoCas9 in pre-cleavage state bound with the DNA containing NNNNCCA PAM
+9B2T       | 0.871 |  8112.6 | Protein-Comp/Wrapped | Haspin bound to nucleosome in position 2
+9B3P       | 0.822 | 16899.7 | Protein-Comp/Wrapped | The cryo-EM structure of the H2A.Z-H3.3 double-variant nucleosome
+9BS6       | 0.821 |  2060.9 | Protein-Comp/Wrapped | CryoEM structure of ThermoCas9 in post-cleavage state with a DNA containing NNNNCGA PAM
+9C4D       | 0.926 |    62.3 | Canonical-Duplex     | The structure of 4 MntR homodimers bound to the promoter sequence of mnep
+9C9S       | 0.884 | 27495.7 | Protein-Comp/Wrapped | S.c INO80 in complex with S.c 0/40 nucleosome, Class 1
+9C9T       | 0.882 | 25871.1 | Protein-Comp/Wrapped | S.c INO80 in complex with S.c 0/40 nucleosome, Class 2
+9C9W       | 0.901 |   609.9 | Strained-Helix       | Dimerized human TOP3B-TDRD3 core complex with a DNA mismatch bubble
+9C9X       | 0.851 | 15528.1 | Protein-Comp/Wrapped | S.c INO80 in complex with Xenopus 0/80 nucleosome, Nucleosome
+9CA7       | 0.850 | 28018.0 | Protein-Comp/Wrapped | Cryo-EM structure of human SRCAP-nucleosome complex in the fully-engaged state (composite structure)
+9CA8       | 0.831 | 27203.8 | Protein-Comp/Wrapped | Cryo-EM structure of human SRCAP-nucleosome complex in the partially-engaged state (composite structure)
+9CAA       | 0.864 | 16143.0 | Protein-Comp/Wrapped | Cryo-EM structure of human SRCAP-nucleosome complex in the pre-engaged state (composite structure)
+9CAN       | 0.875 | 23944.2 | Protein-Comp/Wrapped | S.c INO80 in complex with Xenopus 0/40 nucleosome
+9CB7       | 0.870 | 12879.3 | Protein-Comp/Wrapped | DeltaNhp10 INO80 bound to S.c 0/40 nucleosome, Ino80-Nucleosome
+9CEU       | 0.854 |  1311.0 | Protein-Comp/Wrapped | Spizellomyces punctatus Fanzor (SpuFz) State 1
+9CEV       | 0.880 |  1926.4 | Protein-Comp/Wrapped | Spizellomyces punctatus Fanzor (SpuFz) State 2
+9CEX       | 0.889 |  1438.5 | Protein-Comp/Wrapped | Spizellomyces punctatus Fanzor (SpuFz) State 4
+9CG9       | 0.844 |  8895.9 | Protein-Comp/Wrapped | Cryo-EM structure of an HMGB1 box bound to nucleosome at SHL-2
+9DWF       | 0.842 | 15329.2 | Protein-Comp/Wrapped | Nucleosome containing a 1-nt gap at SHL-4.5
+9DWI       | 0.831 | 16468.6 | Protein-Comp/Wrapped | DNA Polymerase Beta bound to a nucleosome containing a 1-nt gap at SHL-4.5 (State 3, composite)
+9DWL       | 0.857 | 17186.0 | Protein-Comp/Wrapped | Nucleosome containing a 1-nt gap at SHL-5.5
+9DWM       | 0.834 | 15235.7 | Protein-Comp/Wrapped | DNA polymerase Beta bound to a nucleosome containing a 1-nt gap at SHL-5.5
+9E1O       | 0.845 | 15740.0 | Protein-Comp/Wrapped | Snf2h bound nucleosome complex - ClassB1
+9E1P       | 0.855 | 15330.0 | Protein-Comp/Wrapped | Snf2h bound nucleosome complex - ClassB2
+9E1U       | 0.861 | 16061.5 | Protein-Comp/Wrapped | Snf2h bound nucleosome complex - ClassC1
+9E1V       | 0.865 | 15539.2 | Protein-Comp/Wrapped | Snf2h bound nucleosome complex - ClassC2
+9E1X       | 0.863 | 15393.2 | Protein-Comp/Wrapped | Snf2h bound nucleosome complex - ClassD1
+9E85       | 0.898 |  2764.5 | Protein-Comp/Wrapped | De Novo Mycobacterium tuberculosis transcription initiation promoter complex with 6-mer RNA and closed Beta' clamp (RNA Polymerase with Sigma-A, CarD, and RbpA)
+9E87       | 0.894 |  1640.9 | Protein-Comp/Wrapped | De Novo Mycobacterium tuberculosis transcription initiation pre-RPO promoter complex with open Beta' clamp (RNA Polymerase with Sigma-A, CarD, and RbpA)
+9EGY       | 0.932 | 11358.8 | Protein-Comp/Wrapped | RNA polymerase II-DSIF-SPT6-PAF1c-TFIIS-IWS1-nucleosome, bp +27
+9EGZ       | 0.935 | 10705.8 | Protein-Comp/Wrapped | RNA polymerase II-DSIF-SPT6-PAF1c-TFIIS-IWS1-SETD2-nucleosome, bp +27
+9EH2       | 0.905 |   330.3 | Canonical-Duplex     | RNA polymerase II-DSIF-SPT6-PAF1c-TFIIS-IWS1-SETD2-FACT nucleosome upstream
+9EI1       | 0.873 |   339.6 | Canonical-Duplex     | Cryo-EM structure of Human RNA polymerase II Elongation Complex bound to the RECQL5 helicase in the absence of nucleotide
+9EOZ       | 0.836 | 14862.1 | Protein-Comp/Wrapped | Human OGG1 bound to a nucleosome core particle with 8-oxodGuo lesion at SHL6.0
+9F0X       | 0.925 |  1464.8 | Protein-Comp/Wrapped | CryoEM structure of the F plasmid relaxosome in its pre-initiation state, derived from the ds-27_+143-R Locally-refined Map 3.76 A
+9F0Z       | 0.946 |  2656.4 | Protein-Comp/Wrapped | CryoEM structure of the F plasmid relaxosome with truncated TraI1-863 in its TE mode, derived from the ss-27_+8ds+9_+143-R_deltaAH+CTD Locally-refined 3.42 A Map
+9F11       | 0.945 |  2672.1 | Protein-Comp/Wrapped | CryoEM structure of the F plasmid relaxosome with oriT DNA ss-27_+3ds+4_+143 and TraI its TE mode, derived from ss-27_+3ds+4_+143-R Locally-refined 3.68 A Map.
+9FF5       | 0.894 |   609.0 | Strained-Helix       | The structure of G.kaustophilus T-1 ScoC-23bp dsDNA complex
+9FJP       | 1.000 |    22.6 | Canonical-Duplex     | Cryo-EM structure of Mycobacterium tuberculosis sigma-B RNA polymerase bound to -10 promoter element ssDNA oligo
+9FM3       | 0.901 |   135.6 | Canonical-Duplex     | KlenTaq DNA polymerase in a ternary complex with primer/template and a selenophene-modified dUTP (SedUTP)
+9FSO       | 0.853 |   272.0 | Canonical-Duplex     | Human RNA Polymerase III Class III Open Pre-initiation Complex 1 (OC1)
+9FSR       | 0.833 |   244.1 | Canonical-Duplex     | RNA Polymerase III Class III Open Mini Pre-initiation Complex 1 (OC1-mini)
+9G0A       | 0.888 |  1192.4 | Protein-Comp/Wrapped | Influenza A/H7N9 polymerase post-cleavage cap-snatching complex
+9G27       | 0.902 |   579.6 | Strained-Helix       | Yeast RNA polymerase I elongation complex stalled by an apurinic site, pre-translocation state
+9GBV       | 0.918 |  7188.2 | Protein-Comp/Wrapped | E.coli gyrase holocomplex with chirally wrapped 217 bp DNA fragment
+9GD0       | 0.816 | 11521.7 | Protein-Comp/Wrapped | Structure of a hexasome-nucleosome complex with a dyad-to-dyad distance of 103 bp.
+9GD1       | 0.862 | 24358.9 | Protein-Comp/Wrapped | Structure of Chd1 bound to a hexasome-nucleosome complex with a dyad-to-dyad distance of 103 bp.
+9GD3       | 0.908 |  9889.7 | Protein-Comp/Wrapped | Structure of a mononucleosome bound by one copy of Chd1 with the DBD on the exit-side DNA.
+9GEN       | 0.855 | 15435.0 | Protein-Comp/Wrapped | Recombinant Myeloperoxidase bound to nucleosome core particle
+9GEO       | 0.841 | 15118.6 | Protein-Comp/Wrapped | Nucleosome core particle
+9GEP       | 0.858 | 16125.5 | Protein-Comp/Wrapped | Native monomeric Myeloperoxidase bound to nucleosome core particle
+9GEQ       | 0.826 | 15489.6 | Protein-Comp/Wrapped | Native dimeric Myeloperoxidase bound to nucleosome core particle; composite map
+9GER       | 0.851 | 18136.7 | Protein-Comp/Wrapped | Native dimeric Myeloperoxidase bound to nucleosome core particle, intermediate state; composite map
+9GEV       | 0.879 | 24268.2 | Protein-Comp/Wrapped | CryoEM structure of the human INO80 core-nucleosome complex state N-6
+9GFM       | 0.862 | 12667.7 | Protein-Comp/Wrapped | CryoEM structure of the human INO80 core-nucleosome complex state N-7
+9GW2       | 0.890 | 13277.9 | Protein-Comp/Wrapped | State 2 MAP 1 SETD2 bound to proximal H3 of upstream nucleosome
+9GXA       | 0.832 | 14585.5 | Protein-Comp/Wrapped | CENP-A/H4 di-tetrasome assembled on alpha-satellite DNA.
+9HDO       | 0.803 |  1573.4 | Protein-Comp/Wrapped | The Human LINE-1 ORF2p target-primed reverse transcription complex
+9HDR       | 0.809 |  1562.5 | Protein-Comp/Wrapped | Human LINE-1 ORF2p target-primed reverse transcription complex with EN domain resolved
+9HGJ       | 0.946 |  6438.5 | Protein-Comp/Wrapped | HSV-1 Origin Binding Protein in complex with double-stranded DNA recognition sequence OriS and non-hydrolyzable ATP analog
+9HVO       | 0.916 |  1180.7 | Protein-Comp/Wrapped | Structure of the transcribing Pol II-RECQL5 complex
+9HWG       | 0.849 |   329.7 | Canonical-Duplex     | Structure of the transcribing Pol II-TCR-RECQL5 complex
+9I1P       | 0.835 |  2105.4 | Protein-Comp/Wrapped | Structure of RecQL- Myc G-quadruplex - ADP complex from Bos taurus
+9I22       | 0.867 |   150.5 | Canonical-Duplex     | Structure of Human helicase RecQ1- Myc G-quadruplex - ADP complex
+9I23       | 0.913 |   138.1 | Canonical-Duplex     | Structure of Human helicase RecQ1- 795-2T G-quadruplex - ADP complex
+9IHE       | 0.849 | 16356.3 | Protein-Comp/Wrapped | Nucleosome core particle bound by two molecules of DTT-reduced native monomeric myeloperoxidase
+9IX4       | 0.968 |  3400.8 | Protein-Comp/Wrapped | Cryo-EM structure of Lactobacillus casei DdmD dimer bound with DNA
+9J0N       | 0.878 |  7761.2 | Protein-Comp/Wrapped | Paused elongation complex of mammalian RNA polymerase II with nucleosome (PEC2-nuc)
+9J8M       | 0.907 | 10966.1 | Protein-Comp/Wrapped | Cryo-EM structure of BAF-Lamin A/C IgF-nucleosome complex (High mobility complex)
+9J8N       | 0.805 | 15155.3 | Protein-Comp/Wrapped | Cryo-EM structure of BAF-Lamin A/C IgF-nucleosome complex (Low mobility complex)
+9JAO       | 0.917 |  9858.5 | Protein-Comp/Wrapped | The structure of SMARCAD1 bound to the hexasome in the presence of ADP-BeFx
+9JH7       |  FAIL |     N/A | Failed Quality       | Cryo-EM structure of CpAgo in complex with the 5'-P guide DNA.
+9JHK       | 0.891 |   143.9 | Canonical-Duplex     | Cryo-EM structure of CpAgo_gDNA-tg_dsDNA monomeric ternary complex
+9JHM       | 0.904 |    81.3 | Canonical-Duplex     | Cryo-EM structure of CpAgo_gDNA-tg_bubble_dsDNA monomeric ternary complex
+9JHN       | 0.800 |   425.2 | Canonical-Duplex     | Cryo-EM structure of CpAgo_gDNA-tg_bubble_dsDNA dimeric ternary complex
+9JI3       | 0.876 |  1415.2 | Protein-Comp/Wrapped | Cryo-EM structure of Mycobacterium tuberculosis transcription activation complex with two PhoP molecules
+9JNT       | 0.853 | 15468.0 | Protein-Comp/Wrapped | Structure of isw1-nucleosome complex in ADP* state
+9JNW       | 0.854 | 15758.6 | Protein-Comp/Wrapped | Structure of isw1-nucleosome complex in ADP+ state
+9JNX       | 0.846 | 15362.1 | Protein-Comp/Wrapped | Structure of isw1-nucleosome complex in ADP*+ state
+9JNZ       | 0.857 | 16049.2 | Protein-Comp/Wrapped | Structure of isw1-nucleosome complex in Apo state
+9JO5       | 0.839 | 15666.2 | Protein-Comp/Wrapped | Structure of isw1-nucleosome complex in ADP-B state
+9JOR       | 0.817 |   222.4 | Canonical-Duplex     | structure of phage T4 topoisomerase II central domain bound with DNA
+9K36       | 0.883 |   700.3 | Strained-Helix       | Human RNA Polymerase III de novo transcribing complex 12 (TC12)
+9K38       | 0.881 |  1069.7 | Protein-Comp/Wrapped | Human RNA Polymerase III de novo transcribing complex 6 (TC6)
+9K39       | 0.886 |   762.5 | Strained-Helix       | Human RNA Polymerase III de novo transcribing complex 8 (TC8)
+9K3V       | 0.860 |  1248.1 | Protein-Comp/Wrapped | Human RNA Polymerase III de novo transcribing complex 4 (TC4)
+9K42       | 0.845 | 14946.0 | Protein-Comp/Wrapped | Cryo-EM structure of Arabidopsis thaliana H2A-nucleosome with 147bp Widom 601 DNA (C2 symmetry)
+9KD9       | 0.883 |   952.7 | Strained-Helix       | The structure of RNA polymerase II elongation complex paused at N-5 state by actinomycin D.
+9L22       | 0.902 |  5436.6 | Protein-Comp/Wrapped | hDEK-nucleosome complex (conformation 2)
+9LKT       | 0.883 |   703.4 | Strained-Helix       | Human RNA Polymerase III de novo transcribing complex 10 (TC10)
+9LPA       | 0.945 |   325.3 | Canonical-Duplex     | The cryo-EM structure of retron Eco8 in an active state
+9M7Y       | 0.863 |   538.6 | Strained-Helix       | Cryo-EM structure of gp79-dependent RNAP promoter open complex
+9MJ5       | 0.844 |   583.2 | Strained-Helix       | Catalytic domain of human DNA polymerase alpha in complex with DNA and RPA
+9MMK       | 0.844 | 17381.0 | Protein-Comp/Wrapped | H2AX containing nucleosome, Canonical (Class 1)
+9MMM       | 0.752 | 11295.3 | Protein-Comp/Wrapped | H2AX containing nucleosomes, Parallel stack
+9MMN       | 0.827 | 16366.6 | Protein-Comp/Wrapped | H2AX containing nucleosomes, Left offset stack
+9MMO       | 0.829 |  9564.3 | Protein-Comp/Wrapped | H2AX containing nucleosomes, Right offset stack
+9MPP       | 0.896 |  5557.6 | Protein-Comp/Wrapped | The cryo-EM structure of nucleosome-bound DNA methyltransferases DNMT3A2 and DNMT3L
+9MU2       | 0.945 |    37.3 | Canonical-Duplex     | SaPI1 neck structure with DNA, tail completion protein, and tape measure protein
+9MU4       | 0.870 |  7573.3 | Protein-Comp/Wrapped | Structure of a native Drosophila melanogaster octameric nucleosome
+9MU5       | 0.895 | 11289.0 | Protein-Comp/Wrapped | Structure of a native Drosophila melanogaster hexameric nucleosome
+9N6I       | 0.884 |  8299.8 | Protein-Comp/Wrapped | 2.61 A S.cerevisiae Chd1[L886G/L889G/L891G]-nucleosome 2:1 complex
+9P4K       | 0.964 |  7146.5 | Protein-Comp/Wrapped | The structure of Retron Eco8-SSB complex
+9QXR       | 0.898 |   709.5 | Strained-Helix       | E. coli JetABC monomer in a DNA boarding conformation
+9R04       | 0.867 | 12637.8 | Protein-Comp/Wrapped | p53 bound to the nucleosome at position SHL-5.7 (crosslinked sample)
+9R2Q       | 0.874 | 12986.2 | Protein-Comp/Wrapped | p53 bound to nucleosome at position SHL-5.7 (non-crosslinked sample)
+9S0U       | 0.909 | 11105.5 | Protein-Comp/Wrapped | State 3 MAP 3 RNA Pol II activated elongation complex with SETD2 bound to distal upstream H3
+9SJ5       | 0.862 | 15960.6 | Protein-Comp/Wrapped | Chromosomal Passenger Complex in complex with H3T3ph Nucleosome (Class1)
+9UJN       | 0.887 |  2674.3 | Protein-Comp/Wrapped | CryoEM structure of the T.thermophilus transcription initiation complex bound to ATP-C, -1 dC in the template DNA strand
+9UKN       | 0.887 |  4406.9 | Protein-Comp/Wrapped | CryoEM structure of the T.thermophilus transcription initiation complex
+9UKT       |  FAIL |     N/A | Failed Quality       | CryoEM structure of the T.thermophilus transcription initiation complex bound to Gp4A-C-U and CTP, -1 dC in the template DNA strand
+9UPW       | 0.881 |  3252.7 | Protein-Comp/Wrapped | CryoEM structure of the T.thermophilus transcription initiation complex in the presence of Gp4A, -1 dC in the template DNA strand
+9Y46       | 0.845 | 17785.8 | Protein-Comp/Wrapped | Human nucleosome structure on Nickel-NTA lipid affinity grid (C2 refinement)
+9YI6       | 1.000 | 15934.2 | Protein-Comp/Wrapped | Cryo-EM structure of yeast Mgm101 bound to 83-mer ssDNA
+9YI8       | 0.902 |    47.6 | Canonical-Duplex     | Cryo-EM structure of yeast Mgm101 bound to apparent B-form DNA
+
+================================================================================
+ACCOUNTING SUMMARY:
+  - Canonical-Duplex: 23 structures
+  - Strained-Helix: 11 structures
+  - Protein-Comp/Wrapped: 93 structures
+================================================================================

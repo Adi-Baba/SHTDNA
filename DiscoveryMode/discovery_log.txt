@@ -1,0 +1,19 @@
+# SHT Discovery Mode: Correlation Analysis Log
+Total Slices Analysis: 7367
+------------------------------
+## 1. Global Correlations (v0 vs Eta_r)
+Pearson R:  -0.26956 (P-value: 7.75373e-123)
+Spearman R: -0.46776 (P-value: 0.00000e+00)
+-> Result is STATISTICALLY SIGNIFICANT (P ~ 0).
+
+## 2. Binning Test (Concrete Evidence)
+**Group 1: Round DNA** (Eta_r <= 0.693)
+   Mean Stiffness (v0): 0.13333
+**Group 2: Flat DNA** (Eta_r >= 0.893)
+   Mean Stiffness (v0): 0.08598
+
+Difference: -0.04734
+T-Test P-value: 3.95497e-63
+CONCLUSION: The Stiffness-Flatness Relationship is REAL (Distinct Populations).
+
+[Chart Generated]: stiffness_flatness_scaling.png

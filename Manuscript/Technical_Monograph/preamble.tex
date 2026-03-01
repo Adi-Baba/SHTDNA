@@ -1,0 +1,226 @@
+% ============================================================================
+% PREAMBLE.TEX - Shared Configuration and Packages
+% ============================================================================
+
+% ============================================================================
+% DOCUMENT CLASS AND GEOMETRY
+% ============================================================================
+
+\usepackage[margin=1.2in]{geometry}
+\usepackage[T1]{fontenc}        % full accent support (required for \k, etc.)
+\usepackage[utf8]{inputenc}
+\usepackage{pmboxdraw}          % Unicode box-drawing characters in verbatim
+\usepackage[english]{babel}
+\usepackage[hidelinks]{hyperref}
+\usepackage{bookmark}
+
+% ============================================================================
+% FONTS AND TYPOGRAPHY
+% ============================================================================
+
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\onehalfspacing  % 1.5 line spacing for technical document
+
+% ============================================================================
+% MATHEMATICS AND SYMBOLS
+% ============================================================================
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}             % theorem, proof, lemma environments
+\usepackage{mathtools}
+\usepackage{bm}  % boldmath
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ============================================================================
+% FIGURES AND TABLES
+% ============================================================================
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{booktabs}  % professional tables
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{longtable} % multi-page tables
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+\captionsetup{font=small, labelfont=bf}
+
+% ============================================================================
+% CODE AND LISTINGS
+% ============================================================================
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    breaklines=true,
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+    frame=single,
+    backgroundcolor=\color{gray!10},
+    numberstyle=\tiny,
+    numbersep=5pt,
+    showstringspaces=false
+}
+
+% ============================================================================
+% REFERENCES AND CITATIONS
+% ============================================================================
+
+\usepackage{natbib}
+\usepackage{doi}
+\setcitestyle{authoryear,open={(},close={)}}
+
+% ============================================================================
+% HEADERS AND FOOTERS
+% ============================================================================
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{Shape-Height Transform for DNA}
+\fancyhead[LO]{\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+
+% ============================================================================
+% COLORS
+% ============================================================================
+
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0, 0, 0.5}
+\definecolor{darkred}{rgb}{0.5, 0, 0}
+\definecolor{darkgreen}{rgb}{0, 0.4, 0}
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+
+% ============================================================================
+% CHAPTER FORMATTING
+% ============================================================================
+
+\usepackage[explicit]{titlesec}
+
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge #1}
+  
+\titleformat{\section}[hang]
+  {\normalfont\large\bfseries}
+  {\thesection}
+  {8pt}
+  {#1}
+
+\titleformat{\subsection}[hang]
+  {\normalfont\normalsize\bfseries}
+  {\thesubsection}
+  {8pt}
+  {#1}
+
+% ============================================================================
+% BOX ENVIRONMENTS
+% ============================================================================
+
+\usepackage{tcolorbox}
+
+% Highlight important claims
+\newtcolorbox{highlight}{
+  colback=yellow!10,
+  colframe=orange!50,
+  boxrule=1pt,
+  left=5mm,
+  right=5mm,
+  top=3mm,
+  bottom=3mm
+}
+
+% Key result box
+\newtcolorbox{keyresult}{
+  colback=blue!10,
+  colframe=blue!50,
+  boxrule=1.5pt,
+  left=5mm,
+  right=5mm,
+  top=3mm,
+  bottom=3mm
+}
+
+% Warning box
+\newtcolorbox{warning}{
+  colback=red!10,
+  colframe=red!50,
+  boxrule=1pt,
+  left=5mm,
+  right=5mm,
+  top=3mm,
+  bottom=3mm
+}
+
+% ============================================================================
+% CUSTOM ENVIRONMENTS
+% ============================================================================
+
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*}
+\setlist[enumerate]{leftmargin=*}
+
+% Test case environment
+\newcounter{testcasecount}
+\newenvironment{testcase}[1]{
+  \refstepcounter{testcasecount}
+  \vspace{0.5cm}
+  \noindent\textbf{Test Case \arabic{testcasecount}: #1}\\
+  \begin{itshape}
+}{
+  \end{itshape}
+  \vspace{0.3cm}
+}
+
+% ============================================================================
+% INDEX
+% ============================================================================
+
+\usepackage{makeidx}
+\makeindex
+
+% ============================================================================
+% MISCELLANEOUS
+% ============================================================================
+
+\usepackage{lipsum}  % for placeholder text if needed
+\usepackage{siunitx}  % for units
+\usepackage{textcomp}
+\usepackage{comment}
+\usepackage{todo}  % for \todo notes
+
+% ============================================================================
+% HYPHENATION AND LINE BREAKS
+% ============================================================================
+
+\raggedbottom
+\hyphenpenalty=10000
+\exhyphenpenalty=10000

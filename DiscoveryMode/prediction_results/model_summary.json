@@ -1,0 +1,29 @@
+{
+  "model": "RandomForestClassifier",
+  "n_labeled": 33,
+  "n_unlabeled": 32,
+  "features": [
+    "vij_mean",
+    "shambhian_mean",
+    "mamton_mean"
+  ],
+  "classes": [
+    "free_duplex",
+    "non_canonical",
+    "nucleosome",
+    "protein_bound"
+  ],
+  "cross_val_accuracy": 0.9095238095238095,
+  "cross_val_std": 0.11703053073756672,
+  "feature_importance": {
+    "vij_mean": 0.2579607927131983,
+    "shambhian_mean": 0.32901062319401325,
+    "mamton_mean": 0.41302858409278853
+  },
+  "predictions": {
+    "nucleosome": 0,
+    "protein_bound": 3,
+    "free_duplex": 25,
+    "non_canonical": 4
+  }
+}

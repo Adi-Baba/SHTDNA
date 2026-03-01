@@ -1,0 +1,5 @@
+Mean Roughness (A-tracts): 70.5296 Mmt
+Mean Roughness (Others):   3438.9593 Mmt
+Difference: -3368.4297 Mmt
+P-value: 0.0000e+00
+Conclusion: EVIDENCE FOUND

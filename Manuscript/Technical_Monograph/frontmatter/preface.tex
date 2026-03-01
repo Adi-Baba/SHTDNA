@@ -1,0 +1,98 @@
+% ============================================================================
+% PREFACE
+% ============================================================================
+
+This monograph documents the complete mathematical framework, computational implementation, and comprehensive validation of the Shape-Height Transform (SHT) for DNA. It is intended as a definitive technical reference for researchers seeking to understand, reproduce, or extend this work.
+
+\section*{Purpose of this Document}
+
+The SHT framework represents 18 months of development combining theoretical geometry, computational implementation, and rigorous statistical validation. While a condensed research paper communicates key discoveries to a broad audience, this monograph preserves the complete evidence base:
+
+\begin{itemize}
+    \item Every mathematical equation fully derived from first principles
+    \item Every validation test documented with raw results and interpretation
+    \item Every computational detail provided for reproduction
+    \item Every claim explicitly backed by quantitative evidence
+\end{itemize}
+
+This level of documentation creates an archival record useful for:
+\begin{enumerate}
+    \item \textbf{Critical evaluation:} Others can verify claims through independent reproduction
+    \item \textbf{Extension:} Future developers have complete implementation details
+    \item \textbf{Teaching:} The mathematical framework is explicit enough for pedagogy
+    \item \textbf{Integration:} Other tools can incorporate SHT as a validated component
+\end{enumerate}
+
+\section*{Organization}
+
+\textbf{Part I: Theoretical Foundation} establishes the mathematical basis. We move from PDB structure to height function to local tangent frames to cross-sectional geometry, deriving each unit's definition from differential geometry and physical principle.
+
+\textbf{Part II: Computational Implementation} provides algorithms and code. Key parameters (slice thickness, spline knots) are justified with sensitivity analysis. Edge cases and numerical stability considerations are addressed.
+
+\textbf{Part III: Comprehensive Validation} is the evidence core. For each unit, we test against known cases (straight DNA, nucleosomes, protein-bound), measure discrimination across functional classes, and compare to established tools. All statistical tests are fully reported.
+
+\textbf{Part IV: Discoveries and Applications} document the novel Vij-Mamton coupling ($r = 0.83$), the four geometric states, the 91\% functional classifier, and biological implications.
+
+\textbf{Part V: Conclusions} summarize evidence strength, acknowledge limitations, and outline future directions.
+
+\section*{Target Audience}
+
+This monograph is written for:
+\begin{itemize}
+    \item Structural bioinformaticians seeking detailed geometric characterization methods
+    \item Computational biophysicists interested in DNA modeling and prediction
+    \item Researchers implementing or extending SHT
+    \item Skeptics requiring complete evidence before accepting claims
+\end{itemize}
+
+It assumes undergraduate-level mathematics (calculus, linear algebra) and biochemistry (DNA structure, PDB format).
+
+\section*{Reading Guide}
+
+\begin{itemize}
+    \item \textbf{Executive summary:} Read Abstract + Chapter 1 (Introduction) + Chapter 10 (Summary of Evidence)
+    \item \textbf{Methods-focused:} Read Parts II and III (Implementation and Validation)
+    \item \textbf{Theory-focused:} Read Part I (Theoretical Framework)
+    \item \textbf{Results-focused:} Read Part IV (Discovered Relationships)
+    \item \textbf{Complete understanding:} Read cover-to-cover in presented order
+\end{itemize}
+
+\section*{Data and Code Availability}
+
+All source code is publicly available at:
+\begin{center}
+    \textbf{GitHub:} \href{https://github.com/Adi-Baba/SHTDNA}{github.com/Adi-Baba/SHTDNA} \\
+    \textbf{License:} MIT (open source)
+\end{center}
+
+The raw PDB structural data are not redistributed here; they can be downloaded directly from the Protein Data Bank (\href{https://www.rcsb.org}{rcsb.org}) using the structure IDs listed in Appendix~\ref{sec:appendix_dataset}.
+
+\section*{How to Cite}
+
+If you use SHT in your work, please cite:
+
+\begin{quote}
+[Author]. Shape-Height Transform for DNA: Mathematical Framework and Comprehensive Validation of Three Orthogonal Geometric Units. Technical Monograph, 2026.
+\end{quote}
+
+And provide the Zenodo DOI for version specificity.
+
+\section*{Acknowledgments}
+
+This work was independently conceived, designed, and executed by the author. All code, analysis pipelines, mathematical frameworks, and experimental design are original solo contributions. Structural data are sourced from the Protein Data Bank (PDB).
+
+\section*{Monograph Metadata}
+
+\begin{tabular}{ll}
+    \toprule
+    \textbf{Document} & Shape-Height Transform for DNA (Technical Monograph) \\
+    \textbf{Version} & 1.0 \\
+    \textbf{Date} & March 2026 \\
+    \textbf{Figures} & 8 (generated) \\
+    \textbf{Tables} & 20+ (data tables in appendices) \\
+    \textbf{Equations} & 50+ \\
+    \textbf{References} & 120+ \\
+    \bottomrule
+\end{tabular}
+
+\newpage

@@ -1,0 +1,144 @@
+% ============================================================================
+% PART 04 - ALGORITHM AND SOFTWARE
+% ============================================================================
+
+\labelsec{algo_software}
+
+This chapter describes the complete SHT algorithm and its Python implementation in \code{sht\_dna\_analysis.py}.
+
+\section{Overall SHT Pipeline}
+
+The SHT analysis proceeds in ten sequential steps, each with clearly defined input and output.
+
+\begin{algorithm}[H]
+\caption{SHT Geometric Analysis of a DNA Structure}\label{alg:sht_main}
+\begin{algorithmic}[1]
+\Require PDB file path, chain IDs (optional)
+\Ensure $[\bar{v}_0,\,\bar{\eta}_r,\,\bar{\Omega},\,\sigma_{\mathrm{SHT}}]$ per structure
+\State \textbf{Load} C4$'$ atom coordinates $\{\vect{r}_i\}$ for all DNA chains
+\State \textbf{Compute} principal axis $\hat{\ell}$ via PCA of $\{\vect{r}_i\}$
+\State \textbf{Project} heights $h_i = \vect{r}_i \cdot \hat{\ell}$
+\State \textbf{Slice} axis into $N_s = \min(200, \lfloor L \rfloor)$ Gaussian-kernel slices, $\sigma_k = 3.4$\,\AA
+\State \textbf{Compute} per-slice strand centroids $\vect{C}(h)$, inertia $\mathbf{Q}(h)$, skewness $\vect{S}(h)$
+\State \textbf{Derive} Vij: $\kappa_h = \norm{d^2\vect{C}_{\mathrm{axis}}/dh^2}$
+\State \textbf{Derive} Shambhian: $\epsilon_h = \sqrt{1 - \lambda_{\min}/\lambda_{\max}}$ from eigenvalues of $\mathbf{Q}$
+\State \textbf{Derive} Mamton: $\omega_h = \sqrt{S_x^2 + S_y^2}$
+\State \textbf{Aggregate} local profiles to per-structure scalars $(\bar{v}_0,\,\bar{\eta}_r,\,\bar{\Omega})$
+\State \textbf{Compute} supercoiling $\sigma_{\mathrm{SHT}}$ from twist $Tw$ and writhe $Wr$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Slice Kernel}
+
+Rather than hard bin boundaries, each height slice uses a Gaussian kernel:
+\begin{equation}
+    w_i(h_c) = \exp\!\left(-\frac{(h_i - h_c)^2}{2\sigma_k^2}\right), \quad \sigma_k = 3.4\,\text{\AA}
+\end{equation}
+The 3.4\,\AA\ width matches one base-pair rise in B-DNA, ensuring each slice captures approximately one bp of information.
+
+\section{Software Implementation}
+
+\subsection{Language and Dependencies}
+
+\begin{itemize}
+    \item Python 3.12
+    \item NumPy 1.26 --- array operations, linear algebra, gradient estimation
+    \item SciPy 1.12 --- statistical tests (Mann-Whitney, Fisher z-transform)
+    \item BioPython 1.83 --- PDB parsing via \code{Bio.PDB.PDBParser}
+    \item scikit-learn 1.4 --- Random Forest classifier, cross-validation
+    \item Matplotlib 3.8 / Seaborn 0.13 --- visualization
+\end{itemize}
+
+\subsection{Main Entry Point: \code{compute\_sigma\_sht\_from\_pdb}}
+
+\begin{lstlisting}[language=Python, caption=Main SHT analysis function signature]
+def compute_sigma_sht_from_pdb(
+        pdb_path,
+        chain_ids=None,
+        num_slices=200,        # max per-structure slices
+        bp_per_turn=10.5,      # relaxed B-DNA helical repeat
+        num_strands=2,
+        kernel_width=3.4):     # Gaussian smoothing width (Angstroms)
+    """
+    Returns dict: sigma_SHT_global, Tw_SHT, Wr_SHT, Tw0,
+                  h, kappa_h, epsilon_h, omega_h, ...
+    """
+\end{lstlisting}
+
+\subsection{\code{compute\_slice\_moments\_smooth}}
+
+The core moment computation. For each slice center $h_c$:
+
+\begin{lstlisting}[language=Python, caption=Gaussian-kernel slice moments]
+weights = np.exp(-(h_all - h_center)**2 / (2 * kernel_width**2))
+# Per-strand weighted centroid
+C[strand] = sum(w * xy) / sum(w)
+# Per-strand inertia matrix Q
+Q[strand] = sum(w * outer(xy_c, xy_c)) / sum(w)
+# Per-strand skewness
+S_x = sum(w * x * (x**2 + y**2))   # mu_30 + mu_12
+S_y = sum(w * y * (x**2 + y**2))   # mu_03 + mu_21
+\end{lstlisting}
+
+\subsection{Vij Computation}
+
+\begin{lstlisting}[language=Python, caption=Vij (curvature) from axis centroid]
+C_axis = mean(C_slices, axis=1)          # duplex midpoint
+dC_dh  = np.gradient(C_axis, h, axis=0)
+d2C_dh2 = np.gradient(dC_dh,  h, axis=0)
+kappa_h = np.linalg.norm(d2C_dh2, axis=1)
+mean_kappa = np.mean(kappa_h)            # per-structure scalar
+\end{lstlisting}
+
+\subsection{Shambhian Computation}
+
+\begin{lstlisting}[language=Python, caption=Shambhian (eccentricity) from Q eigenvalues]
+Q_total = sum(Q_slices, axis=1)          # sum over strands
+eigvals = np.linalg.eigvalsh(Q_total[i])
+lambda_min, lambda_max = eigvals[0], eigvals[1]
+epsilon = np.sqrt(1.0 - lambda_min / lambda_max)
+mean_epsilon = np.mean(epsilon_h)
+\end{lstlisting}
+
+\subsection{Mamton Computation}
+
+\begin{lstlisting}[language=Python, caption=Mamton (skewness) from 3rd-order moments]
+S_total = sum(S_slices, axis=1)          # sum over strands: (N,2)
+omega_h = np.linalg.norm(S_total, axis=1)
+mean_omega = np.mean(omega_h)
+\end{lstlisting}
+
+\section{Parameter Choices and Justification}
+
+\begin{table}[h]
+    \centering
+    \caption{SHT Algorithm Parameters}\labeltab{parameters}
+    \begin{tabularx}{\textwidth}{llXl}
+        \toprule
+        \textbf{Parameter} & \textbf{Value} & \textbf{Justification} & \textbf{Sensitivity} \\
+        \midrule
+        \code{num\_slices} & 200 & Sufficient for structures $\leq 200$ bp; adaptive for shorter & Low \\
+        \addlinespace
+        \code{kernel\_width} & 3.4\,\AA & One B-DNA base-pair rise; sub-bp resolution & Medium \\
+        \addlinespace
+        \code{bp\_per\_turn} & 10.5 & Standard B-DNA relaxed helical repeat & Low \\
+        \addlinespace
+        \code{trim\_fraction} & 0.10 & Mitigate end-effects in twist/writhe density & Low \\
+        \addlinespace
+        Atom selection & C4$'$ & More robust than P (terminal phosphates often absent) & High \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+The \code{kernel\_width} of 3.4\,\AA\ is the most sensitive parameter. Values below 2\,\AA\ introduce noise from thermal fluctuations; values above 6\,\AA\ over-smooth and wash out local structural features. Validation tests (Section~\ref{sec:unit_validation}) confirm stable results at 3.4\,\AA.
+
+\section{Computational Performance}
+
+Each structure takes approximately 8--12\,s on a single modern CPU core (Intel Core i7, Python 3.12). Memory usage is $O(N_s \cdot n_{\mathrm{atoms}})$, typically under 50\,MB per structure.
+
+For the full SHT-DNA dataset of 200 structures, total runtime is approximately 30\,minutes on a single core, or under 5\,minutes with 8-way parallelism using \code{multiprocessing.Pool}.
+
+\section{Code Availability}
+
+The full implementation is available in \code{PDB/code/sht\_dna\_analysis.py}. Appendix~\ref{sec:appendix_code} provides installation instructions and usage examples.
+

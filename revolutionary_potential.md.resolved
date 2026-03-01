@@ -1,0 +1,35 @@
+# SHT-DNA: The Revolutionary Potential
+
+## Have we extracted everything?
+**No.** We have merely built the **instruments**.
+We now have three "Senses" to feel the DNA molecule:
+1.  **Sight (Vij / $v_0$)**: We see how it bends.
+2.  **Touch (Shambhian / $\eta_r$)**: We feel if it is flat or round.
+3.  **Texture (Mamton / $\Omega$)**: We feel the roughness of the grooves.
+
+## The "Unknown" & Revolutionary Frontiers
+The combination of these units creates a **High-Dimensional Shape Signal** that no other method possesses. Here lies the potential for discovery:
+
+### 1. The "Mechanical Code" of Genetics
+*   **Hypothesis:** The genetic code is not just chemical (A/T/G/C) but **mechanical**.
+*   **Revolutionary Application:** We can potentially "read" the sequence purely from the $\Omega$ (Mamton) and $\eta_r$ (Shambhian) signals.
+*   **Test:** Train a model to predict the *Sequence* from the *SHT-Shape* alone. If possible, this proves DNA operates as a physical key-lock mechanism, not just a chemical template.
+
+### 2. Coupled Mechanics (The "Breathing-Bending" Link)
+*   **Hypothesis:** DNA does not just bend; it *deforms* to bend.
+*   **Question:** When DNA bends (High Vij), does it flatten (High Shambhian)?
+*   **Revolutionary Insight:** Standard models (Worm-Like Chain) treat DNA as a flexible rod. If we prove $v_0$ correlates with $\eta_r$, we prove DNA behaves like a **complex ribbon**, invalidating simple elastic rod theories used in biology for 50 years.
+
+### 3. "Dark" States & Drug Fingerprinting
+*   **Hypothesis:** Drugs don't just "bind"; they create unique **Shape-Scars**.
+*   **Application:** We can fingerprint every drug (Cisplatin, Doxorubicin) by its signature vector $[\Delta v_0, \Delta \eta_r, \Delta \Omega]$.
+*   **Revolutionary:** Designing drugs that induce specific *mechanical* stress to kill cancer cells, rather than just chemical blocking.
+
+## Next Strategic Step: The "SHT-Signature" Matrix
+We need to **Merge** our sensors.
+We must create a master script `extract_full_signature.py` that runs **ALL** modes (Curvature, Eccentricity, Roughness) on the same files and builds a **Correlation Matrix**.
+
+**Proposed Experiment:**
+1.  Merge the data.
+2.  Plot **Vij vs. Shambhian Twist**.
+3.  If we see a correlation, we have discovered a fundamental mechanical law of DNA.

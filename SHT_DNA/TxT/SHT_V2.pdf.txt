@@ -1,0 +1,234 @@
+Root Recovery from the Shape–Height Trans-
+form: Explicit Formulas and Derivation
+1. Setup: SHT recapped very briefly
+Given a functionfand a heighth, consider the region(s) between the curve
+and the horizontal liney=h. For each connected interval [x 2j−1(h), x2j(h)]
+wheref(x)≤h, define:
+•Area of capj:
+A(j)
+f (h) =
+Z x2j (h)
+x2j−1(h)
+(h−f(x))dx,
+•First moment of capj:
+M(j)
+f (h) =
+Z x2j (h)
+x2j−1(h)
+x(h−f(x))dx.
+The multi-interval SHT offis the entire family
+S∗(f) ={(A (j)
+f (h), M(j)
+f (h)) :h∈R, j= 1, . . . , n(h)}.
+For each capjat heighthwe define:
+–Width:W (j)
+f (h) =x 2j(h)−x 2j−1(h),
+–Center:C (j)
+f (h) = x2j−1(h)+x2j (h)
+2 .
+1
+A fundamental calculus identity (proved earlier) is:
+d
+dhA(j)
+f (h) =W (j)
+f (h),(1)
+d
+dhM(j)
+f (h) = x2j(h)2 −x 2j−1(h)2
+2 .(2)
+From these we get:
+W(j)
+f (h) =A (j)′
+f (h),(3)
+C(j)
+f (h) = M(j)′
+f (h)
+A(j)′
+f (h)
+.(4)
+Then the endpoints (i.e., intersection points withy=h) are:
+x2j−1(h) =C (j)
+f (h)− W(j)
+f (h)
+2 , x 2j(h) =C (j)
+f (h) + W(j)
+f (h)
+2 .(5)
+These are already explicit equations in terms of SHT.
+2. Root-finding with SHT: general idea
+To find roots of the equation
+f(x) =c,
+1. Look at SHT at heighth=c,
+2
+2. ComputeA (j)
+f (c) andM (j)
+f (c) for all capsj,
+3. Plug into (3)–(5).
+Every endpointx 2j−1(c) orx 2j(c) is a solution off(x) =c. No limits
+needed, as long asfcrosses the levelctransversely (i.e.,f ′(x)̸= 0 at
+those points), andA (j)
+f ,M (j)
+f are differentiable atc.
+If you want ordinary “roots of the function” (i.e.,f(x) = 0), just take
+c= 0.
+Formally:
+Theorem 1(Root Recovery Formula from SHT (multi-interval case)).
+Supposefis piecewise convex with finitely many valleys, andcis a
+regular value (all intersections ofy=f(x)withy=care transversal).
+For each capjat heightc:
+W(j)
+f (c) =A (j)′
+f (c), C (j)
+f (c) = M(j)′
+f (c)
+A(j)′
+f (c)
+,
+and the two roots in that cap are
+x2j−1(c) =C (j)
+f (c)− 1
+2A(j)′
+f (c), x 2j(c) =C (j)
+f (c) + 1
+2A(j)′
+f (c).
+This is the high-level equation. Now I’ll make it more explicit and
+systematic.
+3
+3. Detailed derivation: single-valley functions (C 1)
+Assumef∈ C 1, strictly convex with a single minimum, and that the
+levelclies above the minimum so that there are exactly two rootsr 1, r2
+solvingf(x) =c.
+At heighth:
+–There is exactly one cap (so we dropjindices),
+–The cap endpoints coincide with the roots:
+a(c) =r 1, b(c) =r 2.
+By definition:
+A(h) =
+Z b(h)
+a(h)
+(h−f(x))dx.
+Differentiate ath=c:
+A′(c) =b(c)−a(c) =r 2 −r 1.(6)
+Similarly:
+M(h) =
+Z b(h)
+a(h)
+x(h−f(x))dx,
+M′(c) = b(c)2 −a(c) 2
+2 = r2
+2 −r 2
+1
+2 .(7)
+4
+Define:
+W(c) =A ′(c), C(c) = M′(c)
+A′(c) .
+Check that:
+C(c) = r2
+2 −r 2
+1
+2(r2 −r 1) = (r2 −r 1)(r2 +r 1)
+2(r2 −r 1) = r1 +r 2
+2 .(8)
+Hence the roots are:
+r1 =C(c)− W(c)
+2 , r 2 =C(c) + W(c)
+2 .(9)
+Plug in the definitions ofW(c) andC(c):
+r1 = M′(c)
+A′(c) − A′(c)
+2 , r 2 = M′(c)
+A′(c) + A′(c)
+2 .(10)
+These are explicit formulas for the two solutions off(x) =cin
+terms of SHT derivatives at heightc.
+Specialising to ordinary roots (equationf(x) = 0), you simply
+setc= 0:
+Corollary 1(Single-valley root formulas via SHT).Letf∈ C 1
+and supposefhas exactly two rootsr 1, r2. LetA(h), M(h)be the
+5
+SHT area and moment with the liney=h. Then:
+W0 :=A ′(0) =r 2 −r 1, C 0 := M′(0)
+A′(0) = r1 +r 2
+2 ,
+r1 =C 0 − W0
+2 , r 2 =C 0 + W0
+2 .
+This is as explicit and compact as you can get.
+4. Detailed derivation: multi-valley roots (C pw)
+Now letf∈ C pw (piecewise convex, finitely many valleys), and
+fix a levelc.
+Assume:
+∗The levelcintersects the graphy=f(x) in 2npoints:
+r1 < r2 <···< r 2n,
+∗At heighth, for each capj:
+A(j)(h) =
+Z r2j (h)
+r2j−1(h)
+(h−f(x))dx.
+We haveA (j)(c) = 0 and
+A(j)′(c) =r 2j(c)−r 2j−1(c) =r 2j −r 2j−1.(11)
+6
+Similarly, for the first moment:
+M(j)′(c) = r2
+2j −r 2
+2j−1
+2 .(12)
+Define:
+Wj :=A (j)′(c) =r 2j −r2j−1, C j := M(j)′(c)
+A(j)′(c) = r2j−1 +r 2j
+2 .
+(13)
+Then each pair of roots in capjis:
+r2j−1 =C j − Wj
+2 , r 2j =C j + Wj
+2 .(14)
+So every root at levelcis obtained from the derivatives of
+the area and moment components:
+A(j)′(c), M(j)′(c).
+If the target “roots” are forf(x) = 0, setc= 0.
+Theorem 2(Multi-valley root formulas via SHT ∗).Let
+f∈ Cpw, and suppose levelcis regular (transversal inter-
+sections). For each capjat heightc:
+Wj =A (j)′(c), C j = M(j)′(c)
+A(j)′(c) ,
+7
+r2j−1 =C j − Wj
+2 , r 2j =C j + Wj
+2 .
+In particular, forc= 0, this recovers the usual real roots of
+f, including multiple disjoint clusters of roots separated by
+humps.
+5. Accuracy and “any function” caveat
+Mathematically, the formulas above are exact under these
+conditions:
+1.fis in the appropriate class (C 1 orC pw),
+2. The levelcis a regular value (no tangential intersec-
+tions; i.e.f ′(x)̸= 0 at roots),
+3.A (j) andM (j) are differentiable atc, which holds au-
+tomatically under ourC 1 and regularity assumptions.
+In practice:
+·If SHT is known analytically, the root formulas (10)
+and (14) give exact symbolic expressions.
+·If SHT is known numerically (from data or sampling),
+then:
+·You approximateA (j)′(c) andM (j)′(c) numerically,
+8
+·Substitute into (10)/(14),
+·Root estimates converge with the accuracy of your
+derivative approximations.
+Strictly speaking, we are not covering “any conceivable func-
+tion” (e.g., wildly oscillatory or discontinuous ones). But for
+the large and important class of smooth, piecewise-convex,
+bowl-like functions with finitely many wells, the answer is:
+Yes, you can derive explicit, detailed equations
+to determine roots from SHT alone. Those equa-
+tions are:
+r2j−1(c) = M(j)′(c)
+A(j)′(c) −A(j)′(c)
+2 , r 2j(c) = M(j)′(c)
+A(j)′(c) +A(j)′(c)
+2 ,
+for each capjat heightc.
+9

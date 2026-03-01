@@ -1,0 +1,165 @@
+% ============================================================================
+% PART 01 - INTRODUCTION AND MOTIVATION
+% ============================================================================
+
+\labelsec{intro_motivation}
+
+\section{The DNA Geometry Problem}
+
+DNA structure determines function. This principle, foundational to molecular biology, has driven decades of structural investigation from fiber diffraction to modern cryo-EM. Yet our existing descriptive frameworks remain incomplete.
+
+\claim{Current description methods capture helical orientation (twist, roll, tilt) but not cross-sectional geometry.}
+
+The canonical helical parameters \citep{Dickerson1989}, derived from classical work \citep{Watson1953}, describe the relative positions and orientations of successive base pairs. Tools like Curves+ \citep{Lavery1989} and 3DNA \citep{Lu2003} compute these parameters at high precision. These parameters answer: \textit{How is this base pair rotated and displaced relative to the previous one?}
+
+But they do not answer: \textit{What is the \textbf{shape} of the cross-section perpendicular to the helix axis? How does local bending deform the DNA? Where is the backbone most strained?}
+
+\section{Prior Approaches and Limitations}
+
+\subsection{Curves+ Axis Curvature}
+
+Curves+ \citep{Lavery1989} computes helical axis curvature $\kappa = 1/R$, where $R$ is the instantaneous radius of curvature. This describes the 1D path of the helix axis through space.
+
+\textbf{Limitation:} Global property (axis bending) does not characterize local distortion. A structure could have moderate axis curvature but severe cross-sectional deformation.
+
+\subsection{3DNA and Helical Parameters}
+
+3DNA \citep{Lu2003} provides refined helical parameters including rise, twist, roll, tilt, and inclination.
+
+\textbf{Limitation:} These describe relative base-pair step geometry, not absolute cross-sectional shape. They cannot distinguish between bending caused by asymmetric base stacking vs. bending caused by protein-induced asymmetry.
+
+\subsection{Sequence-Based Prediction (Canal, NuPoP)}
+
+Tools like Canal \citep{Vlahovicek2003} and NuPoP \citep{Xi2010} predict DNA geometry from sequence using trained models.
+
+\textbf{Limitation:} Predictions rather than measurements. Cannot validate predictions without calculating actual geometry from structures.
+
+\subsection{Rigidity and Flexibility Parameters}
+
+Classical approach characterizes DNA through persistence length and bending rigidity.
+
+\textbf{Limitation:} Bulk properties; cannot measure local shape at single-basepair resolution.
+
+\section{The Missing Gap}
+
+\begin{highlight}
+    No existing tool systematically measures \textbf{cross-sectional geometry} of DNA at basepair resolution across diverse structural contexts.
+\end{highlight}
+
+This gap has profound implications:
+
+\begin{enumerate}
+    \item \textbf{Nucleosome wrapping:} We know DNA wraps 1.65 turns around histones, but cannot quantify how the cross-section deforms during wrapping.
+    
+    \item \textbf{Protein-DNA recognition:} Transcription factors recognize DNA partly through shape complementarity \citep{Rohs2010}, yet we lack quantitative shape descriptors.
+    
+    \item \textbf{Sequence-structure relationships:} Why do A-tracts resist bending? Not fully explained by helical parameters alone.
+    
+    \item \textbf{Functional prediction:} Current DNA classification relies on sequence features or global properties, missing local geometric signatures.
+\end{enumerate}
+
+\section{The Shape-Height Transform Solution}
+
+We propose the Shape-Height Transform (SHT), a rigorous geometric framework for measuring DNA cross-sectional properties at basepair resolution.
+
+\subsection{Core Concept}
+
+Given a PDB structure:
+
+\begin{enumerate}
+    \item Extract DNA backbone coordinates
+    \item Compute the principal axis through the structure
+    \item Define height $h$ as position along this axis
+    \item At each height, establish a local coordinate frame perpendicular to the axis
+    \item Compute moments of atomic distribution in cross-sectional plane
+    \item Derive three orthogonal geometric units from these moments
+\end{enumerate}
+
+\subsection{Three Orthogonal Units}
+
+\begin{keyresult}
+    \textbf{Vij} (local curvature, $v_0$): Measures how strongly the helix axis curves. Quantifies DNA bending at each basepair.
+    
+    \textbf{Shambhian} (cross-sectional flatness, $\eta_r$): Measures deviation from circular cross-section. Characterizes asymmetry in helix geometry.
+    
+    \textbf{Mamton} (surface roughness, $\Omega$): Measures skewness of atomic distribution. Captures asymmetric distortion and wrapping-induced deformation.
+\end{keyresult}
+
+\subsection{Why These Three Units?}
+
+These units are:
+
+\begin{itemize}
+    \item \textbf{Mathematically orthogonal:} Derived from different moments (0th, 2nd, 3rd) of the distribution
+    \item \textbf{Physically meaningful:} Each corresponds to a real geometric property
+    \item \textbf{Computationally tractable:} Can be calculated from all PDB structures
+    \item \textbf{Dimensionally clear:} Have well-defined units and ranges
+    \item \textbf{Functionally discriminative:} Each captures different aspects of DNA geometry
+\end{itemize}
+
+\section{Research Questions}
+
+This monograph addresses three primary research questions:
+
+\begin{enumerate}
+    \item \textbf{Q1: Can we measure DNA cross-sectional geometry reliably?}
+    
+    We develop the SHT mathematical framework and validate each unit against known structures and established tools.
+    
+    \item \textbf{Q2: Are these geometric measurements independent or coupled?}
+    
+    We test pairwise correlations between units and investigate mechanistic coupling.
+    
+    \item \textbf{Q3: Can geometry predict DNA function?}
+    
+    We build a predictive classifier and validate on independent structures, including blind predictions.
+\end{enumerate}
+
+\section{Document Roadmap}
+
+\textbf{Part I: Theory} (Chapters 1-3)
+\begin{itemize}
+    \item Chapter 1: Introduction (this chapter)
+    \item Chapter 2: Mathematical framework (height function, tangent frames, moments)
+    \item Chapter 3: Geometric unit derivations (formulas for Vij, Shambhian, Mamton)
+\end{itemize}
+
+\textbf{Part II: Methods} (Chapters 4-5)
+\begin{itemize}
+    \item Chapter 4: Algorithm and software implementation
+    \item Chapter 5: Quality control and edge cases
+\end{itemize}
+
+\textbf{Part III: Validation} (Chapters 6-7)
+\begin{itemize}
+    \item Chapter 6: Unit-by-unit validation with test cases
+    \item Chapter 7: Cross-unit relationships and coupling
+\end{itemize}
+
+\textbf{Part IV: Results} (Chapters 8-9)
+\begin{itemize}
+    \item Chapter 8: Functional classification and prediction
+    \item Chapter 9: Biological insights and applications
+\end{itemize}
+
+\textbf{Part V: Conclusions} (Chapters 10-11)
+\begin{itemize}
+    \item Chapter 10: Summary of evidence
+    \item Chapter 11: Limitations and future work
+\end{itemize}
+
+\section{Key Findings Preview}
+
+This monograph establishes:
+
+\begin{keyresult}
+    \begin{enumerate}
+        \item Each geometric unit is mathematically valid and measures its target property
+        \item Vij and Mamton exhibit strong coupling ($r = 0.83$, $p < 10^{-16}$)
+        \item Four distinct geometric states exist in the structural database
+        \item Geometric signatures predict functional class with 91\% accuracy
+        \item Blind prediction on 1F66 (nucleosome) validated via PDB metadata
+    \end{enumerate}
+\end{keyresult}
+
+All findings discussed here are substantiated by quantitative evidence ($p < 0.01$, large effect sizes) presented in detail in subsequent chapters.

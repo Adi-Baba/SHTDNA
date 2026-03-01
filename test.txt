@@ -1,0 +1,13 @@
+✓ Discovery Path 1: Unknown sequence motifs
+If your measurements reveal:
+
+New "mechanical codes" beyond A-tracts (e.g., "hidden rigid sequences" with intermediate η_r)
+Unexpected geometric states that predict function (e.g., Ω signatures for DNA damage sites, replication origins)
+Actionable: Scan your 1,573 structures for outliers in [v₀, η_r, Ω] space — do they correlate with annotated biology?
+✓ Discovery Path 2: Coupling mechanisms
+Your correlations suggest:
+
+v₀ ↔ η_r (stiffness-flatness): -0.47, known conceptually but you quantified it (40σ)
+Ω ↔ water: -0.78 (17.7σ in 1KX5), potentially novel mechanism
+What's missing: Does v₀ predict Ω? Does bending cause roughness or vice versa? Causal arrows matter.
+Actionable: Build a predictive model — can you predict protein binding sites from [v₀, η_r, Ω] signatures BEFORE seeing the protein?

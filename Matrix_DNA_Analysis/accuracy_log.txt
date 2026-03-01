@@ -1,0 +1,28 @@
+
+--- Validating G-Quadruplexes (N=7) ---
+139D.cif: SOLUTION STRUCTURE OF A PARALLEL-STRANDED G-QUADRUPLEX DNA
+2LUJ.cif: Solution structure of a parallel-stranded oligoisoguanine DNA pentaplex formed by d(T(iG)4T) in the presence of Cs ions
+4R44.cif: Racemic crystal structure of a tetramolecular DNA G-quadruplex
+6O71.cif: Crystal structure of Csm6 in complex with cdA4 by soaking cdA4 into Csm6
+7R06.cif: Abortive infection DNA polymerase AbiK from Lactococcus lactis
+9VDO.cif: Cryo-EM structure of the substrate bound DRT4
+9VDP.cif: Cryo-EM structure of the hexameric DRT4
+
+--- Validating Wrapped Samples (Sample of 10) ---
+7AS5.cif [Ω: 206522.0]: 126 helix bundle DNA nanostructure
+7ARV.cif [Ω: 187010.0]: TwistTower_native-twist
+7ARY.cif [Ω: 156766.0]: Twist-Tower_twist-corrected-variant
+7NZ2.cif [Ω: 155013.0]: Cryo-EM structure of the MukBEF-MatP-DNA tetrad
+9K3N.cif [Ω: 135815.0]: The structure of Salmonella phage PJNS002
+6V10.cif [Ω: 112302.0]: genome-containing AAV8 particles
+9DCC.cif [Ω: 84528.0]: The Structure of AAV5 at 55 Degrees Celsius
+9DCB.cif [Ω: 72204.0]: The Structure of AAV5 at 4 Degrees
+4YLO.cif [Ω: 67684.0]: E. coli Transcription Initiation Complex - 16-bp spacer and 4-nt RNA
+8BOT.cif [Ω: 67082.0]: Cryo-EM structure of NHEJ supercomplex(trimer)
+
+--- Validating Canonical Samples (Sample of 5) ---
+102D.cif: SEQUENCE-DEPENDENT DRUG BINDING TO THE MINOR GROOVE OF DNA: THE CRYSTAL STRUCTURE OF THE DNA DODECAMER D(CGCAAATTTGCG)2 COMPLEXED WITH PROPAMIDINE
+103D.cif: THE UNUSUAL STRUCTURE OF THE HUMAN CENTROMERE (GGA)2 MOTIF: UNPAIRED GUANOSINE RESIDUES STACKED BETWEEN SHEARED G(DOT)A PAIRS
+106D.cif: Solution structures of the i-motif tetramers of D(TCC), D(5MCCT) and D(T5MCC). Novel NOE connections between amino protons and sugar protons
+107D.cif: SOLUTION STRUCTURE OF THE COVALENT DUOCARMYCIN A-DNA DUPLEX COMPLEX
+109D.cif: VARIABILITY IN DNA MINOR GROOVE WIDTH RECOGNISED BY LIGAND BINDING: THE CRYSTAL STRUCTURE OF A BIS-BENZIMIDAZOLE COMPOUND BOUND TO THE DNA DUPLEX D(CGCGAATTCGCG)2

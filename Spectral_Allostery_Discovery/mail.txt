@@ -1,0 +1,32 @@
+Subject: Seeking feedback on a geometric approach to local DNA supercoiling
+
+
+
+Dear Dr. Das,
+
+I hope this message finds you well.
+
+I am writing to ask for your scientific opinion on a piece of work I’ve been developing on DNA and chromatin geometry. The core idea is a geometric approach that allows reconstruction of local structural and mechanical features of DNA—most notably a **spatially resolved supercoiling profile**—directly from 3D DNA conformations, without using protein coordinates or global topological invariants.
+
+In brief, the work introduces a height-indexed geometric analysis of DNA that yields:
+
+* a local supercoiling density profile along the molecule,
+* a separation between global bending and local confinement/roughness modes,
+* and the ability to detect wrapped or constrained DNA (e.g., nucleosome-like configurations) from DNA geometry alone.
+
+I am not reaching out for validation or endorsement, but because I value your perspective on DNA and chromatin mechanics. I would genuinely appreciate your assessment of whether the **biological interpretation** of these results is reasonable, and whether you see any clear biological questions or pitfalls that I may be missing.
+
+By way of brief background, I am currently a **6th semester undergraduate student (Mathematics Honours)**, with a strong interest in applying mathematical and geometric ideas to biological systems. If you feel that this line of work aligns with any ongoing or exploratory directions in your group, I would be very grateful to know whether there might be an opportunity to engage further—formally or informally—such as through an internship or short-term project. I completely understand if this is not possible.
+
+I’ve attached a small set of draft notes and figures (7–8 files) that outline:
+
+* the geometric construction,
+* the definition of a local supercoiling profile,
+* and a few structural examples illustrating the biological signal.
+
+If this is not within your area or not of interest, I completely understand. But if you do have time to glance at it, even high-level critical feedback would be extremely valuable to me at this stage.
+
+Thank you very much for your time and consideration.
+
+Best regards,
+Aditya

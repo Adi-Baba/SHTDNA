@@ -1,0 +1,43 @@
+# Virtual environment
+.venv/
+
+# PDB raw structural data (8.9 GB — download from rcsb.org)
+PDB/dataset/hard_dataset/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Julia compiled artifacts
+*.ji
+*.so
+
+# LaTeX build artefacts
+*.aux
+*.log
+*.toc
+*.out
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.lof
+*.lot
+*.dvi
+
+# Editor / OS
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/settings.json
+
+# Large generated outputs (keep small CSVs, exclude bulk output)
+PDB/sht_analysis_output/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/

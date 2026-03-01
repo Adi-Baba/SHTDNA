@@ -1,0 +1,12 @@
+# Dimensionality Reduction Analysis
+
+Explained Variance (PC1+PC2): 83.41%
+
+## Loadings
+                      PC1       PC2       PC3
+v0_Curvature     0.749794 -0.079035  0.656934
+Eta_r_Shambhian -0.346682  0.798726  0.491781
+Omega_Mamton     0.563579  0.596481 -0.571480
+
+## Conclusion
+System is effectively 2D. (Success)

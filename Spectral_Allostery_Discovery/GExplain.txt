@@ -1,0 +1,131 @@
+================================================================================
+Explanation of Spectral Roughness Figures (102D, 1AOI, 1CGP)
+================================================================================
+
+These figures illustrate longitudinal and statistical properties of the
+spectral roughness (Ω) measured along DNA molecules using the Matrix-SHT
+anaylsis. The three structures shown represent distinct biological states:
+
+- 102D : canonical naked DNA (structural control)
+- 1AOI : nucleosomal DNA (strong protein-mediated confinement)
+- 1CGP : CAP–DNA complex (regulatory protein binding)
+
+Each figure highlights a different aspect of DNA mechanical organization.
+
+--------------------------------------------------------------------------------
+Figure 1: Longitudinal Spectral Roughness Profiles (Raw Ω)
+--------------------------------------------------------------------------------
+
+This plot shows the raw spectral roughness Ω as a function of axial position h
+along each DNA molecule.
+
+Key observations:
+- Canonical DNA (102D) exhibits low and relatively uniform Ω values.
+- Nucleosomal DNA (1AOI) shows Ω values that are orders of magnatude higher,
+  reflecting strong confinement and wrapping by histone proteins.
+- The regulatory complex (1CGP) lies between these two extremes, with localized
+  regions of elevated Ω.
+
+Interpretation:
+Spectral roughness captures the degree of transverse mass asymmetry. Protein
+binding and wrapping dramatically amplify this asymmetry and introduce strong
+spatial structure along the DNA.
+
+--------------------------------------------------------------------------------
+Figure 2: Log-Scaled Spectral Roughness (Comparative)
+--------------------------------------------------------------------------------
+
+The same longitudinal profiles are shown on a log10 scale.
+
+Key observations:
+- Log scaling reveals internal stucture within each complex that is not visable
+  on a linear scale.
+- 1CGP shows pronounced fluctuations and plateaus, indicating localized
+  mechanical modulation.
+- 102D remains relatively flat, consistent with a mechanically uniform duplex.
+
+Interpretation:
+Log scaling allows comparison across biological states spanning several orders
+of magnitude in Ω, and justifies the use of logarithmic measures in downstream
+analysis.
+
+--------------------------------------------------------------------------------
+Figure 3: Normalized Mechanical Signal Profiles (Ω / ⟨Ω⟩)
+--------------------------------------------------------------------------------
+
+Each Ω profile is normalized by its mean value, highlighting shape and spatial
+organization rather than absolute magnitude.
+
+Key observations:
+- Nucleosomal DNA (1AOI) exhibits broad, sustained regions of elevated signal,
+  suggesting long-range mechanical organziation.
+- Regulatory DNA (1CGP) shows sharp, localized peaks, consistent with focused
+  functional perturbations.
+- Canonical DNA (102D) fluctuates near unity with minimal structure.
+
+Interpretation:
+After removing trivial scale differences, distinct patterns of mechanical signal
+propagation remain, indicating that biological state affects not just strength
+but spatial organization of mechanical features.
+
+--------------------------------------------------------------------------------
+Figure 4: Distribution of Spectral Roughness Along DNA
+--------------------------------------------------------------------------------
+
+Histograms of log10(Ω) values sampled along each DNA molecule.
+
+Key observations:
+- 102D shows a narrow distribution, indicating mechanical uniformity.
+- 1AOI is shifted to high Ω values, reflecting strong and persistent confinement.
+- 1CGP exhibits a broader distribution, with increased variance.
+
+Interpretation:
+Functional and regulatory DNA complexes are associated with increased spectral
+heterogeneity, not merely increased average roughness.
+
+--------------------------------------------------------------------------------
+Figure 5: Mechanical Coherence Along DNA (Autocorrelation)
+--------------------------------------------------------------------------------
+
+Autocorrelation of Ω along the axial coordinate, used as a measure of mechanical
+coherence length.
+
+Key observations:
+- Canonical DNA loses corellation rapidly, indicating short-range mechanical
+  coupling.
+- Nucleosomal DNA retains correlation over much longer distances.
+- 1CGP displays intermediate behavior.
+
+Interpretation:
+Protein binding appears to extend the spatial range over which mechanical signals
+are correlated along the DNA backbone, consistent with enhanced elastic coupling
+under constraint.
+
+--------------------------------------------------------------------------------
+Figure 6: Spectral Heterogeneity — Mean vs Variance
+--------------------------------------------------------------------------------
+
+Each structure is represented by a single point showing the mean and variance of
+log10(Ω) along its length.
+
+Key observations:
+- 102D: low mean, low variance (structural baseline).
+- 1AOI: high mean, moderate variance (strong but relatively uniform confinement).
+- 1CGP: moderate mean, high variance (localized functional heterogeneity).
+
+Interpretation:
+Regulatory function appears to correlate more strongly with spectral heterogeneity
+(variance) than with absolute roughness magnitude alone.
+
+--------------------------------------------------------------------------------
+General Notes
+--------------------------------------------------------------------------------
+
+- Axial positions are local to each structure and are not aligned to homologous
+  biological landmarks.
+- These figures are intened as illustrative examples, not statistical population
+  summaries.
+- The analysis emphasizes geometric and mechanical organization extracted from
+  DNA coordinates alone, without using protein information.
+
+================================================================================

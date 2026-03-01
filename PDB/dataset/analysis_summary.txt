@@ -1,0 +1,47 @@
+Loaded 1001 records.
+
+--- Consistency Check ---
+Mean difference between reported and recalced sigma: 9.420645e-18
+Max difference: 5.932754e-16
+
+--- Sigma SHT Statistics ---
+count    1001.000000
+mean       -0.184498
+std         0.349550
+min        -1.884119
+25%        -0.202045
+50%        -0.071133
+75%        -0.007330
+max         1.188366
+Name: sigma_SHT_global, dtype: float64
+
+--- By Method ---
+                     count  ...       std
+method                      ...          
+ELECTRON MICROSCOPY    308  ...  0.363792
+X-RAY DIFFRACTION      693  ...  0.334227
+
+[2 rows x 3 columns]
+
+--- Outliers (|sigma| > 0.5) ---
+Count: 155
+   pdb_id  ...    Wr_SHT
+5    7MLB  ...  0.035783
+30   8TAS  ... -0.001455
+33   6VPC  ...  0.010438
+34   2VIH  ... -0.005657
+39   8VOB  ...  0.003455
+45   3O62  ... -0.015481
+48   5VVJ  ...  0.242486
+55   6UUB  ...  0.006976
+64   9K9S  ...  0.012003
+86   6UU7  ... -0.002611
+
+[10 rows x 5 columns]
+
+--- Twist vs Writhe ---
+Mean Tw: 1.6377, Mean Wr: 0.0240
+Correlation: -0.0144
+
+--- Resolution Correlation ---
+Correlation between Resolution and Sigma error (diff): 0.0290

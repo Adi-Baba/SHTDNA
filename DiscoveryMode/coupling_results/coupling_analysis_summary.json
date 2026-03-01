@@ -1,0 +1,71 @@
+{
+  "correlations": {
+    "Vij (Curvature) vs Shambhian (Flatness)": {
+      "n": 65,
+      "pearson_r": -0.08508150528483638,
+      "pearson_p": 0.5003985236310478,
+      "spearman_r": 0.030201048951048953,
+      "spearman_p": 0.8112462316306084
+    },
+    "Vij (Curvature) vs Mamton (Roughness)": {
+      "n": 65,
+      "pearson_r": 0.8285206033119759,
+      "pearson_p": 1.6332894887978305e-17,
+      "spearman_r": 0.23640734265734265,
+      "spearman_p": 0.05796457430065947
+    },
+    "Shambhian (Flatness) vs Mamton (Roughness)": {
+      "n": 65,
+      "pearson_r": -0.15217742571195736,
+      "pearson_p": 0.22622099366582335,
+      "spearman_r": -0.20152972027972027,
+      "spearman_p": 0.1074364546948558
+    }
+  },
+  "causal_arrows": [
+    {
+      "from": "Vij",
+      "to": "Shambhian",
+      "r2_mean": -6.857734008484793,
+      "r2_std": 12.161190157706988,
+      "predictive": false
+    },
+    {
+      "from": "Shambhian",
+      "to": "Vij",
+      "r2_mean": -0.363694789197995,
+      "r2_std": 0.3003873237525924,
+      "predictive": false
+    },
+    {
+      "from": "Vij",
+      "to": "Mamton",
+      "r2_mean": 0.1912760160778013,
+      "r2_std": 0.6079927751600822,
+      "predictive": true
+    },
+    {
+      "from": "Mamton",
+      "to": "Vij",
+      "r2_mean": 0.4059239878760609,
+      "r2_std": 0.3512989351806172,
+      "predictive": true
+    },
+    {
+      "from": "Shambhian",
+      "to": "Mamton",
+      "r2_mean": -197.7033674901989,
+      "r2_std": 278.59044930603005,
+      "predictive": false
+    },
+    {
+      "from": "Mamton",
+      "to": "Shambhian",
+      "r2_mean": -3.6943290528800703,
+      "r2_std": 6.360413639450273,
+      "predictive": false
+    }
+  ],
+  "n_outliers": 5,
+  "n_clusters": 4
+}

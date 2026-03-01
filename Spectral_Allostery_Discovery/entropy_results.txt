@@ -1,0 +1,18 @@
+
+Observations: Spectral Entropy Varience
+---------------------------------------
+We compared longitudnal mass heterogeneity across different DNA states. 
+Our data suggests that regulatory function correlates with higher variances.
+
+PDB ID     | Mean Entropy | Entropy Variance | State Indicator
+---------------------------------------------------------------
+102D       |       0.4879 |         0.006947 | STRUCTURAL
+109D       |       0.4968 |         0.003910 | STRUCTURAL
+1CDW       |       0.5901 |         0.007004 | FUNCTIONAL (TBP)
+1CGP       |       0.4314 |         0.025816 | FUNCTIONAL (CAP)
+1AOI       |       0.4341 |         0.019830 | FUNCTIONAL (Nuc)
+
+Contex:
+Regulatory sites (e.g., 1CGP) appear to exhibit a 3.7x increase in entropy 
+variance compared to control 102D. This indicates that functional signals 
+may be physically represented as non-equilibrium spectral heterogeneity.

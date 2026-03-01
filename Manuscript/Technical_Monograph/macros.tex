@@ -1,0 +1,181 @@
+% ============================================================================
+% MACROS.TEX - Custom Commands and Shortcuts
+% ============================================================================
+
+% ============================================================================
+% MATHEMATICAL MACROS
+% ============================================================================
+
+% Vectors and matrices
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\tensor}[1]{\mathcal{#1}}
+
+% Common symbols
+\newcommand{\vij}{v_0}              % Curvature unit
+\newcommand{\shambhian}{\eta_r}     % Flatness unit
+\newcommand{\mamton}{\Omega}        % Roughness unit
+\newcommand{\curvature}{\vij}       % Alias
+\newcommand{\flatness}{\shambhian}  % Alias
+\newcommand{\roughness}{\mamton}    % Alias
+
+% Derivatives
+\newcommand{\dd}[2]{\frac{d#1}{d#2}}           % partial derivative
+\newcommand{\ddo}[2]{\frac{d^2#1}{d#2^2}}      % second derivative
+\newcommand{\pdd}[2]{\frac{\partial#1}{\partial#2}}  % partial
+
+% Norms and operators
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+
+% Statistics
+\newcommand{\expect}[1]{\mathbb{E}[#1]}
+\newcommand{\var}[1]{\text{Var}(#1)}
+\newcommand{\cov}[1]{\text{Cov}(#1)}
+\newcommand{\corr}[2]{r_{#1,#2}}
+\newcommand{\pval}{p\text{-value}}
+\newcommand{\CI}[1]{\text{CI}_{#1}}
+
+% Common distributions
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\Uniform}{\mathcal{U}}
+
+% ============================================================================
+% CHEMISTRY AND BIOLOGY MACROS
+% ============================================================================
+
+% DNA bases and structures
+\newcommand{\adenine}{A}
+\newcommand{\thymine}{T}
+\newcommand{\guanine}{G}
+\newcommand{\cytosine}{C}
+
+% DNA forms
+\newcommand{\Bform}{\text{B-form}}
+\newcommand{\Aform}{\text{A-form}}
+\newcommand{\Zform}{\text{Z-form}}
+
+% Protein names
+\newcommand{\nucleosome}{\text{nucleosome}}
+\newcommand{\histone}{\text{histone}}
+
+% ============================================================================
+% REFERENCE AND CITATION MACROS
+% ============================================================================
+
+% Colored citations for emphasis
+\newcommand{\importantcite}[1]{{\color{darkblue}\cite{#1}}}
+\newcommand{\methodcite}[1]{{\color{darkgreen}\cite{#1}}}
+
+% ============================================================================
+% BOX AND EMPHASIS MACROS
+% ============================================================================
+
+% Inline emphasis
+\newcommand{\strongclaim}[1]{\textbf{#1}}
+\newcommand{\technote}[1]{\textit{#1}}
+\renewcommand{\emph}[1]{\textit{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+% Colored text for different components
+\newcommand{\claim}[1]{{\color{darkred}\textbf{#1}}}
+\newcommand{\evidence}[1]{{\color{darkgreen}\checkmark $#1$}}
+\providecommand{\todo}[1]{{\color{red}\textbf{TODO:} #1}}
+
+% ============================================================================
+% FIGURE AND TABLE MACROS
+% ============================================================================
+
+% Referenced figures/tables
+\newcommand{\figref}[1]{Figure~\ref{fig:#1}}
+\newcommand{\tabref}[1]{Table~\ref{tab:#1}}
+\newcommand{\secref}[1]{Section~\ref{sec:#1}}
+\renewcommand{\eqref}[1]{Equation~(\ref{eq:#1})}
+\newcommand{\chapref}[1]{Chapter~\ref{chap:#1}}
+\newcommand{\appref}[1]{Appendix~\ref{app:#1}}
+
+% ============================================================================
+% PLOTTING AND DATA MACROS
+% ============================================================================
+
+% Statistical symbols
+\newcommand{\pltadjusted}{p_{\text{adj}}}
+\newcommand{\rsq}{R^2}
+\newcommand{\cohen}{d}
+\newcommand{\fstat}{F}
+\newcommand{\tstat}{t}
+
+% Common statistical values
+\newcommand{\psignificant}[1]{p < #1}
+\newcommand{\pvalsmall}{p < 0.001}
+\newcommand{\pvalhigh}{p < 0.01}
+\newcommand{\pvalmod}{p < 0.05}
+
+% ============================================================================
+% UNIT ABBREVIATIONS
+% ============================================================================
+
+\newcommand{\pbp}{\text{bp}}           % base pairs
+\renewcommand{\ang}{\text{\AA}}          % Angstrom
+\newcommand{\kcalmol}{\text{kcal/mol}} % energy
+\newcommand{\invang}{\text{\AA}^{-1}}  % inverse Angstrom
+
+% ============================================================================
+% COMMON PHRASES
+% ============================================================================
+
+\newcommand{\eg}{e.g., }
+\newcommand{\ie}{i.e., }
+\newcommand{\cf}{cf., }
+\newcommand{\vs}{vs.\ }
+
+% ============================================================================
+% ALGORITHM AND CODE MACROS
+% ============================================================================
+
+% Algorithm pseudocode — packages loaded in preamble.tex
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+
+% ============================================================================
+% ENVIRONMENT SHORTCUTS
+% ============================================================================
+
+% Equation environments with label — usage: \begin{beq}{label}...\end{beq}
+\newenvironment{beq}[1]{\begin{equation}\label{eq:#1}}{\end{equation}}
+\newenvironment{beqs}[1]{\begin{align}\label{eq:#1}}{\end{align}}
+
+% ============================================================================
+% CROSS-REFERENCE HELPERS
+% ============================================================================
+
+% Create label and reference in one
+\newcommand{\labelfig}[1]{\label{fig:#1}}
+\newcommand{\labeltab}[1]{\label{tab:#1}}
+\newcommand{\labelsec}[1]{\label{sec:#1}}
+\newcommand{\labeleq}[1]{\label{eq:#1}}
+
+% ============================================================================
+% METADATA MACROS
+% ============================================================================
+
+\newcommand{\version}{1.0}
+\newcommand{\documentyear}{2026}
+\newcommand{\authorname}{Aditya}
+\newcommand{\institution}{Computational Biophysics Lab}
+
+% ============================================================================
+% DEBUGGING AND DEVELOPMENT
+% ============================================================================
+
+% Uncomment these to show draft mode
+% \usepackage{draftwatermark}
+% \SetWatermarkText{DRAFT}
+% \SetWatermarkScale{1}
+
+% Enable comments for editing
+\newcommand{\note}[1]{\marginpar{\tiny\color{red}#1}}
+\newcommand{\fixme}[1]{{\color{red}\textbf{[FIXME: #1]}}%\note{Fix this}}
+}

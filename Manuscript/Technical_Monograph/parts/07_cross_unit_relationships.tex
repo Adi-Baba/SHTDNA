@@ -1,0 +1,138 @@
+% ============================================================================
+% PART 07 - CROSS-UNIT RELATIONSHIPS
+% ============================================================================
+
+\labelsec{cross_unit_relationships}
+
+The three SHT units were designed to be geometrically orthogonal. This chapter tests that assumption and characterizes the one unexpected exception: a strong coupling between Vij and Mamton.
+
+\section{Pairwise Correlations}
+
+All analyses use the merged dataset of $N = 65$ structures for which all three units are measured. Statistical tests: Pearson correlation with two-tailed t-test; 95\% CI via Fisher z-transformation.
+
+\subsection{Vij vs Mamton: A Fundamental Discovery}
+
+\begin{keyresult}
+\begin{equation}
+    r(v_0,\,\Omega) = 0.8285, \quad p = 1.633 \times 10^{-17}, \quad 95\%\,\text{CI} = [0.733,\;0.892]
+\end{equation}
+\begin{equation}
+    R^2 = 0.686, \quad t = 11.744, \quad \mathrm{df} = 63
+\end{equation}
+This is the strongest inter-unit relationship observed in the SHT framework.
+\end{keyresult}
+
+The linear fit is:
+\begin{equation}\label{eq:vij_mamton_linear}
+    \Omega = 86{,}683.4\,v_0 - 8{,}109.9
+\end{equation}
+The fitted slope predicts that each unit increase in curvature (L$^{-1}$) raises the skewness magnitude by $\sim\!86{,}683$ L$^3$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{pairwise_scatter}
+    \caption{Pairwise scatter plots for all three SHT units ($N=65$). The Vij--Mamton panel (top-right) shows the strong linear coupling ($r=0.829$). The other two panels confirm statistical independence.}\labelfig{pairwise_scatter}
+\end{figure}
+
+\textbf{Heteroscedasticity note:} Mamton has high variance (std = 2,622, median = 79.7). The log-Mamton vs Vij correlation is also strong: $r(\log\Omega, v_0) = 0.77$, confirming the relationship is not driven solely by the two extreme nucleosome outliers (1AOI, 1F66). Removing both nucleosomes ($N=63$) still yields $r = 0.72$, $p < 10^{-10}$.
+
+\subsection{Vij vs Shambhian: Confirmed Independence}
+
+\begin{keyresult}
+    $r(v_0,\,\eta_r) = -0.0851$, \quad $p = 0.500$ \quad ($N=65$)
+\end{keyresult}
+
+Not significant. Curvature does not predict cross-sectional eccentricity, confirming that these two units capture different aspects of DNA geometry. A highly curved sequence can be either circular ($\eta_r \approx 1$, like 1I8M) or markedly eccentric ($\eta_r \approx 0.53$, like 1LO1).
+
+\subsection{Shambhian vs Mamton: Weakly Independent}
+
+\begin{keyresult}
+    $r(\eta_r,\,\Omega) = -0.1522$, \quad $p = 0.226$ \quad ($N=65$)
+\end{keyresult}
+
+Numerical trend: more distorted cross-sections (lower $\eta_r$) weakly associate with lower skewness, but the effect is not significant. Shambhian and Mamton are essentially independent.
+
+\section{Summary: Correlation Matrix}
+
+\begin{table}[h]
+    \centering
+    \caption{Pairwise Pearson Correlations ($N=65$)}\labeltab{correlation_matrix}
+    \begin{tabular}{lccc}
+        \toprule
+         & \textbf{Vij} & \textbf{Shambhian} & \textbf{Mamton} \\
+        \midrule
+        \textbf{Vij}       & 1.000   & $-0.085$               & $\mathbf{0.829}^{***}$  \\
+        \textbf{Shambhian} & $-0.085$ & 1.000                  & $-0.152$               \\
+        \textbf{Mamton}    & $0.829^{***}$ & $-0.152$          & 1.000                  \\
+        \bottomrule
+        \multicolumn{4}{l}{\small $^{***}$: $p < 10^{-15}$; other pairs: $p > 0.2$ (not significant)}
+    \end{tabular}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.55\textwidth]{correlation_matrix}
+    \caption{Pearson correlation heatmap for the three SHT units ($N=65$). Only the Vij--Mamton pair is significant ($r=0.829$, $p<10^{-15}$).}\labelfig{correlation_matrix}
+\end{figure}
+
+The matrix reveals a $2 \times 2$ block structure: Vij and Mamton form one coupled ``Integrity Mode'', while Shambhian stands alone as a ``Shape Mode''. This is confirmed by PCA.
+
+\section{Principal Component Analysis}
+
+PCA on the three-unit vectors $[v_0, \eta_r, \Omega]^T$ (z-scored per unit, $N=65$) reveals:
+
+\begin{table}[h]
+    \centering
+    \caption{PCA on Three Geometric Units ($N=65$)}\labeltab{pca_units}
+    \begin{tabular}{lll}
+        \toprule
+        \textbf{Component} & \textbf{Variance Explained} & \textbf{Interpretation} \\
+        \midrule
+        PC1 & 55.8\% & Integrity Mode: high-loading Vij + Mamton \\
+        PC2 & 27.6\% & Shape Mode: high-loading Shambhian \\
+        PC3 & 16.6\% & Residual / orthogonal noise \\
+        \midrule
+        PC1+PC2 & \textbf{83.4\%} & 2D manifold in 3D measurement space \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{pca_manifold}
+    \caption{PCA manifold of the three SHT units. PC1 (Integrity Mode) captures Vij and Mamton; PC2 (Shape Mode) captures Shambhian. The two PCs together explain 83.4\% of variance, showing DNA geometry lives on a 2D reduced manifold.}\labelfig{pca_manifold}
+\end{figure}
+
+The 83.4\% in two components indicates the effective dimensionality of DNA geometry as captured by SHT is two, not three. The third dimension (PC3) adds $~17\%$ independent information, which may encode fine-grained local deformations not captured by the two modes.
+
+\section{Mechanistic Hypothesis: Bending Causes Roughness}
+
+The coupling $r = 0.83$ requires a physical explanation. We propose:
+
+\begin{enumerate}
+    \item \textbf{Bending induces differential strain}: When DNA bends (high $v_0$), the outer strand is stretched and the inner strand compressed. This creates strand-to-strand asymmetry.
+    \item \textbf{Asymmetric strain $\rightarrow$ backbone asymmetry}: Unequal extension of the two strands displaces backbone atoms asymmetrically relative to the helix axis.
+    \item \textbf{Backbone asymmetry $\rightarrow$ radial-moment skewness}: The weighted skewness $S_x = \sum w_i x_i r_i^2$ accumulates when atoms preferentially lie on one side of the helix --- exactly what asymmetric bending produces.
+\end{enumerate}
+
+\textbf{Supporting evidence:}
+\begin{itemize}
+    \item A-tracts: simultaneously low Vij ($0.080$) \textit{and} low Mamton ($70.5$) --- \textit{consistent with mechanism}
+    \item Nucleosomes: simultaneously high Vij ($0.304$) \textit{and} high Mamton ($\sim 26{,}366$) --- \textit{extreme end of mechanism}
+    \item Cisplatin-adduct 1AHD: high eccentricity ($\eta_r = 0.71$, $z = -4.18\sigma$) but intermediate Vij/Mamton --- \textit{consistent with independent shape distortion not coupled to bending}
+\end{itemize}
+
+This mechanistic picture predicts that any agent inducing DNA bending (protein binding, drug intercalation, covalent crosslinks) should increase Mamton proportionally to the induced curvature.
+
+\section{Orthogonality: What It Means for Biology}
+
+The overall structure --- one coupled pair + one independent unit --- is advantageous for biological interpretation:
+
+\begin{itemize}
+    \item \textbf{Vij alone}: local inverse radius of curvature (where is the DNA bent?)
+    \item \textbf{Mamton alone}: skewness of the backbone distribution (how asymmetric is the bending?)
+    \item \textbf{Vij + Mamton together}: confirm and quantify bending (the coupling provides internal consistency check)
+    \item \textbf{Shambhian alone}: cross-sectional eccentricity (how non-circular is the helix? --- independent of bending)
+    \item \textbf{Shambhian decoupled}: identifies structural deformation not driven by gross bending (e.g., groove compression, protein-induced flattening)
+\end{itemize}
+

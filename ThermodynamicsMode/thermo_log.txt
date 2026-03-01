@@ -1,0 +1,7 @@
+# SHT-Thermodynamics Result (Subset: Flat DNA > 0.9)
+Predicted Persistence Length (Lp): 22.2564 nm
+Fitted Sigma: 0.0364
+
+## Interpretation
+DEVIATION: Predicted 22.3nm vs Expected 50nm.
+Possible reasons: Crystal packing forces, non-canonical ensemble.

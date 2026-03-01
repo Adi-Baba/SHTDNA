@@ -1,0 +1,32 @@
+Total valid structures: 171
+
+--- Summary Statistics ---
+Mean ηr (Eccentricity): 0.8765421982438043
+Median Ω (Roughness): 68.76652794078186
+Max Ω (Roughness): 16472.24692811139
+
+Correlation (ηr vs Ω): -0.02704949446723874
+
+--- Top Structural Outliers (Highest Divergence) ---
+139D.cif   | ηr: 0.080 | Ω:      28.8 | Div: 18.38 | Len:  21.5
+1AOI.cif   | ηr: 0.858 | Ω:   16472.2 | Div:  4.91 | Len:  99.7
+156D.cif   | ηr: 0.598 | Ω:     174.1 | Div:  3.75 | Len:  21.4
+1CGP.cif   | ηr: 0.887 | Ω:     912.2 | Div:  3.34 | Len:  93.8
+1A8W.cif   | ηr: 0.691 | Ω:     197.6 | Div:  3.32 | Len:  21.2
+1D6D.cif   | ηr: 0.585 | Ω:      81.7 | Div:  3.28 | Len:  27.0
+1CQT.cif   | ηr: 0.912 | Ω:     975.1 | Div:  3.28 | Len:  73.0
+1AC3.cif   | ηr: 0.743 | Ω:     237.8 | Div:  3.20 | Len:  35.9
+1C95.cif   | ηr: 0.709 | Ω:     161.4 | Div:  3.12 | Len:  26.8
+1CDW.cif   | ηr: 0.796 | Ω:     298.3 | Div:  3.11 | Len:  38.8
+143D.cif   | ηr: 0.676 | Ω:     120.3 | Div:  3.08 | Len:  26.6
+186D.cif   | ηr: 0.694 | Ω:     126.6 | Div:  3.04 | Len:  24.1
+1A6H.cif   | ηr: 0.709 | Ω:     140.2 | Div:  3.03 | Len:  24.2
+197D.cif   | ηr: 0.774 | Ω:     219.7 | Div:  3.03 | Len:  28.2
+1CA5.cif   | ηr: 0.736 | Ω:     165.0 | Div:  3.01 | Len:  28.6
+1BPX.cif   | ηr: 0.776 | Ω:     216.1 | Div:  3.01 | Len:  49.1
+177D.cif   | ηr: 0.731 | Ω:     153.6 | Div:  3.00 | Len:  27.4
+1DE9.cif   | ηr: 0.853 | Ω:     329.1 | Div:  2.95 | Len: 104.9
+1CMA.cif   | ηr: 0.887 | Ω:     408.3 | Div:  2.94 | Len:  37.9
+1BNZ.cif   | ηr: 0.783 | Ω:     190.7 | Div:  2.92 | Len:  30.6
+
+Plot saved to sht_phase_space.png

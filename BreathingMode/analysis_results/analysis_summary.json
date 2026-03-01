@@ -1,0 +1,97 @@
+{
+  "pearson_r_ci": [
+    -0.2773092147782636,
+    -0.14257151397258933,
+    0.009586764756847397
+  ],
+  "pearson_r_median": -0.14257151397258933,
+  "variance_ratio_ci": [
+    0.894040165738287,
+    0.9418155441475988,
+    0.9972104688606054
+  ],
+  "variance_ratio_median": 0.9418155441475988,
+  "effect_sizes": {
+    "variance_ratio": 0.9344959479053764,
+    "cohen_d": 0.007053656536031531,
+    "mean_at": 0.005021985406791596,
+    "mean_gc": 0.0016667622967341887,
+    "std_at": 0.46005588371514006,
+    "std_gc": 0.49230377589793856
+  },
+  "stratifications": {
+    "seq_len_bin": {
+      "(5.999, 20.0]": {
+        "n_structures": 53,
+        "pearson_r": -0.07350275541799296
+      },
+      "(20.0, 26.0]": {
+        "n_structures": 53,
+        "pearson_r": -0.029999609572589032
+      },
+      "(26.0, 42.0]": {
+        "n_structures": 52,
+        "pearson_r": -0.3456176320864472
+      },
+      "(42.0, 300.0]": {
+        "n_structures": 42,
+        "pearson_r": -0.37560043459918996
+      }
+    },
+    "res_cat": {
+      "high": {
+        "n_structures": 56,
+        "pearson_r": -0.010005498455145888
+      },
+      "low": {
+        "n_structures": 38,
+        "pearson_r": -0.4691941945600871
+      },
+      "mid": {
+        "n_structures": 79,
+        "pearson_r": -0.20511118123754174
+      },
+      "unknown": {
+        "n_structures": 27,
+        "pearson_r": 0.1609937047659111
+      }
+    },
+    "at_content_bin": {
+      "(-0.001, 0.333]": {
+        "n_structures": 58,
+        "pearson_r": 0.0041970962489416746
+      },
+      "(0.333, 0.429]": {
+        "n_structures": 47,
+        "pearson_r": -0.0632200576268892
+      },
+      "(0.429, 0.53]": {
+        "n_structures": 45,
+        "pearson_r": -0.2608809566153674
+      },
+      "(0.53, 1.0]": {
+        "n_structures": 50,
+        "pearson_r": -0.3701187212094473
+      }
+    },
+    "Method": {
+      "ELECTRON MICROSCOPY": {
+        "n_structures": 19,
+        "pearson_r": -0.5901837045247065
+      },
+      "SOLUTION NMR": {
+        "n_structures": 26,
+        "pearson_r": 0.12520828743479
+      },
+      "X-RAY DIFFRACTION": {
+        "n_structures": 154,
+        "pearson_r": -0.09351746676566279
+      }
+    }
+  },
+  "mixed_effects_coef": {
+    "Intercept": 0.008498998636753049,
+    "base_type": 0.002119372678675607,
+    "Group Var": 0.0
+  }
+}

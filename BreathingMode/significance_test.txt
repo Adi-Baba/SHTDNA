@@ -1,0 +1,5 @@
+Mean Beta (A-T): 0.0041 +/- 0.5158
+Mean Beta (G-C): -0.0039 +/- 0.5600
+Mean Diff P-value (T-test): 5.0598e-01
+Variance Diff P-value (Levene): 3.5803e-04
+RESULT: Statistically Significant Difference in VARIANCE found!

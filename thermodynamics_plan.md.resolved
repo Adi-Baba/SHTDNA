@@ -1,0 +1,34 @@
+# SHT-Thermodynamics: Bridging Statics to Dynamics
+
+## Objective
+To execute **Option 1** (Predict dynamics from static structure) and **Option 3** (Reduce mechanics to state variables).
+We will derive the **Effective Energy Landscape** of DNA bending and flattening directly from PDB distributions.
+
+## The Theory: Boltzmann Inversion
+If the PDB dataset represents a thermal ensemble, the probability $P(x)$ of observing a state $x$ is given by:
+$$ P(x) \propto e^{-E(x) / k_B T} $$
+Therefore, we can reconstruct the energy cost of deformation:
+$$ E(x) = -k_B T \ln(P(x)) $$
+
+## Implementation Plan
+
+### 1. [New Folder] `d:\OnlyHST\SHTDNA\ThermodynamicsMode`
+
+### 2. [New Script] `derive_energy_landscape.py`
+- **Input**: The "Mechanical Cloud" (`mechanical_state_cloud.csv`) from Discovery Mode.
+- **Step A (Bending Energy)**:
+    - Compute histogram density $P(v_0)$.
+    - Derive Effective Potential $V(v_0) = - \ln P(v_0)$.
+    - Fit a harmonic harmonic potential $V(v_0) \approx \frac{1}{2} A v_0^2$ to find the "Spring Constant" $A$.
+- **Step B (Prediction)**:
+    - Use the Spring Constant $A$ to predict the **Persistence Length ($L_p$)**.
+    - $L_p \propto A$.
+    - **Validation**: Does our predicted $L_p$ match the experimental value of ~50nm?
+
+### 3. [New Script] `coupling_landscape.py`
+- Compute the 2D Energy Surface $E(v_0, \eta_r)$.
+- Visualize the "Basin of Attraction".
+- **Goal**: Show that A-tracts live in a distinct, deep energy well compared to generic DNA.
+
+## Expected Outcome
+If we can predict the 50nm Persistence Length from static crystal structures, we have solved Option 1: **Predicting Dynamics from Statics.**

@@ -1,0 +1,53 @@
+PDB ID,Cluster,DNA Type,Characterization,Title
+3QK4,1,A-DNA,Atypical/Complex Profile,Crystal structure of d(CGCGGGTACCCGCG)2 as A-DNA duplex
+3VXX,2,Protein-Complex,Atypical/Complex Profile,Crystal structure of methyl CpG binding domain of MBD4 in complex with the 5mCG/5mCG sequence
+1NJW,3,Protein-Complex,Atypical/Complex Profile,GUANINE-THYMINE MISMATCH AT THE POLYMERASE ACTIVE SITE
+3GTL,1,Protein-Complex,Atypical/Complex Profile,Backtracked RNA polymerase II complex with 13mer with G<>U mismatch
+8PPV,2,Protein-Complex,Atypical/Complex Profile,Intermediate conformer of Pyrococcus abyssi DNA polymerase D (PolD) bound to a primer/template substrate containing three consecutive mismatches
+8BTG,1,Other,Atypical/Complex Profile,Cryo-EM structure of the bacterial replication origin opening basal unwinding system
+3OYM,1,B-DNA (other),Atypical/Complex Profile,Crystal structure of the PFV N224H mutant intasome bound to manganese
+1B8I,5,Protein-Complex,Atypical/Complex Profile,STRUCTURE OF THE HOMEOTIC UBX/EXD/DNA TERNARY COMPLEX
+9UKT,3,Protein-Complex,Hyper-underwound (mean σ = -0.88),"CryoEM structure of the T.thermophilus transcription initiation complex bound to Gp4A-C-U and CTP, -1 dC in the template DNA strand"
+6TUO,3,Protein-Complex,Atypical/Complex Profile,Crystal structure of Archaeoglobus fulgidus Argonaute protein with cognate DNA oligoduplex 5'-pATTGTACGTACAAT
+8ABY,1,Protein-Complex,Atypical/Complex Profile,"RNA polymerase bound to purified in vitro transcribed regulatory RNA putL - pause prone, closed clamp state"
+1NJZ,3,Protein-Complex,Atypical/Complex Profile,CYTOSINE-THYMINE MISMATCH AT THE POLYMERASE ACTIVE SITE
+6OPM,1,B-DNA (other),Hyper-underwound (mean σ = -0.92),Casposase bound to integration product
+6EU1,1,Protein-Complex,Atypical/Complex Profile,RNA Polymerase III - open DNA complex (OC-POL3).
+8EM9,1,Protein-Complex,Atypical/Complex Profile,Human PU.1 ETS-Domain (165-270) Bound to d(AATAGGAGAAGTAGGG)
+8ABZ,1,Protein-Complex,Atypical/Complex Profile,"RNA polymerase at U-rich pause bound to non-regulatory RNA - pause prone, closed clamp state"
+9ENP,2,Protein-Complex,Atypical/Complex Profile,HSV-1 DNA polymerase-processivity factor complex in exonuclease state with 1-bp DNA mismatch
+6CNC,1,Protein-Complex,Hyper-underwound (mean σ = -0.52),Yeast RNA polymerase III open complex
+8WRS,2,Other,Atypical/Complex Profile,Cryo-EM structure of Cas12-1 with 5 nt complementary heteroduplex
+3GPY,3,Protein-Complex,Atypical/Complex Profile,Sequence-matched MutM Lesion Recognition Complex 3 (LRC3)
+7XYB,3,Protein-Complex,Atypical/Complex Profile,The cryo-EM structure of an AlpA-loaded complex
+6FBQ,3,Protein-Complex,Atypical/Complex Profile,"Crystal Structure of the Human Retinoid X Receptor DNA-Binding Domain Bound to the Human MEp DR1 Response Element, pH 7.0"
+2F5P,5,B-DNA (other),Atypical/Complex Profile,MutM crosslinked to undamaged DNA sampling A:T base pair IC2
+2ZO2,0,Protein-Complex,Atypical/Complex Profile,Mouse NP95 SRA domain non-specific DNA complex
+3GPU,2,Protein-Complex,Atypical/Complex Profile,MutM encountering an intrahelical 8-oxoguanine (oxoG) lesion in EC4-loop deletion complex
+3SAR,5,Protein-Complex,Atypical/Complex Profile,MUTM Slanted complex 1
+1ZET,5,Protein-Complex,Atypical/Complex Profile,X-ray data do not support hoogsteen base-pairing during replication by human polymerase iota
+3VXV,5,Protein-Complex,Atypical/Complex Profile,Crystal structure of methyl CpG Binding Domain of MBD4 in complex with the 5mCG/TG sequence
+8CTL,3,Other,Atypical/Complex Profile,IscB and wRNA bound to Target DNA (locked state)
+8EE9,5,Protein-Complex,Sharp Kink/Defect (kurtosis = 6.76),Human PU.1 ETS-Domain (165-270) Bound to d(AATAAAAGGAATGGGG)
+7OOP,3,Other,Hyper-underwound (mean σ = -0.81),Pol II-CSB-CSA-DDB1-UVSSA-PAF-SPT6 (Structure 3)
+1F0O,0,Protein-Complex,Atypical/Complex Profile,PVUII ENDONUCLEASE/COGNATE DNA COMPLEX (GLUTARALDEHYDE-CROSSLINKED CRYSTAL) AT PH 7.5 WITH TWO CALCIUM IONS AT EACH ACTIVE SITE
+5T2H,0,Protein-Complex,Sharp Kink/Defect (kurtosis = 3.29),Engineered variant of I-OnuI meganuclease targeting the Human TCRa gene; harbors 43 point mutations relative to wild-type I-OnuI
+6UWJ,5,Protein-Complex,Atypical/Complex Profile,Intermediate engineered variant of I-OnuI meganuclease with improved thermostability and partially altered specificity
+3MZH,4,Protein-Complex,Atypical/Complex Profile,Crystal structure of cAMP receptor protein from mycobacterium tuberculosis in complex with cAMP and its DNA binding element
+3M9N,5,Protein-Complex,Atypical/Complex Profile,Crystal Structure of Dpo4 in complex with DNA containing the major cisplatin lesion
+3S8Q,5,Protein-Complex,Atypical/Complex Profile,Crystal structure of the R-M controller protein C.Esp1396I OL operator complex
+7VP2,0,Protein-Complex,Atypical/Complex Profile,Structure of a transcription factor and DNA complex
+1I3J,5,Protein-Complex,Atypical/Complex Profile,CRYSTAL STRUCTURE OF THE DNA-BINDING DOMAIN OF INTRON ENDONUCLEASE I-TEVI WITH ITS SUBSTRATE
+7XUG,0,Protein-Complex,Atypical/Complex Profile,cryo-EM structure of HK022 putRNA-less E.coli RNA polymerase elongation complex
+7XV6,4,Protein-Complex,Atypical/Complex Profile,Crystal structure of the Human TR4 DNA-Binding Domain with C-terminal extension (DBD-CTE) Homodimer Bound to DR1 Response Element
+8UVX,4,B-DNA (other),Atypical/Complex Profile,CosR DNA bound form I
+4IX7,0,Protein-Complex,Atypical/Complex Profile,Crystal Structure of the insv-BEN domain complexed to its DNA target site
+4LQ0,0,Protein-Complex,Sharp Kink/Defect (kurtosis = 19.59),Crystal structure of the I-LtrWI LAGLIDADG homing endonuclease bound to target DNA.
+7F9H,0,Protein-Complex,Atypical/Complex Profile,complex structure of EnrR-DNA
+5DUI,4,B-DNA (other),Atypical/Complex Profile,Identification of a new FoxO1 binding site that precludes CREB binding at the glucose-6-phosphatase catalytic subunit gene promoter
+8IK5,0,Protein-Complex,Atypical/Complex Profile,Transcription factor LMX1a homeobox domain in complex with Wnt1 promoter
+6JBX,4,Protein-Complex,Atypical/Complex Profile,Crystal structure of Streptococcus pneumoniae FabT in complex with DNA
+9CAQ,4,Other,Atypical/Complex Profile,Cryo-EM structure of a human MCM2-7 double hexamer formed from independently loaded MCM2-7 single hexamers
+5V3M,4,Protein-Complex,Atypical/Complex Profile,mouseZFP568-ZnF1-11 in complex with DNA
+7Z8S,4,Other,Atypical/Complex Profile,Mot1:TBP:DNA - post hydrolysis state
+9GA5,4,Other,Atypical/Complex Profile,MtUvrA2 bound to endogenous E. coli DNA

@@ -1,0 +1,240 @@
+% ============================================================================
+% PART 02 - MATHEMATICAL FRAMEWORK
+% ============================================================================
+
+\labelsec{math_framework}
+
+This chapter develops the complete mathematical foundation for SHT. We proceed from PDB structure $\rightarrow$ height function $\rightarrow$ local coordinate frame $\rightarrow$ moments $\rightarrow$ geometric units.
+
+\section{From PDB Coordinates to Height Function}
+
+\subsection{PDB Structure Parsing}
+
+\textbf{Input:} PDB file containing atomic coordinates
+
+\textbf{Step 1: Extract DNA backbone}
+
+\begin{align}
+    \{P_1, P_2, \ldots, P_n\} &= \text{phosphate atom positions in DNA chain}\\
+    r(P_i) &= [x_i, y_i, z_i] \in \mathbb{R}^3 \quad \text{for } i = 1, \ldots, n
+\end{align}
+
+Standard DNA residues: DA, DT, DG, DC (or A, T, G, C in RNA contexts)
+
+\subsection{Principal Axis Alignment}
+
+We establish a coordinate system where the DNA helical axis aligns with the z-direction.
+
+\textbf{Step 2: Compute covariance matrix}
+
+\begin{beq}{cov_matrix}
+    C = \frac{1}{n} \sum_{i=1}^{n} (\vect{r}_i - \bar{\vect{r}})(\vect{r}_i - \bar{\vect{r}})^T
+\end{beq}
+
+where $\bar{\vect{r}} = \frac{1}{n}\sum_i \vect{r}_i$ is the geometric center.
+
+\textbf{Step 3: Eigendecomposition}
+
+\begin{beq}{eigendecomp}
+    C = Q \Lambda Q^T
+\end{beq}
+
+where
+\begin{align}
+    \Lambda &= \text{diag}(\lambda_1, \lambda_2, \lambda_3) \quad \text{with } \lambda_1 \geq \lambda_2 \geq \lambda_3 \\
+    Q &= [\vect{q}_1, \vect{q}_2, \vect{q}_3] \quad \text{(matrix of eigenvectors)}
+\end{align}
+
+\textbf{Step 4: Rotation to align principal axis}
+
+The principal axis (largest variance direction) becomes z-axis:
+
+\begin{beq}{rotation}
+    \vect{r}'_i = Q^T \vect{r}_i \quad \text{for all atoms}
+\end{beq}
+
+\textbf{Physical meaning:} $\lambda_1 \gg \lambda_2, \lambda_3$ because DNA is elongated along its helical axis. After rotation, the z-coordinates $z'_i$ are the heights.
+
+\subsection{Height Function Smoothing}
+
+Raw phosphate positions are discrete. We smooth them via cubic spline interpolation.
+
+\textbf{Step 5: Arc length parametrization}
+
+\begin{beq}{arclength}
+    s_j = \sum_{i=1}^{j-1} \norm{\vect{r}'_i - \vect{r}'_{i-1}} \quad \text{cumulative distance along backbone}
+\end{beq}
+
+\textbf{Step 6: Cubic spline}
+
+\begin{align}
+    h(s) &= \text{CubicSpline}(s_i, z'_i) \quad \text{with knot spacing } \Delta s = 3.4 \text{ \AA} \\
+    &= \text{(one basepair)}
+\end{align}
+
+Result: $h(s)$ is smooth, twice-differentiable, and represents height as continuous function of arc length.
+
+\section{Local Coordinate Frames}
+
+\subsection{Frenet-Serret Frames}
+
+Classical differential geometry provides the Frenet-Serret frame along a curve. For height-parametrized curve $\vect{C}(h)$ in 3D:
+
+\begin{beq}{tangent}
+    \vect{T}(h) = \frac{d\vect{C}}{dh}
+\end{beq}
+
+The tangent vector has components:
+\begin{beq}{tangent_components}
+    \vect{T}(h) = [\dd{x}{h}, \dd{y}{h}, 1]
+\end{beq}
+
+(The z-component is 1 because we parametrize by height $h$.)
+
+\subsection{Height-Parametrized Curvature}
+
+The curvature vector is the second derivative:
+
+\begin{beq}{curvature_vector}
+    \vect{\kappa}(h) = \frac{d^2\vect{C}}{dh^2} = [\ddo{x}{h}, \ddo{y}{h}, 0]
+\end{beq}
+
+Note: $d^2z/dh^2 = 0$ because we're parametrizing by height.
+
+The magnitude is the curvature scalar:
+
+\begin{beq}{curvature_scalar}
+    v_0(h) = \norm{\vect{\kappa}(h)} = \sqrt{(\ddo{x}{h})^2 + (\ddo{y}{h})^2}
+\end{beq}
+
+\textbf{Physical interpretation:} This is the inverse radius of instantaneous curvature in the $xy$-plane (perpendicular to z-axis).
+
+\section{Cross-Sectional Coordinate System}
+
+At each height $h$, we establish a 2D coordinate system in the plane perpendicular to $\vec{T}(h)$.
+
+\subsection{Construction of Cross-Section Basis}
+
+\textbf{Step 1: Normalize tangent}
+
+Let $\vec{T}(h)$ be the (possibly non-unit) tangent. Normalize it:
+
+\begin{beq}{tangent_normalized}
+    \hat{\vect{T}}(h) = \frac{\vect{T}(h)}{\norm{\vect{T}(h)}}
+\end{beq}
+
+\textbf{Step 2: First cross-section axis}
+
+\begin{beq}{cs_axis1}
+    \vect{N}_1(h) = \frac{\hat{\vect{T}}(h) \times \vect{z}}{\norm{\hat{\vect{T}}(h) \times \vect{z}}}
+\end{beq}
+
+where $\vect{z} = [0, 0, 1]$ is the vertical direction.
+
+This is orthogonal to both the tangent and the z-axis.
+
+\textbf{Step 3: Second cross-section axis}
+
+\begin{beq}{cs_axis2}
+    \vect{N}_2(h) = \hat{\vect{T}}(h) \times \vect{N}_1(h)
+\end{beq}
+
+By construction, $\{\vect{N}_1, \vect{N}_2\}$ form an orthonormal basis in the cross-sectional plane perpendicular to $\hat{\vect{T}}$.
+
+\subsection{Atom Projection}
+
+For each atom at position $\vect{r}_i$, we project it onto the cross-sectional plane at its corresponding height $h_i$:
+
+\begin{align}
+    \vect{r}_{\perp,i} &= \vect{r}_i - (\vect{r}_i \cdot \hat{\vect{T}})\hat{\vect{T}} \quad \text{(remove component along tangent)} \\
+    x_i &= \vect{r}_{\perp,i} \cdot \vect{N}_1(h_i) \quad \text{(x-coordinate in cross-section)} \\
+    y_i &= \vect{r}_{\perp,i} \cdot \vect{N}_2(h_i) \quad \text{(y-coordinate in cross-section)}
+\end{align}
+
+Result: Each atom has $(x, y)$ position in its cross-sectional 2D plane.
+
+\section{Moment Calculations}
+
+\subsection{General Moment Definition}
+
+For a distribution of atoms, the general moment is:
+
+\begin{beq}{general_moment}
+    M_{jk} = \sum_{i \in \text{slice}} m_i x_i^j y_i^k
+\end{beq}
+
+where $m_i$ is the mass (or unity for unweighted).
+
+\subsection{0th Moment}
+
+\begin{beq}{m0th_moment}
+    M_0 = \sum_{i \in \text{slice}} m_i \quad \text{(total mass in slice)}
+\end{beq}
+
+\subsection{1st Moments (Center of Mass)}
+
+\begin{align}
+    M_{1,0} &= \sum_i m_i x_i \\
+    M_{0,1} &= \sum_i m_i y_i
+\end{align}
+
+\textit{Note:} After centering the atoms in the cross-section, these should be $\approx 0$.
+
+\subsection{2nd Moment Tensor (Inertia)}
+
+\begin{align}
+    I_{xx} &= \sum_i m_i x_i^2 \\
+    I_{yy} &= \sum_i m_i y_i^2 \\
+    I_{xy} &= \sum_i m_i x_i y_i
+\end{align}
+
+The inertia tensor is:
+
+\begin{beq}{inertia_tensor}
+    I = \begin{pmatrix} I_{xx} & I_{xy} \\ I_{xy} & I_{yy} \end{pmatrix}
+\end{beq}
+
+Eigenvalues $\lambda_1, \lambda_2$ of $I$ are principal moments of inertia.
+
+\subsection{3rd Moment Tensor (Skewness)}
+
+All components:
+
+\begin{align}
+    S_{30} &= \sum_i m_i x_i^3 \\
+    S_{03} &= \sum_i m_i y_i^3 \\
+    S_{21} &= \sum_i m_i x_i^2 y_i \\
+    S_{12} &= \sum_i m_i x_i y_i^2
+\end{align}
+
+Plus mixed components if needed. The skewness magnitude is:
+
+\begin{beq}{skewness_magnitude}
+    \Omega = \sqrt{S_{30}^2 + S_{03}^2 + S_{21}^2 + S_{12}^2}
+\end{beq}
+
+\section{Summary of Variables}
+
+\tabref{math_variables} summarizes key variables used throughout.
+
+\begin{table}[h]
+    \centering
+    \caption{Key Mathematical Variables}\labeltab{math_variables}
+    \begin{tabularx}{\textwidth}{lXl}
+        \toprule
+        \textbf{Symbol} & \textbf{Definition} & \textbf{Units} \\
+        \midrule
+        $h(s)$ & Height (projection onto principal axis) & \AA \\
+        $\vec{C}(h)$ & 3D position as function of height & \AA \\
+        $\vec{T}(h)$ & Tangent vector (unnormalized) & dimensionless \\
+        $v_0(h)$ & Curvature (Vij) & \AA$^{-1}$ \\
+        $\eta_r(h)$ & Flatness (Shambhian) & dimensionless, $\in [0,1]$ \\
+        $\Omega(h)$ & Roughness (Mamton) & \AA$^3$ \\
+        $M_0$ & 0th moment (total mass) & g/mol \\
+        $I$ & Inertia tensor & g$\cdot$\AA$^2$/mol \\
+        $S$ & Skewness tensor & g$\cdot$\AA$^3$/mol \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+This completes the mathematical framework. The next chapter derives specific formulas for the three geometric units.

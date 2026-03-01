@@ -1,0 +1,49 @@
+================================================================================
+Dataset Reference: Matrix-SHT DNA Analysis
+================================================================================
+
+Overview
+--------
+We conducted the Matrix-SHT anaylsis on a high-resolution subset of DNA 
+structures, which we refer to as the "Hard Dataset." This dataset consists of 
+atomic coordinates for a diverse range of DNA topologies, including canonical 
+helices, protein-bound complexes, and non-canonical folds.
+
+Dataset Statistics
+------------------
+- Total Structures Scanned: ~6,000
+- Successful Populations Processed: 5,075
+- Format: MMCIF (.cif)
+- Atom Subset: C4' or C1' Backbone Trace
+
+Data Sources
+------------
+The structures we analyzed in this project are publicly availble through the 
+Protein Data Bank (PDB). Researchers can access the individual structures and 
+metadata via the following portals:
+
+1. RCSB PDB (Research Collaboratory for Structural Bioinformatics):
+   URL: https://www.rcsb.org/
+   Usage: Search by PDB ID (e.g., 1AOI, 102D, 139D) to view atomic coordinates 
+   and experimental details.
+
+2. PDB-Dev (Repository for Integrative Structures):
+   URL: https://pdb-dev.wwpdb.org/
+
+3. Nucleic Acid Database (NDB):
+   URL: http://ndbserver.rutgers.edu/
+
+Topological Classes Observed
+----------------------------
+We catagorized the dataset into the following structural classes based on 
+observed spectral moment invariants (Radial Eccentricity and Roughness):
+
+- Canonical-Duplex: Standard helical configurations.
+- Protein-Complexed: DNA structures observed in complex with proteins (e.g., nucleosomes).
+- Strained-Helix: Helices showing significant curvature or elastic strain.
+- Non-Standard: Rare configurations including G-Quadruplexes and axial singularities.
+
+================================================================================
+Note on Data Acquisition:
+For the most current structural updates, please refer to the RCSB PDB portal.
+================================================================================

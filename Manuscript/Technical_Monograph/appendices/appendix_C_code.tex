@@ -1,0 +1,117 @@
+% ============================================================================
+% APPENDIX C - CODE REPOSITORY AND AVAILABILITY
+% ============================================================================
+
+\labelsec{appendix_code}
+
+\section{GitHub Repository}
+
+\textbf{URL:} \url{https://github.com/Adi-Baba/SHTDNA}
+
+\textbf{Note:} The repository contains all source code. Raw PDB structure files are not included; download them from \url{https://www.rcsb.org} using the IDs in Appendix~\ref{sec:appendix_dataset}.
+
+\section{Directory Structure}
+
+\begin{verbatim}
+SHT-DNA/
+├── README.md                    # Overview and quick start
+├── LICENSE                      # MIT license
+├── requirements.txt             # Python dependencies
+├── sht_core/
+│   ├── __init__.py
+│   ├── pdb_parser.py           # Parse PDB structures
+│   ├── height_function.py      # Compute height and smooth
+│   ├── geometric_units.py      # Compute Vij, Shambhian, Mamton
+│   ├── validation.py           # Input validation
+│   └── utils.py                # Helper functions
+├── scripts/
+│   ├── extract_vij.py          # Compute curvature for structure
+│   ├── extract_shambhian.py    # Compute flatness
+│   ├── extract_mamton.py       # Compute roughness
+│   ├── batch_analysis.py       # Process multiple structures
+│   ├── coupling_analysis.py    # Analyze correlations
+│   └── predictive_model.py     # Train classifier
+├── data/
+│   ├── sht_results_202.csv     # Raw results
+│   ├── merged_65.csv           # Structures with all 3 units
+│   └── pdb_ids.txt             # List of analyzed structures
+├── notebooks/
+│   ├── 01_exploratory_analysis.ipynb
+│   ├── 02_validation_tests.ipynb
+│   └── 03_classification.ipynb
+├── figures/
+│   ├── 01_sht_pipeline.png
+│   ├── 02_vij_mamton_coupling.png
+│   └── ... (all publication figures)
+├── tests/
+│   ├── test_pdb_parser.py
+│   ├── test_geometric_units.py
+│   └── test_validation.py
+└── docs/
+    ├── INSTALLATION.md          # Setup instructions
+    ├── USAGE.md                 # How to use
+    ├── EXAMPLES.md              # Example analyses
+    └── API.md                   # API documentation
+\end{verbatim}
+
+\section{Installation}
+
+\subsection{Requirements}
+
+\begin{itemize}
+    \item Python 3.10+
+    \item NumPy 2.0+
+    \item SciPy 1.10+
+    \item Pandas 2.0+
+    \item BioPython 1.80+
+    \item Scikit-learn 1.3+ (for predictive model)
+    \item Matplotlib 3.7+ (for visualization)
+\end{itemize}
+
+\subsection{Quick Start}
+
+\begin{lstlisting}[language=bash]
+git clone https://github.com/Adi-Baba/SHTDNA.git
+cd SHTDNA
+pip install -r requirements.txt
+python scripts/extract_vij.py data/1bna.pdb
+\end{lstlisting}
+
+\section{Key Functions}
+
+\subsection{\texorpdfstring{\code{compute\_sht(pdb\_file)}}{compute\_sht(pdb\_file)}}
+
+Main entry point. Returns dictionary with Vij, Shambhian, Mamton for all basepairs.
+
+\begin{lstlisting}[language=Python]
+from sht_core import compute_sht
+
+results = compute_sht('1bna.pdb')
+print(results['vij_mean'])      # 0.073
+print(results['shambhian_mean']) # 0.952
+print(results['mamton_mean'])    # 168
+\end{lstlisting}
+
+\section{Data Format}
+
+\subsection{Output CSV}
+
+\begin{verbatim}
+pdb_id,residue_number,vij,shambhian,mamton
+1BNA,1,0.071,0.945,45.3
+1BNA,2,0.085,0.948,67.2
+... (one row per basepair)
+\end{verbatim}
+
+\section{Citation}
+
+If you use this code in research, please cite the associated publication
+(see the main manuscript for the full reference).
+
+\section{Contributing}
+
+Contributions welcome! Submit pull requests or open issues on GitHub.
+
+\section{License}
+
+MIT License. See LICENSE file for details.

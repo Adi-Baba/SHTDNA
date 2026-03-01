@@ -1,0 +1,97 @@
+% ============================================================================
+% PART 11 - LIMITATIONS AND FUTURE WORK
+% ============================================================================
+
+\labelsec{limitations_future}
+
+\section{Current Limitations}
+
+\subsection{Dataset Size}
+
+202 structures analyzed; only 65 with all three units measured.
+
+\textbf{Impact:} Limited training set (33 labeled) for machine learning
+
+\textbf{Solution:} Expand to full PDB (~1500 DNA structures available)
+
+\subsection{Static Snapshots}
+
+Crystal/NMR structures are frozen conformations.
+
+\textbf{Impact:} Cannot capture DNA breathing, thermal fluctuations
+
+\textbf{Solution:} Apply SHT to molecular dynamics trajectories
+
+\subsection{Resolution Dependence}
+
+Current implementation requires <3 \AA resolution.
+
+\textbf{Impact:} Excludes low-resolution structures
+
+\textbf{Solution:} Develop coarse-graining for lower resolutions
+
+\subsection{Sequence-Geometry Gap}
+
+Found correlations but lack predictive sequence$\rightarrow$geometry model.
+
+\textbf{Impact:} Cannot predict geometry from FASTA alone
+
+\textbf{Solution:} Train deep learning sequence encoder
+
+\section{Future Directions}
+
+\subsection{Experimental Validation}
+
+\begin{itemize}
+    \item FRET: Measure end-to-end distance (test Vij predictions)
+    \item AFM: Image surface roughness directly (validate Mamton)
+    \item CD: Distinguish A-form vs B-form (test Shambhian changes)
+\end{itemize}
+
+\subsection{Molecular Dynamics}
+
+\begin{itemize}
+    \item Time-resolved geometry: $v_0(t)$, $\eta(t)$, $\Omega(t)$
+    \item Fluctuation analysis: $\delta v_0$, characteristic timescales
+    \item Binding kinetics: Correlate geometric transitions with binding rates
+\end{itemize}
+
+\subsection{Sequence Model}
+
+\begin{itemize}
+    \item Deep CNN: Sequence $\rightarrow$ [Vij, Shambhian, Mamton]
+    \item Genome-scale application: Predict geometry for all DNA sequences
+    \item Integration: Combine with nucleosome positioning tools
+\end{itemize}
+
+\subsection{Drug Design}
+
+\begin{itemize}
+    \item Small molecule screening: Find compounds inducing specific geometric changes
+    \item Binding affinity prediction: Geometric complementarity scoring
+    \item DNA-targeting therapeutics: Design drugs based on geometric signatures
+\end{itemize}
+
+\section{Compatibility with Existing Tools}
+
+\textbf{Curves+:} SHT provides local cross-sectional detail; Curves+ provides global axis
+
+$\rightarrow$ Complementary, not competitive
+
+\textbf{3DNA:} SHT orthogonal to helical parameters
+
+$\rightarrow$ Can be combined for richer description
+
+\section{Long-Term Vision}
+
+Establish SHT as standard component in structural DNA analysis pipeline:
+
+\begin{center}
+    \begin{tabular}{c c c c c}
+        PDB & $\rightarrow$ & [Vij, Shambhian, Mamton] & $\rightarrow$ & [Nucleosome? Function?] \\
+        & & + Curves+ & & Functional implications \\
+        & & + 3DNA & & 
+    \end{tabular}
+\end{center}
+
+This completes the technical monograph. The next document (research paper) will present the key discoveries to a broad audience.
